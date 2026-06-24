@@ -1,34 +1,42 @@
 # Table of contents
 
-## Welcome, Stranger.
-
 * [Intro](README.md)
-* [Useful Links](welcome-stranger./useful-links.md)
-* [Certificates](welcome-stranger./certificates.md)
 
-## Back-End
+## Backend
 
-* [C#](back-end/csharp/README.md)
-  * [Fundamentos da Linguagem](back-end/csharp/fundamentos-da-linguagem.md)
-  * [Orientação a Objetos](back-end/csharp/orientacao-a-objetos.md)
+* [Trilha de Backend](back-end/README.md)
+  * [Fundamentos de C#](back-end/csharp/fundamentos-da-linguagem.md)
+  * [Programação Orientada a Objetos](back-end/csharp/orientacao-a-objetos.md)
   * [Coleções e Arrays](back-end/csharp/colecoes-e-arrays.md)
-  * [LinQ](back-end/csharp/linq.md)
+  * [ASP.NET Básico (Controllers e Services)](back-end/aspnet-basico.md)
+  * [Async/Await e Concorrência](back-end/async-await-concorrencia.md)
 
-## FRONT-END
+## Banco de dados
 
-* [HTML5](front-end/html5.md)
-* [CSS](front-end/css/README.md)
-  * [Guia de Unidades no CSS](front-end/css/guia-de-unidades-no-css.md)
-  * [Flexbox](front-end/css/flexbox.md)
-  * [Position](front-end/css/position.md)
+* [Trilha de Banco de Dados](data-science/sql/README.md)
+  * [Comandos SQL (SELECT, INSERT, UPDATE, DELETE)](data-science/sql/comandos-sql.md)
+  * [Consultas com SELECT e filtros](data-science/sql/sql-consultas-com-select.md)
+  * [UPDATE e DELETE](data-science/sql/sql-clausulas-update-e-delete.md)
+  * [Joins básicos](data-science/sql/joins-basicos.md)
+  * [Modelagem simples de dados](data-science/sql/modelagem-simples.md)
+  * [Liquibase: introdução](data-science/sql/liquibase-introducao.md)
 
-## Data Science
+## Frontend
 
-* [SQL](data-science/sql/README.md)
-  * [Comandos SQL](data-science/sql/comandos-sql.md)
-  * [SQL: consultas com SELECT](data-science/sql/sql-consultas-com-select.md)
-  * [SQL: cláusulas UPDATE e DELETE](data-science/sql/sql-clausulas-update-e-delete.md)
+* [Trilha de Frontend](front-end/README.md)
+  * [Fundamentos de TypeScript](front-end/typescript-fundamentos.md)
+  * [Estrutura básica de projetos Angular](front-end/angular-estrutura.md)
+  * [Componentes, templates e data binding](front-end/angular-componentes-templates-binding.md)
+  * [Serviços e consumo de APIs](front-end/angular-servicos-e-apis.md)
+  * [Noções iniciais de RxJS](front-end/rxjs-nocoes-iniciais.md)
 
-## NETWORKING
+## Conceitos AWS
 
-* [Teoria](networking/teoria.md)
+* [Visão geral AWS para devs](cloud/aws/README.md)
+  * [Amazon Cognito](cloud/aws/cognito.md)
+  * [Amazon S3](cloud/aws/s3.md)
+  * [Amazon SQS](cloud/aws/sqs.md)
+
+## Apache Kafka
+
+* [Fundamentos de Kafka](cloud/kafka/README.md)

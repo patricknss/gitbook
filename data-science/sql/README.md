@@ -6,6 +6,31 @@ description: >-
 icon: database
 ---
 
+# Trilha de Banco de Dados
+
+## Versões de referência (jun/2026)
+
+- SQL: conceitos ANSI e compatíveis com bancos relacionais modernos.
+- Liquibase Community: **5.0.3**.
+
+## Critério de sucesso
+
+1. Conceitos fundamentais de SQL (SELECT, INSERT, UPDATE, DELETE).
+2. Joins básicos e filtros.
+3. Modelagem simples de dados.
+4. Introdução ao uso de Liquibase para versionamento de schema.
+
+## Trilha sugerida
+
+1. Comandos SQL
+2. Consultas com SELECT e filtros
+3. UPDATE e DELETE
+4. Joins básicos
+5. Modelagem simples de dados
+6. Liquibase: introdução
+
+---
+
 # SQL
 
 ## O que é SQL e para que serve? <a href="#o-que-e-sql-e-para-que-serve" id="o-que-e-sql-e-para-que-serve"></a>
@@ -120,4 +145,3 @@ Um sistema <mark style="color:green;">SQL</mark> (<mark style="color:red;">Siste
 * <mark style="color:blue;">Tabelas</mark>: as tabelas são estruturas fundamentais em um banco de dados <mark style="color:green;">SQL</mark>. Elas são usadas para armazenar os dados em formato tabular, com colunas representando atributos e linhas representando registros. As tabelas são projetadas com base no modelo relacional.
 * <mark style="color:blue;">Procedimentos Armazenados</mark>: os procedimentos armazenados são blocos de código <mark style="color:green;">SQL</mark> que podem ser definidos e armazenados no banco de dados. Eles são usados para realizar tarefas específicas, como cálculos complexos, validações de dados e processamento personalizado. Os procedimentos armazenados podem ser chamados por aplicativos ou outros procedimentos armazenados.
 * <mark style="color:blue;">Instruções SQL</mark>: As instruções <mark style="color:green;">SQL</mark>, como <mark style="color:green;">SELECT</mark>, <mark style="color:green;">INSERT</mark>, <mark style="color:green;">UPDATE</mark> e <mark style="color:green;">DELETE</mark>, são usadas para manipular os dados em tabelas. As instruções <mark style="color:green;">SQL</mark> permitem que os usuários realizem consultas, insiram novos dados, atualizem registros existentes e excluam dados.
-
