@@ -35,3 +35,11 @@ Liquibase é uma ferramenta de versionamento de banco de dados baseada em change
 - Histórico rastreável de schema.
 - Padronização entre ambientes.
 - Execução automatizada no deploy.
+
+## Exemplo de execução no dia a dia
+
+```bash
+liquibase update
+liquibase history
+liquibase rollbackCount 1
+```

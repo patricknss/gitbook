@@ -29,3 +29,16 @@ export class ContadorComponent {
 - Componente com responsabilidade única.
 - Template simples e sem regra pesada.
 - Para estado local de UI, prefira **signals** quando fizer sentido.
+
+## Exemplo de `@Input` e `@Output`
+
+```ts
+@Component({
+  selector: "app-filtro",
+  template: `<input [value]="valor" (input)="valorChange.emit($any($event.target).value)" />`
+})
+export class FiltroComponent {
+  @Input() valor = "";
+  @Output() valorChange = new EventEmitter<string>();
+}
+```

@@ -29,3 +29,16 @@ CREATE TABLE pedidos (
 
 - Integridade referencial preservada.
 - Estrutura simples para consultas e evolução.
+
+## Exemplo de evolução
+
+Para suportar múltiplos itens por pedido, crie uma tabela intermediária:
+
+```sql
+CREATE TABLE pedido_itens (
+    pedido_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (pedido_id, produto_id)
+);
+```

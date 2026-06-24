@@ -57,3 +57,27 @@ public class ProdutoService
 - DTO para entrada e saída.
 - Injeção de dependência para services.
 - Para cenários simples, considere **Minimal APIs**; para APIs maiores, mantenha Controllers + Services.
+
+## Exemplo de requisição e resposta
+
+### Request
+
+```http
+POST /api/produtos
+Content-Type: application/json
+
+{
+  "nome": "Mouse Gamer",
+  "preco": 249.90
+}
+```
+
+### Response
+
+```json
+{
+  "id": 2,
+  "nome": "Mouse Gamer",
+  "preco": 249.90
+}
+```

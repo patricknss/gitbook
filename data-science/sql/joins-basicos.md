@@ -27,3 +27,10 @@ WHERE p.total > 100;
 ## Dica prática
 
 Use aliases curtos (`c`, `p`) e sempre explicite o `ON` para facilitar manutenção.
+
+## Exemplo de resultado esperado
+
+Se `clientes` tiver `Ana` e `Bruno`, mas apenas `Ana` possuir pedido:
+
+- `INNER JOIN` retorna apenas `Ana`.
+- `LEFT JOIN` retorna `Ana` com pedido e `Bruno` com colunas de pedido nulas.

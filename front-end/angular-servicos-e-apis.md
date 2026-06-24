@@ -37,3 +37,13 @@ export class ProdutosComponent {
 
 - Tratar erro no fluxo da requisição.
 - Evitar duplicar chamadas HTTP no componente.
+
+## Exemplo com tratamento de erro
+
+```ts
+listar() {
+  return this.http.get<Produto[]>("/api/produtos").pipe(
+    catchError(() => of([]))
+  );
+}
+```

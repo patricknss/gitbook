@@ -21,3 +21,18 @@ Conteúdo alinhado ao **Angular 22**.
 - `core`: serviços singleton (auth, interceptors).
 - `shared`: componentes e pipes reutilizáveis.
 - `features`: funcionalidades por domínio.
+
+## Exemplo de estrutura
+
+```text
+src/
+  app/
+    core/
+      interceptors/
+    shared/
+      components/
+    features/
+      produtos/
+        produtos.component.ts
+        produtos.service.ts
+```
