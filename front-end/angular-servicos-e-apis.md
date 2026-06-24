@@ -1,0 +1,39 @@
+# Serviços e consumo de APIs
+
+## Versão de referência
+
+Conteúdo alinhado ao **Angular 22** com `HttpClient`.
+
+Serviços centralizam integração e lógica reutilizável.
+
+## Exemplo com `HttpClient`
+
+```ts
+@Injectable({ providedIn: "root" })
+export class ProdutosService {
+  constructor(private http: HttpClient) {}
+
+  listar() {
+    return this.http.get<Produto[]>("/api/produtos");
+  }
+}
+```
+
+## Uso no componente
+
+```ts
+export class ProdutosComponent {
+  produtos: Produto[] = [];
+
+  constructor(private service: ProdutosService) {}
+
+  ngOnInit() {
+    this.service.listar().subscribe(dados => this.produtos = dados);
+  }
+}
+```
+
+## Cuidados
+
+- Tratar erro no fluxo da requisição.
+- Evitar duplicar chamadas HTTP no componente.
