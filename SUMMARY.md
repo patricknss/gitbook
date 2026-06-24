@@ -1,19 +1,23 @@
 # Table of contents
 
 * [Intro](README.md)
+* [Useful Links](useful-links.md)
 
 ## Backend
 
-* [Trilha de Backend](back-end/README.md)
+* [Backend](back-end/README.md)
   * [Fundamentos de C#](back-end/csharp/fundamentos-da-linguagem.md)
   * [Programação Orientada a Objetos](back-end/csharp/orientacao-a-objetos.md)
   * [Coleções e Arrays](back-end/csharp/colecoes-e-arrays.md)
+  * [DDD (Domain-Driven Design)](back-end/ddd-domain-driven-design.md)
   * [ASP.NET Básico (Controllers e Services)](back-end/aspnet-basico.md)
   * [Async/Await e Concorrência](back-end/async-await-concorrencia.md)
+  * [Gerenciamento de cache em memória](back-end/cache-em-memoria.md)
+  * [Magick.NET](back-end/magick-net.md)
 
-## Banco de dados
+## Banco de Dados
 
-* [Trilha de Banco de Dados](data-science/sql/README.md)
+* [Banco de Dados](data-science/sql/README.md)
   * [Comandos SQL (SELECT, INSERT, UPDATE, DELETE)](data-science/sql/comandos-sql.md)
   * [Consultas com SELECT e filtros](data-science/sql/sql-consultas-com-select.md)
   * [UPDATE e DELETE](data-science/sql/sql-clausulas-update-e-delete.md)
@@ -23,7 +27,7 @@
 
 ## Frontend
 
-* [Trilha de Frontend](front-end/README.md)
+* [Frontend](front-end/README.md)
   * [Fundamentos de TypeScript](front-end/typescript-fundamentos.md)
   * [Estrutura básica de projetos Angular](front-end/angular-estrutura.md)
   * [Componentes, templates e data binding](front-end/angular-componentes-templates-binding.md)
@@ -40,3 +44,8 @@
 ## Apache Kafka
 
 * [Fundamentos de Kafka](cloud/kafka/README.md)
+
+## Workflow
+
+* [Git Flow](workflow/git-flow.md)
+* [Padrão de manutenção da documentação](workflow/padrao-da-documentacao.md)

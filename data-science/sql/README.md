@@ -6,28 +6,37 @@ description: >-
 icon: database
 ---
 
-# Trilha de Banco de Dados
+# Banco de Dados
+
+## Contexto
+
+Notas e exemplos sobre SQL e versionamento de schema com foco prático.
 
 ## Versões de referência (jun/2026)
 
 - SQL: conceitos ANSI e compatíveis com bancos relacionais modernos.
 - Liquibase Community: **5.0.3**.
 
-## Critério de sucesso
+## O que está documentado
 
 1. Conceitos fundamentais de SQL (SELECT, INSERT, UPDATE, DELETE).
 2. Joins básicos e filtros.
 3. Modelagem simples de dados.
 4. Introdução ao uso de Liquibase para versionamento de schema.
 
-## Trilha sugerida
+## Exemplo prático
 
-1. Comandos SQL
-2. Consultas com SELECT e filtros
-3. UPDATE e DELETE
-4. Joins básicos
-5. Modelagem simples de dados
-6. Liquibase: introdução
+Cenário: sistema de loja.
+
+1. Modelar tabelas `clientes`, `produtos`, `pedidos`.
+2. Inserir dados com `INSERT`.
+3. Consultar pedidos por cliente com `SELECT` + `JOIN`.
+4. Corrigir preço com `UPDATE`.
+5. Versionar alterações de schema com Liquibase.
+
+## Referências
+
+- [Useful Links](../../useful-links.md)
 
 ---
 

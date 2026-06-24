@@ -36,3 +36,19 @@ public async Task ProcessarAsync()
 - Evite `.Result` e `.Wait()` em código assíncrono.
 - Prefira `Task.WhenAll` para tarefas independentes.
 - Use `CancellationToken` em operações longas.
+
+## Exemplo com cancelamento
+
+```csharp
+public async Task<string> ConsultarComCancelamentoAsync(
+    HttpClient httpClient,
+    CancellationToken cancellationToken)
+{
+    using var response = await httpClient.GetAsync(
+        "https://api.exemplo.com/status",
+        cancellationToken);
+
+    response.EnsureSuccessStatusCode();
+    return await response.Content.ReadAsStringAsync(cancellationToken);
+}
+```

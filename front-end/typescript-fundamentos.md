@@ -32,6 +32,20 @@ class Pessoa {
 }
 ```
 
+## Exemplo completo tipado
+
+```ts
+interface Produto {
+  id: number;
+  nome: string;
+  preco: number;
+}
+
+function aplicarDesconto(produto: Produto, percentual: number): Produto {
+  return { ...produto, preco: produto.preco * (1 - percentual / 100) };
+}
+```
+
 ## Ganhos principais
 
 - Menos erros em runtime.

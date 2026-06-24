@@ -30,3 +30,13 @@ this.service.listar()
 - `tap`
 - `catchError`
 - `switchMap`
+
+## Exemplo: busca com debounce
+
+```ts
+this.termoBusca.valueChanges.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  switchMap(termo => this.service.buscar(termo))
+).subscribe(resultado => this.produtos = resultado);
+```
