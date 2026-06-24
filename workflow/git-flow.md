@@ -165,8 +165,3 @@ git push origin main
 - Descrever contexto, alteração e impacto.
 - Se possível, anexar evidências (print, link, teste manual).
 - Definir responsável por aprovação de release.
-
-## Governança de documentação
-
-- Sempre atualizar `SUMMARY.md` quando criar/renomear páginas.
-- Sempre atualizar `useful-links.md` quando adicionar novo tema/ferramenta.

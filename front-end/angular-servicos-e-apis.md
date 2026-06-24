@@ -19,6 +19,12 @@ export class ProdutosService {
 }
 ```
 
+### Explicação
+
+- Serviço encapsula acesso HTTP.
+- Componente só consome método pronto.
+- Facilita teste e reaproveitamento.
+
 ## Uso no componente
 
 ```ts
@@ -47,3 +53,14 @@ listar() {
   );
 }
 ```
+
+### Resultado esperado
+
+- Em sucesso: retorna lista de produtos.
+- Em falha: retorna lista vazia (fallback controlado).
+
+## Erros comuns
+
+- Fazer chamada HTTP diretamente no componente.
+- Ignorar tratamento de erro.
+- Duplicar mesma chamada em múltiplos componentes.

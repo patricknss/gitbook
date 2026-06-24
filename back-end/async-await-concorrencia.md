@@ -19,6 +19,11 @@ public async Task<string> BuscarDadosAsync(HttpClient httpClient)
 }
 ```
 
+### Explicação do exemplo
+
+- `await` libera a thread enquanto a operação I/O acontece.
+- Quando a resposta chega, o fluxo continua sem bloquear a aplicação.
+
 ## Executando tarefas em paralelo
 
 ```csharp
@@ -30,6 +35,11 @@ public async Task ProcessarAsync()
     await Task.WhenAll(t1, t2);
 }
 ```
+
+### Quando usar `Task.WhenAll`
+
+Use quando as tarefas são independentes entre si.  
+Exemplo: carregar produtos, categorias e estoque ao mesmo tempo.
 
 ## Cuidados importantes
 
@@ -52,3 +62,14 @@ public async Task<string> ConsultarComCancelamentoAsync(
     return await response.Content.ReadAsStringAsync(cancellationToken);
 }
 ```
+
+### Resultado esperado
+
+- Se a operação terminar no prazo: retorna conteúdo.
+- Se houver cancelamento: dispara exceção de cancelamento para o chamador tratar.
+
+## Erros comuns
+
+- Usar `.Result`/`.Wait()` e causar deadlock.
+- Criar paralelismo para tarefas que dependem uma da outra.
+- Ignorar `CancellationToken` em operações longas.

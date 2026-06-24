@@ -36,3 +36,15 @@ src/
         produtos.component.ts
         produtos.service.ts
 ```
+
+### Como pensar essa organização
+
+- `core`: infraestrutura global da app.
+- `shared`: peças reutilizáveis entre features.
+- `features`: regra de negócio agrupada por domínio.
+
+## Erros comuns
+
+- Misturar tudo dentro de `app/` sem separação por domínio.
+- Criar `shared` com componentes que não são realmente reutilizáveis.
+- Acoplar feature com detalhes de outra feature.

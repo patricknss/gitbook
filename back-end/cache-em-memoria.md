@@ -42,6 +42,13 @@ public class ProdutosService
 }
 ```
 
+### Explicação do fluxo
+
+1. Tenta ler do cache pela chave.
+2. Se existir, devolve imediatamente (cache hit).
+3. Se não existir, busca no repositório (cache miss).
+4. Salva no cache com política de expiração e retorna.
+
 ## Invalidação de cache
 
 Quando um dado for alterado, remova a chave relacionada:
@@ -50,9 +57,20 @@ Quando um dado for alterado, remova a chave relacionada:
 _cache.Remove("produtos:lista");
 ```
 
+### Quando invalidar
+
+- Após `INSERT`, `UPDATE` ou `DELETE` na entidade relacionada.
+- Sempre que alteração afetar o resultado daquela chave de cache.
+
 ## Boas práticas
 
 - Defina TTL explícito (`AbsoluteExpiration`).
 - Evite cachear dados muito grandes sem limite.
 - Use chaves padronizadas (`modulo:entidade:acao`).
 - Monitore hit/miss para ajustar estratégia.
+
+## Erros comuns
+
+- Cachear sem TTL e servir dado desatualizado por muito tempo.
+- Não invalidar após escrita.
+- Usar mesma chave para filtros diferentes.

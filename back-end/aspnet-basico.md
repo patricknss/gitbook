@@ -51,6 +51,13 @@ public class ProdutoService
 }
 ```
 
+### Explicação do exemplo
+
+1. O Controller recebe a requisição HTTP.
+2. Ele delega para o Service, sem regra de negócio pesada.
+3. O Service monta os dados e retorna DTO.
+4. O Controller transforma isso em resposta HTTP (`Ok`).
+
 ## Boas práticas iniciais
 
 - Controller fino, service com regra.
@@ -81,3 +88,14 @@ Content-Type: application/json
   "preco": 249.90
 }
 ```
+
+### Resultado esperado
+
+- Se o payload for válido, a API retorna `200/201` com o produto criado.
+- Se o payload for inválido (ex.: nome vazio), deve retornar `400` com erro de validação.
+
+## Erros comuns
+
+- Colocar regra de negócio direto no Controller.
+- Expor entidade de domínio diretamente na API em vez de DTO.
+- Não validar entrada antes de chamar o serviço.
