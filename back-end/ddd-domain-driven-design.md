@@ -18,6 +18,12 @@ DDD é uma forma de modelar software colocando o **domínio do negócio** no cen
 - Value Objects: `Dinheiro`, `EnderecoEntrega`
 - Regra: um pedido só pode ser confirmado se tiver ao menos 1 item.
 
+### Leitura prática
+
+- `Pedido` é o agregado raiz: alterações passam por ele.
+- `ItemPedido` não deve ser alterado “por fora” do agregado.
+- Isso protege consistência de regra.
+
 ## Exemplo de entidade com regra de negócio
 
 ```csharp
@@ -50,6 +56,12 @@ public class Pedido
 }
 ```
 
+### O que esse código protege
+
+- Não permite item com quantidade inválida.
+- Não permite confirmar pedido vazio.
+- Mantém regra no domínio, e não no Controller.
+
 ## Exemplo de serviço de domínio
 
 Use serviço de domínio quando a regra envolver múltiplos agregados ou política externa.
@@ -64,6 +76,10 @@ public class PoliticaDeFreteService
     }
 }
 ```
+
+### Quando é serviço de domínio mesmo
+
+Quando a regra não cabe naturalmente em uma única entidade (ex.: política de frete, antifraude, cálculo tributário externo).
 
 ## Exemplo de organização de pastas (DDD)
 
@@ -92,3 +108,9 @@ src/
 - Domínio complexo, com muitas regras e exceções.
 - Necessidade de manter regra de negócio consistente no longo prazo.
 - Equipes que precisam alinhar vocabulário entre produto e tecnologia.
+
+## Erros comuns
+
+- Usar DDD só como “nome de pasta”, sem regras no domínio.
+- Deixar entidade anêmica (somente `get/set`, sem comportamento).
+- Misturar detalhes de infraestrutura dentro de entidades.

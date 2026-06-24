@@ -25,6 +25,12 @@ CREATE TABLE pedidos (
 );
 ```
 
+### Explicação do modelo
+
+- `clientes` é entidade principal de cadastro.
+- `pedidos` depende de `clientes` via chave estrangeira.
+- Isso evita pedido órfão sem cliente válido.
+
 ## Resultado esperado
 
 - Integridade referencial preservada.
@@ -42,3 +48,14 @@ CREATE TABLE pedido_itens (
     PRIMARY KEY (pedido_id, produto_id)
 );
 ```
+
+### Por que a tabela intermediária
+
+Um pedido pode ter vários produtos e um produto pode estar em vários pedidos.  
+Essa é uma relação muitos-para-muitos modelada com `pedido_itens`.
+
+## Erros comuns
+
+- Duplicar dados de cliente dentro de `pedidos`.
+- Não definir PK/FK.
+- Criar tabelas sem pensar em consulta futura.

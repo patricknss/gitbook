@@ -15,6 +15,11 @@ FROM clientes c
 INNER JOIN pedidos p ON p.cliente_id = c.id;
 ```
 
+### O que acontece aqui
+
+- Apenas clientes com pedido aparecem.
+- Cliente sem pedido fica fora do resultado.
+
 ## Filtros com join
 
 ```sql
@@ -23,6 +28,10 @@ FROM clientes c
 LEFT JOIN pedidos p ON p.cliente_id = c.id
 WHERE p.total > 100;
 ```
+
+### Observação importante
+
+No `LEFT JOIN`, filtro no `WHERE` pode remover linhas nulas e aproximar o comportamento de `INNER JOIN`.
 
 ## Dica prática
 
@@ -34,3 +43,9 @@ Se `clientes` tiver `Ana` e `Bruno`, mas apenas `Ana` possuir pedido:
 
 - `INNER JOIN` retorna apenas `Ana`.
 - `LEFT JOIN` retorna `Ana` com pedido e `Bruno` com colunas de pedido nulas.
+
+## Erros comuns
+
+- Relacionar colunas erradas no `ON`.
+- Usar `SELECT *` em join grande.
+- Esquecer alias e dificultar manutenção.

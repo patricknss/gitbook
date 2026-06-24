@@ -30,6 +30,12 @@ Liquibase é uma ferramenta de versionamento de banco de dados baseada em change
 </databaseChangeLog>
 ```
 
+### Explicação do changeset
+
+- `id` + `author` identificam unicamente a mudança.
+- Se já executado, o Liquibase não reaplica.
+- Isso garante histórico incremental de schema.
+
 ## Benefícios
 
 - Histórico rastreável de schema.
@@ -43,3 +49,15 @@ liquibase update
 liquibase history
 liquibase rollbackCount 1
 ```
+
+### O que cada comando faz
+
+- `update`: aplica pendências.
+- `history`: mostra mudanças já executadas.
+- `rollbackCount 1`: desfaz o último changeset aplicado.
+
+## Erros comuns
+
+- Editar changeset já aplicado em produção.
+- Não versionar changelog junto com código.
+- Subir sem estratégia de rollback.

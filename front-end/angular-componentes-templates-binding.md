@@ -17,6 +17,12 @@ export class ContadorComponent {
 }
 ```
 
+### Explicação do binding no exemplo
+
+- `{{ total }}`: interpolação para exibir estado.
+- `(click)="incrementar()"`: evento de clique.
+- A ação atualiza estado e o template renderiza de novo.
+
 ## Tipos de binding
 
 - Interpolação: `{{ valor }}`
@@ -42,3 +48,14 @@ export class FiltroComponent {
   @Output() valorChange = new EventEmitter<string>();
 }
 ```
+
+### Leitura prática de `Input/Output`
+
+- `@Input`: componente pai envia valor.
+- `@Output`: componente filho notifica alteração.
+
+## Erros comuns
+
+- Lógica de negócio pesada no template.
+- Componente com responsabilidade demais.
+- Uso excessivo de two-way binding sem necessidade.

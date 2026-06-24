@@ -40,3 +40,16 @@ this.termoBusca.valueChanges.pipe(
   switchMap(termo => this.service.buscar(termo))
 ).subscribe(resultado => this.produtos = resultado);
 ```
+
+### Explicação do fluxo
+
+1. Usuário digita.
+2. `debounceTime` espera pausa de 300ms.
+3. `distinctUntilChanged` ignora termo repetido.
+4. `switchMap` cancela requisição anterior e usa só a mais recente.
+
+## Erros comuns
+
+- Esquecer de cancelar stream em componentes de longa vida.
+- Usar `mergeMap` para busca e receber respostas fora de ordem.
+- Tratar erro fora do pipeline e quebrar fluxo.

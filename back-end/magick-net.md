@@ -34,6 +34,11 @@ public static byte[] ConverterParaWebp(byte[] imagemOriginal)
 }
 ```
 
+### Entrada e saída esperada
+
+- Entrada: imagem original em `byte[]` (ex.: JPEG de 4MB).
+- Saída: imagem WebP em `byte[]`, menor e pronta para armazenamento.
+
 ## Exemplo: gerar thumbnail
 
 ```csharp
@@ -50,9 +55,21 @@ public static byte[] GerarThumbnail(byte[] imagemOriginal)
 }
 ```
 
+### Explicação do thumbnail
+
+- `Resize` ajusta tamanho mantendo proporção.
+- `Crop` com `Gravity.Center` centraliza o recorte.
+- `Quality` controla balanço entre tamanho e qualidade visual.
+
 ## Boas práticas
 
 - Validar tamanho e formato antes de processar.
 - Limitar dimensões máximas para evitar alto consumo de memória.
 - Processar em background quando volume for alto.
 - Manter presets de qualidade por contexto (thumbnail, preview, original).
+
+## Erros comuns
+
+- Aceitar qualquer tipo de arquivo sem validação.
+- Processar imagem gigantesca sem limite de dimensão.
+- Usar qualidade alta para thumbnail e aumentar custo sem ganho real.

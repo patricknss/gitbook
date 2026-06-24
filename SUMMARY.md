@@ -48,4 +48,3 @@
 ## Workflow
 
 * [Git Flow](workflow/git-flow.md)
-* [Padrão de manutenção da documentação](workflow/padrao-da-documentacao.md)

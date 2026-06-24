@@ -46,7 +46,19 @@ function aplicarDesconto(produto: Produto, percentual: number): Produto {
 }
 ```
 
+### Explicação
+
+- A interface `Produto` define contrato do objeto.
+- A função recebe tipos explícitos e retorna `Produto`.
+- O compilador protege contra propriedades ausentes ou tipo errado.
+
 ## Ganhos principais
 
 - Menos erros em runtime.
 - Melhor autocomplete e refatoração.
+
+## Erros comuns
+
+- Usar `any` sem necessidade.
+- Não tipar retorno de função.
+- Ignorar `strict` no `tsconfig`.
