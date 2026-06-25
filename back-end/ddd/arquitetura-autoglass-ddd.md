@@ -21,7 +21,7 @@ Api -> Application -> Domain -> Infrastructure
 ```
 
 - **Api** recebe request HTTP e devolve response.
-- **Application** orquestra entrada/saida (Request, Response, Command, Query).
+- **Application** orquestra entrada/saida (Request, Response, Command, Query), sem mapear objetos.
 - **Domain** concentra regras de negocio (Entidades, Services, Interfaces).
 - **Infrastructure** executa persistencia (NHibernate/Dapper).
 - **Data Transfer** define contratos de transporte entre camadas (Request/Response/Command/Query).
@@ -162,18 +162,6 @@ public class ClienteResponse
 }
 ```
 
-### Mapeamento com Mapster
-
-```csharp
-public static class ClienteMapper
-{
-    public static ClienteResponse ToResponse(this Cliente cliente)
-    {
-        return cliente.Adapt<ClienteResponse>();
-    }
-}
-```
-
 ### Filter
 
 Use para filtros de repositorio com muitos parametros.
@@ -213,7 +201,7 @@ Regras:
 
 - Nao carregar regra de negocio nesses objetos.
 - Nao usar `Request` diretamente em services de dominio.
-- Usar Mapster para mapear Domain -> Response.
+- O mapeamento acontece na camada Infrastructure.
 
 ---
 
@@ -224,6 +212,19 @@ Implementa os contratos de repositorio do Domain.
 - Pode usar **NHibernate** ou **Dapper**.
 - Mantem regra de negocio fora da persistencia.
 - Recebe `Filter` para cenarios de listagem mais complexos.
+- Concentra mapeamentos tecnicos (ex.: Mapster para Domain -> Response/DTO).
+
+### Mapeamento com Mapster (na Infrastructure)
+
+```csharp
+public static class ClienteMapper
+{
+    public static ClienteResponse ToResponse(this Cliente cliente)
+    {
+        return cliente.Adapt<ClienteResponse>();
+    }
+}
+```
 
 ---
 
@@ -317,6 +318,7 @@ src/
     Repositories/
       NHibernate/
       Dapper/
+    Mappers/
   Jobs/
   Api/
     Controllers/
