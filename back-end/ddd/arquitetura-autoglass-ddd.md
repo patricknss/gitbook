@@ -1,6 +1,6 @@
 # Domain-Driven Design - Arquitetura Autoglass
 
-Este guia organiza a arquitetura DDD no padrao Autoglass. O exemplo principal e a entidade `Aluno`, porque e o exemplo usado no material.
+Este guia organiza a arquitetura DDD no padrao Autoglass. O exemplo principal e a entidade `Aluno`.
 
 DDD nao e so estrutura de pastas. A ideia central e modelar o software a partir do conhecimento do negocio, usando uma linguagem que o time tecnico e o time de negocio consigam reconhecer.
 
@@ -40,11 +40,11 @@ Em operacoes de escrita, a transacao normalmente fica na camada de Aplicacao. O 
 | --- | --- |
 | Linguagem ubiqua | Classes de negocio em portugues: `Aluno`, `Usuario`, `Certificado`. |
 | Pastas por contexto | Pastas do agregado/contexto normalmente no plural: `Alunos`, `Usuarios`, `Certificados`. |
-| Nome da entidade | Prefira entidade no singular: `Aluno`. O PDF alterna `Aluno` e `Alunos`; escolha uma convencao e use ate o fim. |
+| Nome da entidade | Prefira entidade no singular: `Aluno`. Em materiais diferentes pode aparecer `Aluno` e `Alunos`; escolha uma convencao e use ate o fim. |
 | Padrao tecnico | Interfaces com `I`; classes tecnicas com sufixo claro: `AlunosServico`, `AlunosRepositorio`, `AlunosMap`. |
 | Parametros | Evite metodos/construtores com mais de 7 parametros. |
 | Muitos parametros | Use `Comando` em servicos de dominio e `Filtro` em consultas/repositorios. |
-| Mapeamento | Neste GitBook usamos **Mapster**. Se o projeto legado usar AutoMapper, traduza os `Profiles` do PDF para configuracoes Mapster. |
+| Mapeamento | Neste GitBook usamos **Mapster**. Se o projeto legado usar AutoMapper, traduza os `Profiles` para configuracoes Mapster. |
 | Dependencias | Se existir service de uma entidade, injete o service, nao o repositorio dessa entidade. |
 | Controller | Controller deve ser fino: recebe request, delega para Aplicacao e retorna HTTP. |
 | Entidade na API | Nao exponha entidade de dominio diretamente como response. |
@@ -91,7 +91,7 @@ src/
 
 `Application` organiza os casos de uso e os objetos de entrada e saida que circulam entre API e dominio.
 
-`Commands/`: objetos usados para executar uma acao, como `AlunoInserirComando` ou `ProfessorEditarComando`. Quando o projeto seguir o modelo do PDF, esses comandos podem aparecer dentro do proprio `Domain/<Contexto>/Comandos`; a ideia e a mesma.
+`Commands/`: objetos usados para executar uma acao, como `AlunoInserirComando` ou `ProfessorEditarComando`. Em alguns projetos, esses comandos podem aparecer dentro do proprio `Domain/<Contexto>/Comandos`; a ideia e a mesma.
 
 `Requests/`: dados que chegam pela API, como `AlunoInserirRequest`.
 
@@ -149,7 +149,7 @@ Autoglass.Projeto.Dominio/
 
 ### Entidades
 
-A entidade representa o conceito do negocio e protege suas invariantes. No exemplo do PDF, `Aluno` possui `Usuario` e `Status`.
+A entidade representa o conceito do negocio e protege suas invariantes. Neste guia, `Aluno` possui `Usuario` e `Status`.
 
 Regras para entidades:
 
@@ -566,7 +566,7 @@ public class AlunosConsultaRepositorio
 
 ## 03 - Camada de DataTransfer
 
-DataTransfer contem os objetos usados para transportar dados entre a borda externa e a Aplicacao. No PDF, ela aparece principalmente com `Requests` e `Responses`.
+DataTransfer contem os objetos usados para transportar dados entre a borda externa e a Aplicacao, principalmente com `Requests` e `Responses`.
 
 Estrutura:
 
@@ -700,7 +700,7 @@ Autoglass.Projeto.Aplicacao/
 
 ### Mapeamentos
 
-O PDF usa `Profiles` do AutoMapper. Neste GitBook, o padrao e Mapster.
+Em alguns projetos legados, pode haver `Profiles` do AutoMapper. Neste GitBook, o padrao e Mapster.
 
 ```csharp
 using Autoglass.Projeto.DataTransfer.Alunos.Requests;
