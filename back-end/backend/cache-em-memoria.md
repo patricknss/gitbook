@@ -1,4 +1,4 @@
-# Gerenciamento de cache em memória
+﻿# Gerenciamento de cache em memória
 
 Cache em memória reduz chamadas repetidas a banco/API, guardando dados por um tempo no processo da aplicação.
 

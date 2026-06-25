@@ -1,4 +1,4 @@
-# Async/Await e Concorrência
+﻿# Async/Await e Concorrência
 
 ## Versão de referência
 

@@ -1,4 +1,4 @@
-# Magick.NET
+﻿# Magick.NET
 
 Magick.NET é o binding .NET do ImageMagick para processamento de imagens.
 
@@ -73,3 +73,9 @@ public static byte[] GerarThumbnail(byte[] imagemOriginal)
 - Aceitar qualquer tipo de arquivo sem validação.
 - Processar imagem gigantesca sem limite de dimensão.
 - Usar qualidade alta para thumbnail e aumentar custo sem ganho real.
+
+## Veja tambem
+
+- Trilha principal de backend: [Backend (Fundamentos e APIs)](../back-end/backend/README.md)
+- Geracao de PDF em .NET: [IronPDF](iron-pdf.md)
+- Arquitetura de dominio: [DDD (Arquitetura Autoglass)](../back-end/ddd/README.md)
