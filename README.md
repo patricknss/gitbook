@@ -32,7 +32,7 @@ layout:
 
 ## ABOUT ME
 
-I am <mark style="color:#1565C0;">{trick.n}</mark> \~ (also known as OvalFive80/Decripter32)
+I am **{trick.n}** \~ (also known as OvalFive80/Decripter32)
 
 coffee fan, full stack software developer, security researcher, bug bounter, gamer, appreciator of good music, and just a good guy who's motivated to become the best version of himself.\
 \
@@ -67,6 +67,6 @@ This is a guideline, not a hard rule. Readability always comes first.
 
 ## CONTACT
 
-[<mark style="color:#1565C0;">LINKEDIN</mark>](https://www.linkedin.com/in/trickn/)
+[LINKEDIN](https://www.linkedin.com/in/trickn/)
 
-[<mark style="color:#1565C0;">DISCORD</mark>](https://discord.com/users/1079170412207931393)&#x20;
+[DISCORD](https://discord.com/users/1079170412207931393)&#x20;
