@@ -1,79 +1,37 @@
 # Domain-Driven Design - Arquitetura Autoglass
 
-Este guia organiza o padrao DDD da Autoglass por **camadas**, para ficar mais facil de aplicar no dia a dia.
+Este guia organiza o padrao DDD da Autoglass na **ordem em que normalmente desenvolvemos um sistema**.
 
-## Visao arquitetural
+## Ordem de desenvolvimento das camadas
+
+1. Dominio
+2. DataTransfer
+3. Aplicacao
+4. Infra
+5. CrossCutting
+6. IoC
+7. API
+8. Jobs
+9. Tests
+
+## Visao arquitetural (execucao)
 
 ```text
-Api -> Application -> Domain -> Infrastructure
-         |              |
-         v              v
-     CrossCutting   Data Transfer
-         |
-         v
-        IoC
-         |
-         v
-        Jobs
-         |
-         v
-       Tests
+API -> Application -> Domain
+           |
+           v
+     Infrastructure
 ```
 
-- **Api** recebe request HTTP e devolve response.
-- **Application** orquestra entrada/saida (Request, Response, Command, Query), sem mapear objetos.
-- **Domain** concentra regras de negocio (Entidades, Services, Interfaces).
-- **Infrastructure** executa persistencia (NHibernate/Dapper).
-- **Data Transfer** define contratos de transporte entre camadas (Request/Response/Command/Query).
-- **CrossCutting** centraliza preocupacoes transversais (log, resiliencia, validacao, observabilidade, seguranca).
-- **IoC** registra dependencias e composicao de modulos.
-- **Jobs** executam fluxos assincronos e tarefas agendadas.
-- **Tests** validam regras de negocio e comportamento das camadas.
-
-## Como funciona cada camada
-
-### A camada de Dominio
-
-Como esta descrito acima, ela e o coracao do sistema, onde vive a inteligencia do negocio e todas as suas regras.
-
-### A camada de Infra
-
-Nesta camada, criamos a implementacao do repositorio e tambem o mapeamento.
-
-### A camada de DataTransfer
-
-Uma camada usada para os nossos DTOs (Data Transfer Objects), servindo para transportar informacoes necessarias entre as camadas.
-
-### A camada Aplicacao
-
-Esta camada e 1 antes da API. Ela atua como orquestradora entre as outras camadas para receber informacoes vindas externamente, tratar internamente e devolver uma resposta.
-
-### A camada de API
-
-Esta e a ultima camada, a parte externa onde interagimos com a aplicacao.
-
-### A camada de CrossCutting
-
-Camada de preocupacoes transversais, com componentes compartilhados como log, resiliencia, seguranca, observabilidade e tratamento padronizado de erros.
-
-### A camada de IoC
-
-Onde configuramos injecao de dependencia e composicao de modulos, ligando interfaces as implementacoes concretas.
-
-### A camada de Jobs
-
-Responsavel por processamentos assincronos e tarefas agendadas fora da requisicao HTTP.
-
-### A camada de Tests
-
-Camada de validacao do comportamento da aplicacao, com foco principal em testes de Dominio e cobertura dos fluxos criticos.
+> Em tempo de desenvolvimento, seguimos a ordem acima (Dominio ate Tests).  
+> Em tempo de execucao, a API chama a Aplicacao, que aplica regras de Dominio e usa Infra.
 
 ## Regras transversais (valem para todas as camadas)
 
 | Tema | Regra |
 | --- | --- |
 | Linguagem ubiqua | Classes de negocio em portugues (`Cliente`, `Pedido`, `NotaFiscal`) |
-| Padrao tecnico | Sufixos e padroes tecnicos em ingles (`ClientesService`, `ClientesRepository`) |
+| Padrao tecnico | Sufixos em ingles (`ClientesService`, `ClientesRepository`) |
 | Parametros | Maximo de 7 parametros por metodo/construtor |
 | Acima de 7 parametros | Usar `Command` (service) ou `Filter` (repository) |
 | Mapeamento | Usar **Mapster**, nunca AutoMapper |
@@ -83,15 +41,15 @@ Camada de validacao do comportamento da aplicacao, com foco principal em testes 
 
 ## A camada de Dominio
 
+Como esta descrito acima, ela e o coracao do sistema, onde vive a inteligencia do negocio e todas as suas regras.
+
 ### Entidades
 
-Principios:
-
-- Construtor vazio `protected`.
-- Propriedades `virtual` com `protected set`.
-- Construtor publico chama `Set...`.
-- Validacoes sem acesso a banco ficam na entidade.
-- Entidade nao recebe `Request` nem `Command`.
+- Construtor vazio `protected`
+- Propriedades `virtual` com `protected set`
+- Construtor publico chama `Set...`
+- Validacoes sem acesso a banco ficam na entidade
+- Entidade nao recebe `Request` nem `Command`
 
 ```csharp
 public class Cliente
@@ -161,23 +119,23 @@ public interface IClientesRepository
 
 ---
 
-## A camada Aplicacao
+## A camada de DataTransfer
 
-### Command
+Uma camada usada para os nossos DTOs (Data Transfer Objects), servindo para transportar informacoes necessarias entre as camadas.
 
-Use quando um metodo de service ultrapassar 7 parametros.
+Elementos comuns:
 
-```csharp
-public class ClienteInstanciarCommand
-{
-    public string Nome { get; set; }
-    public string Documento { get; set; }
-}
-```
+- `Request`: entrada da API
+- `Response`: saida da API
+- `Command`: entrada para casos de uso com muitos dados
+- `Query`: projecoes de leitura
+- `Filter`: criterio de busca para repositorios
 
-### Request
+Regras:
 
-DTO da API para entrada. Nao deve atravessar para a camada Domain.
+- Nao carregar regra de negocio nesses objetos
+- Nao usar `Request` diretamente em services de dominio
+- Usar composicao quando necessario
 
 ```csharp
 public class ClienteCadastroRequest
@@ -185,26 +143,20 @@ public class ClienteCadastroRequest
     public string Nome { get; set; }
     public string Documento { get; set; }
 }
-```
 
-### Response
-
-DTO de saida da API.
-
-```csharp
 public class ClienteResponse
 {
     public int Codigo { get; set; }
     public string Nome { get; set; }
     public string Documento { get; set; }
 }
-```
 
-### Filter
+public class ClienteInstanciarCommand
+{
+    public string Nome { get; set; }
+    public string Documento { get; set; }
+}
 
-Use para filtros de repositorio com muitos parametros.
-
-```csharp
 public class ClienteListagemFilter
 {
     public string Nome { get; set; }
@@ -212,47 +164,30 @@ public class ClienteListagemFilter
 }
 ```
 
-### Query
+---
 
-Use para projecoes com campos de multiplas entidades.
+## A camada Aplicacao
 
-```csharp
-public class ClientesComPedidosQuery
-{
-    public int CodigoCliente { get; set; }
-    public string NomeCliente { get; set; }
-    public int QuantidadePedidos { get; set; }
-}
-```
+Esta camada e 1 antes da API. Ela atua como orquestradora entre as outras camadas para receber informacoes vindas externamente, tratar internamente e devolver uma resposta.
 
-### Data Transfer (DTOs e contratos)
+Responsabilidades:
 
-Nesta arquitetura, os objetos de transferencia ficam na borda da aplicacao:
-
-- `Request`: entrada da API.
-- `Response`: saida da API.
-- `Command`: entrada para casos de uso com mais dados.
-- `Query`: projecoes de leitura.
-- `Filter`: criterio de busca para repositorios.
-
-Regras:
-
-- Nao carregar regra de negocio nesses objetos.
-- Nao usar `Request` diretamente em services de dominio.
-- O mapeamento acontece na camada Infrastructure.
+- Orquestrar casos de uso
+- Chamar services de dominio
+- Converter fluxo de entrada/saida (sem regra de negocio pesada)
+- Nao acessar banco diretamente
 
 ---
 
 ## A camada de Infra
 
-Implementa os contratos de repositorio do Domain.
+Nesta camada, criamos a implementacao do repositorio e tambem o mapeamento.
 
-- Pode usar **NHibernate** ou **Dapper**.
-- Mantem regra de negocio fora da persistencia.
-- Recebe `Filter` para cenarios de listagem mais complexos.
-- Concentra mapeamentos tecnicos (ex.: Mapster para Domain -> Response/DTO).
+Responsabilidades:
 
-### Mapeamento com Mapster (na Infrastructure)
+- Implementar contratos de repositorio do Domain
+- Persistencia com NHibernate/Dapper
+- Mapeamentos tecnicos (Mapster)
 
 ```csharp
 public static class ClienteMapper
@@ -268,57 +203,67 @@ public static class ClienteMapper
 
 ## A camada de CrossCutting
 
-Responsavel por componentes compartilhados entre modulos:
+Camada de preocupacoes transversais, com componentes compartilhados como log, resiliencia, seguranca, observabilidade e tratamento padronizado de erros.
+
+Exemplos:
 
 - Logging (Serilog)
 - Resiliencia (Polly)
 - Notificacao/mensageria (Kafka, quando aplicavel)
-- Utilitarios comuns (excecoes base, helpers, extensoes)
-- Politicas de validacao e tratamento de erro padronizado
-
-Objetivo: evitar duplicacao e manter padrao tecnico unico em toda a solucao.
+- Excecoes base, helpers, extensoes
 
 ---
 
 ## A camada de IoC (Inversao de Controle)
 
-A composicao da aplicacao deve registrar interfaces e implementacoes por camada:
+Onde configuramos injecao de dependencia e composicao de modulos, ligando interfaces as implementacoes concretas.
+
+Exemplos de registro:
 
 - `IClientesService` -> `ClientesService`
 - `IClientesRepository` -> `ClientesRepository`
 - Mappers, validadores e componentes de CrossCutting
 
-Com isso, a API depende de contratos, e nao de implementacoes concretas.
+---
+
+## A camada de API
+
+Esta e a ultima camada, a parte externa onde interagimos com a aplicacao.
+
+Responsabilidades:
+
+- Receber `Request`
+- Chamar Application/Domain
+- Retornar `Response`
+- Nao concentrar regra de negocio
 
 ---
 
-## A camada de Jobs (processamento assincrono e agendado)
+## A camada de Jobs
 
-Use Jobs para fluxos fora da requisicao HTTP:
+Responsavel por processamentos assincronos e tarefas agendadas fora da requisicao HTTP.
+
+Uso comum:
 
 - Reprocessamentos
 - Integracoes externas
 - Rotinas agendadas
 - Consumo de filas/eventos
 
-Boas praticas:
-
-- Job orquestra, mas regra de negocio continua no Domain/Application.
-- Dependencias resolvidas via IoC.
-- Erros e metricas reportados via CrossCutting.
-
 ---
 
-## A camada de Tests (estrategia de testes)
+## A camada de Tests
 
-Prioridades de cobertura:
+Camada de validacao do comportamento da aplicacao, com foco principal em testes de Dominio e cobertura dos fluxos criticos.
 
-- **Domain**: testes unitarios de entidade e service de dominio.
-- **Application**: testes de casos de uso (commands/queries).
-- **Infrastructure**: testes de repositorio quando necessario.
-- **Api**: testes de contrato/endpoint para fluxos principais.
+Prioridades:
 
-Ferramental recomendado no padrao Autoglass:
+- **Domain**: testes unitarios de entidade e service de dominio
+- **Application**: testes de casos de uso
+- **Infrastructure**: testes de repositorio quando necessario
+- **API**: testes de contrato/endpoint
+
+Ferramental recomendado:
 
 - xUnit
 - FluentAssertions
@@ -327,40 +272,31 @@ Ferramental recomendado no padrao Autoglass:
 
 ---
 
-## A camada de API
-
-- Recebe `Request`.
-- Chama Application/Domain.
-- Retorna `Response`.
-- Nao concentra regra de negocio.
-
----
-
 ## Estrutura de pastas recomendada
 
 ```text
 src/
-  CrossCutting/
   Domain/
     Entidades/
     Services/
     Repositories/
-  Application/
-    Commands/
+  DataTransfer/
     Requests/
     Responses/
+    Commands/
     Queries/
     Filters/
-    DataTransfer/
+  Application/
   Infrastructure/
     Repositories/
       NHibernate/
       Dapper/
     Mappers/
-  Jobs/
+  CrossCutting/
+  Ioc/
   Api/
     Controllers/
-  Ioc/
+  Jobs/
   Tests/
     Unit/
     Integration/
