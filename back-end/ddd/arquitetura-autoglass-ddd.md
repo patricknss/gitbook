@@ -6,12 +6,29 @@ Este guia organiza o padrao DDD da Autoglass por **camadas**, para ficar mais fa
 
 ```text
 Api -> Application -> Domain -> Infrastructure
+         |              |
+         v              v
+     CrossCutting   Data Transfer
+         |
+         v
+        IoC
+         |
+         v
+        Jobs
+         |
+         v
+       Tests
 ```
 
 - **Api** recebe request HTTP e devolve response.
 - **Application** orquestra entrada/saida (Request, Response, Command, Query).
 - **Domain** concentra regras de negocio (Entidades, Services, Interfaces).
 - **Infrastructure** executa persistencia (NHibernate/Dapper).
+- **Data Transfer** define contratos de transporte entre camadas (Request/Response/Command/Query).
+- **CrossCutting** centraliza preocupacoes transversais (log, resiliencia, validacao, observabilidade, seguranca).
+- **IoC** registra dependencias e composicao de modulos.
+- **Jobs** executam fluxos assincronos e tarefas agendadas.
+- **Tests** validam regras de negocio e comportamento das camadas.
 
 ## Regras transversais (valem para todas as camadas)
 
@@ -182,6 +199,22 @@ public class ClientesComPedidosQuery
 }
 ```
 
+### Data Transfer (DTOs e contratos)
+
+Nesta arquitetura, os objetos de transferencia ficam na borda da aplicacao:
+
+- `Request`: entrada da API.
+- `Response`: saida da API.
+- `Command`: entrada para casos de uso com mais dados.
+- `Query`: projecoes de leitura.
+- `Filter`: criterio de busca para repositorios.
+
+Regras:
+
+- Nao carregar regra de negocio nesses objetos.
+- Nao usar `Request` diretamente em services de dominio.
+- Usar Mapster para mapear Domain -> Response.
+
 ---
 
 ## Camada Infrastructure
@@ -191,6 +224,67 @@ Implementa os contratos de repositorio do Domain.
 - Pode usar **NHibernate** ou **Dapper**.
 - Mantem regra de negocio fora da persistencia.
 - Recebe `Filter` para cenarios de listagem mais complexos.
+
+---
+
+## Camada CrossCutting
+
+Responsavel por componentes compartilhados entre modulos:
+
+- Logging (Serilog)
+- Resiliencia (Polly)
+- Notificacao/mensageria (Kafka, quando aplicavel)
+- Utilitarios comuns (excecoes base, helpers, extensoes)
+- Politicas de validacao e tratamento de erro padronizado
+
+Objetivo: evitar duplicacao e manter padrao tecnico unico em toda a solucao.
+
+---
+
+## IoC (Inversao de Controle)
+
+A composicao da aplicacao deve registrar interfaces e implementacoes por camada:
+
+- `IClientesService` -> `ClientesService`
+- `IClientesRepository` -> `ClientesRepository`
+- Mappers, validadores e componentes de CrossCutting
+
+Com isso, a API depende de contratos, e nao de implementacoes concretas.
+
+---
+
+## Jobs (processamento assincrono e agendado)
+
+Use Jobs para fluxos fora da requisicao HTTP:
+
+- Reprocessamentos
+- Integracoes externas
+- Rotinas agendadas
+- Consumo de filas/eventos
+
+Boas praticas:
+
+- Job orquestra, mas regra de negocio continua no Domain/Application.
+- Dependencias resolvidas via IoC.
+- Erros e metricas reportados via CrossCutting.
+
+---
+
+## Tests (estrategia de testes)
+
+Prioridades de cobertura:
+
+- **Domain**: testes unitarios de entidade e service de dominio.
+- **Application**: testes de casos de uso (commands/queries).
+- **Infrastructure**: testes de repositorio quando necessario.
+- **Api**: testes de contrato/endpoint para fluxos principais.
+
+Ferramental recomendado no padrao Autoglass:
+
+- xUnit
+- FluentAssertions
+- NSubstitute
+- NBuilder
 
 ---
 
@@ -207,6 +301,7 @@ Implementa os contratos de repositorio do Domain.
 
 ```text
 src/
+  CrossCutting/
   Domain/
     Entidades/
     Services/
@@ -217,12 +312,18 @@ src/
     Responses/
     Queries/
     Filters/
+    DataTransfer/
   Infrastructure/
     Repositories/
       NHibernate/
       Dapper/
+  Jobs/
   Api/
     Controllers/
+  Ioc/
+  Tests/
+    Unit/
+    Integration/
 ```
 
 ## Bibliotecas autorizadas
