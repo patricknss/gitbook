@@ -1,48 +1,42 @@
 # Domain-Driven Design - Arquitetura Autoglass
 
-Este guia define o padrao DDD utilizado na Autoglass para .NET.
+Este guia organiza o padrao DDD da Autoglass por **camadas**, para ficar mais facil de aplicar no dia a dia.
 
-## Regras gerais
-
-| Categoria | Regra |
-| --- | --- |
-| Nomenclatura | Classes de negocio em **portugues**: `Pedido`, `Cliente`, `NotaFiscal` |
-| Nomenclatura | Padroes tecnicos em **ingles**: `UsuariosService`, `UsuariosRepository`, `UsuarioInstanciarCommand` |
-| Parametros | Maximo de **7 parametros** por metodo/construtor; acima disso usar `Command` (servicos) ou `Filter` (repositorios) |
-| Mapeamento | Usar **Mapster** (nunca AutoMapper) |
-| Dependencias | Servico de dominio nao deve injetar repositorio de outra entidade quando existe servico disponivel |
-
-## Estrutura de pastas recomendada
+## Visao arquitetural
 
 ```text
-src/
-  Domain/
-    Entidades/
-    Services/
-    Repositories/
-  Application/
-    Commands/
-    Requests/
-    Responses/
-    Queries/
-    Filters/
-  Infrastructure/
-    Repositories/
-      NHibernate/
-      Dapper/
-  Api/
-    Controllers/
+Api -> Application -> Domain -> Infrastructure
 ```
 
-## 1. Entidade
+- **Api** recebe request HTTP e devolve response.
+- **Application** orquestra entrada/saida (Request, Response, Command, Query).
+- **Domain** concentra regras de negocio (Entidades, Services, Interfaces).
+- **Infrastructure** executa persistencia (NHibernate/Dapper).
 
-Regras obrigatorias:
+## Regras transversais (valem para todas as camadas)
 
-1. Construtor vazio `protected`.
-2. Propriedades `virtual` com `protected set`.
-3. Construtor publico deve chamar `Set`.
-4. Validacoes de regra sem banco de dados ficam na entidade.
-5. Entidade nao recebe `Request` ou `Command`.
+| Tema | Regra |
+| --- | --- |
+| Linguagem ubiqua | Classes de negocio em portugues (`Cliente`, `Pedido`, `NotaFiscal`) |
+| Padrao tecnico | Sufixos e padroes tecnicos em ingles (`ClientesService`, `ClientesRepository`) |
+| Parametros | Maximo de 7 parametros por metodo/construtor |
+| Acima de 7 parametros | Usar `Command` (service) ou `Filter` (repository) |
+| Mapeamento | Usar **Mapster**, nunca AutoMapper |
+| Dependencias | Nao injetar repositorio de outra entidade no service quando existir service dessa entidade |
+
+---
+
+## Camada Domain
+
+### Entidades
+
+Principios:
+
+- Construtor vazio `protected`.
+- Propriedades `virtual` com `protected set`.
+- Construtor publico chama `Set...`.
+- Validacoes sem acesso a banco ficam na entidade.
+- Entidade nao recebe `Request` nem `Command`.
 
 ```csharp
 public class Cliente
@@ -77,20 +71,46 @@ public class Cliente
 }
 ```
 
-## 2. Servico de dominio
+### Services de dominio
 
-Nomenclatura: `{EntidadeNoPlural}Service` e `I{EntidadeNoPlural}Service`.
+Padrao: `{EntidadeNoPlural}Service` com interface `I{EntidadeNoPlural}Service`.
 
-Metodos esperados:
+Metodos base esperados:
 
-1. `Instanciar`
-2. `Inserir`
-3. `Validar`
-4. `Atualizar`
+- `Instanciar`
+- `Inserir`
+- `Validar`
+- `Atualizar`
 
-## 3. Command
+```csharp
+public interface IClientesService
+{
+    Cliente Instanciar(string nome, string documento);
+    void Inserir(Cliente cliente);
+    Cliente Validar(int codigoCliente);
+    void Atualizar(Cliente cliente, string nome, string documento);
+}
+```
 
-Use quando servico ultrapassar 7 parametros.
+### Interfaces de repositorio (contratos do dominio)
+
+```csharp
+public interface IClientesRepository
+{
+    void Inserir(Cliente cliente);
+    void Atualizar(Cliente cliente);
+    Cliente Recuperar(int codigo);
+    IList<Cliente> Listar(ClienteListagemFilter filter);
+}
+```
+
+---
+
+## Camada Application
+
+### Command
+
+Use quando um metodo de service ultrapassar 7 parametros.
 
 ```csharp
 public class ClienteInstanciarCommand
@@ -100,9 +120,9 @@ public class ClienteInstanciarCommand
 }
 ```
 
-## 4. Request
+### Request
 
-DTO de entrada da API. Nunca passar `Request` para servico de dominio.
+DTO da API para entrada. Nao deve atravessar para a camada Domain.
 
 ```csharp
 public class ClienteCadastroRequest
@@ -112,7 +132,7 @@ public class ClienteCadastroRequest
 }
 ```
 
-## 5. Response
+### Response
 
 DTO de saida da API.
 
@@ -125,7 +145,7 @@ public class ClienteResponse
 }
 ```
 
-Mapeamento com Mapster:
+### Mapeamento com Mapster
 
 ```csharp
 public static class ClienteMapper
@@ -137,11 +157,7 @@ public static class ClienteMapper
 }
 ```
 
-## 6. Repositorio
-
-Nomenclatura: `{EntidadeNoPlural}Repository` e `I{EntidadeNoPlural}Repository`.
-
-## 7. Filter
+### Filter
 
 Use para filtros de repositorio com muitos parametros.
 
@@ -153,9 +169,9 @@ public class ClienteListagemFilter
 }
 ```
 
-## 8. Query
+### Query
 
-Use para projecoes com dados de multiplas entidades.
+Use para projecoes com campos de multiplas entidades.
 
 ```csharp
 public class ClientesComPedidosQuery
@@ -166,27 +182,50 @@ public class ClientesComPedidosQuery
 }
 ```
 
-## 9. Interfaces padrao
+---
 
-```csharp
-public interface IClientesRepository
-{
-    void Inserir(Cliente cliente);
-    void Atualizar(Cliente cliente);
-    Cliente Recuperar(int codigo);
-    IList<Cliente> Listar(ClienteListagemFilter filter);
-}
+## Camada Infrastructure
 
-public interface IClientesService
-{
-    Cliente Instanciar(string nome, string documento);
-    void Inserir(Cliente cliente);
-    Cliente Validar(int codigoCliente);
-    void Atualizar(Cliente cliente, string nome, string documento);
-}
+Implementa os contratos de repositorio do Domain.
+
+- Pode usar **NHibernate** ou **Dapper**.
+- Mantem regra de negocio fora da persistencia.
+- Recebe `Filter` para cenarios de listagem mais complexos.
+
+---
+
+## Camada Api
+
+- Recebe `Request`.
+- Chama Application/Domain.
+- Retorna `Response`.
+- Nao concentra regra de negocio.
+
+---
+
+## Estrutura de pastas recomendada
+
+```text
+src/
+  Domain/
+    Entidades/
+    Services/
+    Repositories/
+  Application/
+    Commands/
+    Requests/
+    Responses/
+    Queries/
+    Filters/
+  Infrastructure/
+    Repositories/
+      NHibernate/
+      Dapper/
+  Api/
+    Controllers/
 ```
 
-## 10. Bibliotecas autorizadas
+## Bibliotecas autorizadas
 
 | Categoria | Biblioteca |
 | --- | --- |
@@ -203,9 +242,9 @@ public interface IClientesService
 
 ## Referencias cruzadas
 
-- Camada de API e services: [ASP.NET Basico](../backend/aspnet-basico.md)
+- Camada de API: [ASP.NET Basico](../backend/aspnet-basico.md)
 - Persistencia relacional: [Banco de Dados](../../data-science/sql/README.md)
-- Bibliotecas detalhadas: [Bibliotecas](../../bibliotecas/README.md)
+- Guia de bibliotecas: [Bibliotecas](../../bibliotecas/README.md)
 - Mapeamento: [Mapster](../../bibliotecas/mapster.md)
-- Persistencia: [NHibernate](../../bibliotecas/nhibernate.md) e [Dapper](../../bibliotecas/dapper.md)
+- ORMs: [NHibernate](../../bibliotecas/nhibernate.md) e [Dapper](../../bibliotecas/dapper.md)
 - Testes unitarios: [xUnit](../../bibliotecas/xunit.md)
