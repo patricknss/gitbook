@@ -24,6 +24,7 @@ Notas e exemplos sobre SQL e versionamento de schema com foco prático.
 2. Joins básicos e filtros.
 3. Modelagem simples de dados.
 4. Introdução ao uso de Liquibase para versionamento de schema.
+5. Playbook operacional de Liquibase para release e rollback.
 
 ### Exemplo prático
 
@@ -42,6 +43,8 @@ Cenário: sistema de loja.
 - [Bibliotecas](../../bibliotecas/README.md)
 - [Dapper](../../bibliotecas/dapper.md)
 - [NHibernate](../../bibliotecas/nhibernate.md)
+- [Liquibase: introducao](liquibase-introducao.md)
+- [Liquibase Operacional](liquibase-operacional.md)
 
 ***
 

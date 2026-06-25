@@ -14,6 +14,13 @@
     * [ASP.NET Basico (Controllers e Services)](back-end/backend/aspnet-basico.md)
     * [Async/Await e Concorrencia](back-end/backend/async-await-concorrencia.md)
     * [Gerenciamento de cache em memoria](back-end/backend/cache-em-memoria.md)
+    * [Playbook de API (.NET)](back-end/backend/playbook-api.md)
+    * [Persistencia: NHibernate x Dapper](back-end/backend/persistencia-nhibernate-dapper.md)
+    * [Guia de Testes Backend (.NET)](back-end/backend/guia-testes-backend.md)
+    * [Observabilidade e Logs](back-end/backend/observabilidade-e-logs.md)
+    * [Jobs e Mensageria](back-end/backend/jobs-e-mensageria.md)
+    * [Seguranca no Backend](back-end/backend/seguranca-backend.md)
+    * [Matriz de Versoes e Compatibilidade](back-end/backend/matriz-de-versoes.md)
   * [DDD (Arquitetura Autoglass)](back-end/ddd/README.md)
     * [Arquitetura DDD Autoglass](back-end/ddd/arquitetura-autoglass-ddd.md)
 
@@ -37,6 +44,7 @@
   * [Joins basicos](data-science/sql/joins-basicos.md)
   * [Modelagem simples de dados](data-science/sql/modelagem-simples.md)
   * [Liquibase: introducao](data-science/sql/liquibase-introducao.md)
+  * [Liquibase Operacional (Padrao de Time)](data-science/sql/liquibase-operacional.md)
 
 ## Frontend
 
@@ -61,3 +69,6 @@
 ## Workflow
 
 * [Git Flow](workflow/git-flow.md)
+* [Definition of Done (DoD)](workflow/definition-of-done.md)
+* [Runbook Operacional](workflow/runbook-operacional.md)
+* [Guia Editorial do GitBook](workflow/guia-editorial-gitbook.md)

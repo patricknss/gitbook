@@ -45,6 +45,7 @@ Liquibase é uma ferramenta de versionamento de banco de dados baseada em change
 ## Exemplo de execução no dia a dia
 
 ```bash
+liquibase validate
 liquibase update
 liquibase history
 liquibase rollbackCount 1
@@ -52,9 +53,34 @@ liquibase rollbackCount 1
 
 ### O que cada comando faz
 
+- `validate`: valida a estrutura do changelog antes de executar qualquer alteração.
 - `update`: aplica pendências.
 - `history`: mostra mudanças já executadas.
 - `rollbackCount 1`: desfaz o último changeset aplicado.
+
+## Liquibase validate (quando e por que usar)
+
+`validate` é a etapa de segurança para garantir que os changelogs estão consistentes antes do `update`.
+
+Use principalmente para detectar:
+
+- erro de sintaxe no changelog;
+- referência quebrada de include/changelog;
+- inconsistências de identificação de changeset (`id`/`author`);
+- problemas de estrutura que impediriam a execução.
+
+Fluxo recomendado:
+
+1. Rode `validate`.
+2. Corrija o que for apontado.
+3. Só depois rode `update`.
+
+Exemplo comum por ambiente:
+
+```bash
+liquibase --defaultsFile=liquibase.properties validate
+liquibase --defaultsFile=liquibase.properties update
+```
 
 ## Erros comuns
 
