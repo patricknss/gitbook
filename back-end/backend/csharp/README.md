@@ -6,6 +6,14 @@ description: >-
 
 # C\#
 
+## Navegacao rapida
+
+- [Fundamentos da Linguagem](fundamentos-da-linguagem.md)
+- [Programacao Orientada a Objetos](orientacao-a-objetos.md)
+- [Colecoes e Arrays](colecoes-e-arrays.md)
+- [LINQ](linq.md)
+- [Big O e Complexidade](../../../computer-science/algoritmos/big-o-e-complexidade.md)
+
 ```csharp
 using System;
 

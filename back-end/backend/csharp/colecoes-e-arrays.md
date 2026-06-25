@@ -170,3 +170,7 @@ foreach (var item in ordenada)
 // 2 => B
 // 3 => C
 ```
+
+## Veja tambem
+
+- [Big O e Complexidade](../../../computer-science/algoritmos/big-o-e-complexidade.md)

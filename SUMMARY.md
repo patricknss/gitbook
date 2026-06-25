@@ -35,6 +35,28 @@
   * [NHibernate](bibliotecas/nhibernate.md)
   * [Dapper](bibliotecas/dapper.md)
 
+## Computer Science
+
+* [Algoritmos e Estruturas de Dados](computer-science/algoritmos/README.md)
+  * [Big O e Complexidade](computer-science/algoritmos/big-o-e-complexidade.md)
+  * [Recursao vs Iteracao](computer-science/algoritmos/recursao-vs-iteracao.md)
+  * [Tecnicas: Two Pointers, Sliding Window e Hash Map](computer-science/algoritmos/tecnicas-two-pointers-sliding-window-hashmap.md)
+  * [Arrays e Strings](computer-science/algoritmos/arrays-e-strings.md)
+  * [Pilha e Fila](computer-science/algoritmos/pilha-e-fila.md)
+  * [Hash Table e Set](computer-science/algoritmos/hash-table-e-set.md)
+  * [Linked List](computer-science/algoritmos/linked-list.md)
+  * [Heap e Priority Queue](computer-science/algoritmos/heap-e-priority-queue.md)
+  * [Arvores, BST e Trie](computer-science/algoritmos/arvores-bst-e-trie.md)
+  * [Grafos (Fundamentos)](computer-science/algoritmos/grafos-fundamentos.md)
+  * [Busca e Ordenacao](computer-science/algoritmos/busca-e-ordenacao.md)
+  * [BFS e DFS](computer-science/algoritmos/bfs-e-dfs.md)
+  * [Dijkstra e Topological Sort](computer-science/algoritmos/dijkstra-topological-sort.md)
+  * [Union-Find](computer-science/algoritmos/union-find.md)
+  * [Programacao Dinamica](computer-science/algoritmos/programacao-dinamica.md)
+  * [Backtracking, Greedy e Divide and Conquer](computer-science/algoritmos/padroes-backtracking-greedy-divide-and-conquer.md)
+  * [Prefix Sum e Difference Array](computer-science/algoritmos/prefix-sum-e-difference-array.md)
+  * [Algoritmos no Backend .NET](computer-science/algoritmos/algoritmos-no-backend-dotnet.md)
+
 ## Banco de Dados
 
 * [Banco de Dados](data-science/sql/README.md)

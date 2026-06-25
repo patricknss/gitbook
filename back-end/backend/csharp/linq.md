@@ -219,6 +219,10 @@ João: 10
 
 As operações em conjunto permitem que a gente trabalhe com uma ou mais fonte de dados e que a gente retorne um conjunto com resultados específicos que nós estamos buscando de acordo com a nossa necessidade.
 
+## Veja tambem
+
+- [Big O e Complexidade](../../../computer-science/algoritmos/big-o-e-complexidade.md)
+
 Nas operações em conjunto a gente trabalha com quatro operadores.
 
 * <mark style="color:#2E7D32;">`Distinct()`</mark>: retorna uma sequência que contém elementos distintos da sequência original, com base em uma chave de comparação especificada;

@@ -50,21 +50,6 @@ Basically is my library of knowledge, where you can learn basics, or remember th
 
 ***
 
-## C O L O R S
-
-To keep the reading flow consistent, I use a visual color system across the docs.
-
-- **Blue** (`#1565C0`): core concepts, first mentions and key terms.
-- **Purple** (`#6A1B9A`): emphasis and conceptual highlights.
-- **Yellow/Amber** (`#B26A00`): important attention points.
-- **Green** (`#2E7D32`): commands, tools, methods and code-related tokens.
-- **Orange** (`#C65D00`): cautions, risks and operational warnings.
-- **Red** (`#C62828`): critical errors, anti-patterns or severe pitfalls.
-
-This is a guideline, not a hard rule. Readability always comes first.
-
-***
-
 ## CONTACT
 
 [LINKEDIN](https://www.linkedin.com/in/trickn/)
