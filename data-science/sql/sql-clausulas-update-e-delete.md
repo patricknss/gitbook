@@ -1,101 +1,101 @@
-Ôªø---
+---
 description: >-
-  Ap√≥s a finaliza√ß√£o de um projeto de modelagem de dados e a sua implementa√ß√£o,
-  inicia-se o desenvolvimento para a manuten√ß√£o do banco de dados.
+  ApÛs a finalizaÁ„o de um projeto de modelagem de dados e a sua implementaÁ„o,
+  inicia-se o desenvolvimento para a manutenÁ„o do banco de dados.
 ---
 
-# SQL: cl√°usulas UPDATE e DELETE
+# SQL: cl·usulas UPDATE e DELETE
 
-Para alterar e excluir dados de uma tabela, utilizamos duas cl√°usulas bem importantes da **linguagem SQL**: a cl√°usula <mark style="color:#2E7D32;">`UPDATE`</mark> que √© respons√°vel por alterar os dados armazenados e a cl√°usula <mark style="color:#2E7D32;">`DELETE`</mark> que √© respons√°vel por remover os dados.
+Para alterar e excluir dados de uma tabela, utilizamos duas cl·usulas bem importantes da **linguagem SQL**: a cl·usula `UPDATE` que È respons·vel por alterar os dados armazenados e a cl·usula `DELETE` que È respons·vel por remover os dados.
 
-Neste artigo, vamos conhecer a sintaxe b√°sica de cada cl√°usula e entender quais os riscos e os cuidados necess√°rios ao executar as cl√°usulas <mark style="color:#2E7D32;">`UPDATE`</mark> e <mark style="color:#2E7D32;">`DELETE`</mark>.
+Neste artigo, vamos conhecer a sintaxe b·sica de cada cl·usula e entender quais os riscos e os cuidados necess·rios ao executar as cl·usulas `UPDATE` e `DELETE`.
 
-## Cl√°usula UPDATE
+## Cl·usula UPDATE
 
-Utilizamos a cl√°usula <mark style="color:#2E7D32;">`UPDATE`</mark> para realizar altera√ß√µes nos dados armazenados em uma tabela do banco de dados. A sintaxe b√°sica do comando utilizado por todos os bancos de dados relacionais √©:
+Utilizamos a cl·usula `UPDATE` para realizar alteraÁıes nos dados armazenados em uma tabela do banco de dados. A sintaxe b·sica do comando utilizado por todos os bancos de dados relacionais È:
 
 {% code lineNumbers="true" %}
 ```sql
 UPDATE nome_da_tabela
 SET coluna = valor, 
-WHERE condi√ß√£o;
+WHERE condiÁ„o;
 ```
 {% endcode %}
 
-Na cl√°usula `UPDATE`, informamos o nome da tabela que queremos atualizar, utilizamos o <mark style="color:#2E7D32;">`SET`</mark> para indicar os campos da tabela que ser√£o atualizados e no <mark style="color:#2E7D32;">`WHERE`</mark> expressamos a condi√ß√£o para a atualiza√ß√£o, ou seja, especificamos quais registros devem ser atualizados na tabela.
+Na cl·usula `UPDATE`, informamos o nome da tabela que queremos atualizar, utilizamos o `SET` para indicar os campos da tabela que ser„o atualizados e no `WHERE` expressamos a condiÁ„o para a atualizaÁ„o, ou seja, especificamos quais registros devem ser atualizados na tabela.
 
-## Cl√°usula DELETE <a href="#clausula-delete" id="clausula-delete"></a>
+## Cl·usula DELETE <a href="#clausula-delete" id="clausula-delete"></a>
 
-Utilizamos a cl√°usula <mark style="color:#2E7D32;">`DELETE`</mark> para realizar a exclus√£o de dados de uma ou mais tabelas de um banco de dados. A sintaxe b√°sica do comando utilizado por todos os bancos de dados relacionais √©:
+Utilizamos a cl·usula `DELETE` para realizar a exclus„o de dados de uma ou mais tabelas de um banco de dados. A sintaxe b·sica do comando utilizado por todos os bancos de dados relacionais È:
 
 {% code lineNumbers="true" %}
 ```sql
 DELETE
 FROM nome_da_tabela, 
-WHERE condi√ß√£o;
+WHERE condiÁ„o;
 ```
 {% endcode %}
 
-Onde na cl√°usula <mark style="color:#2E7D32;">`FROM`</mark>, informamos o nome da tabela que queremos excluir os dados, e no <mark style="color:#2E7D32;">`WHERE`</mark> informamos a condi√ß√£o que especifica quais registros devem ser exclu√≠dos da tabela.
+Onde na cl·usula `FROM`, informamos o nome da tabela que queremos excluir os dados, e no `WHERE` informamos a condiÁ„o que especifica quais registros devem ser excluÌdos da tabela.
 
 ## Riscos e Cuidados ao executar os comandos <a href="#riscos-e-cuidados-ao-executar-os-comandos" id="riscos-e-cuidados-ao-executar-os-comandos"></a>
 
-Ao executar os comandos para realizar a atualiza√ß√£o ou exclus√£o de dados de uma tabela de um banco de dados, precisamos tomar alguns cuidados.
+Ao executar os comandos para realizar a atualizaÁ„o ou exclus„o de dados de uma tabela de um banco de dados, precisamos tomar alguns cuidados.
 
-Nesse sentido, um ponto de aten√ß√£o √© sempre informar uma condi√ß√£o ao realizar uma atualiza√ß√£o ou exclus√£o de dados de uma tabela. Quando n√£o informamos essa condi√ß√£o, corremos o risco de que todos os dados da tabela sejam atualizados, ou at√© mesmo exclu√≠dos, ocorrendo assim a perda de dados importantes.
+Nesse sentido, um ponto de atenÁ„o È sempre informar uma condiÁ„o ao realizar uma atualizaÁ„o ou exclus„o de dados de uma tabela. Quando n„o informamos essa condiÁ„o, corremos o risco de que todos os dados da tabela sejam atualizados, ou atÈ mesmo excluÌdos, ocorrendo assim a perda de dados importantes.
 
-## Cl√°usula WHERE <a href="#clausula-where" id="clausula-where"></a>
+## Cl·usula WHERE <a href="#clausula-where" id="clausula-where"></a>
 
-Para que essa perda de dados em massa n√£o ocorra, utilizamos a cl√°usula ¬¥WHERE¬¥. Especificamos nesta cl√°usula os crit√©rios que os dados armazenados em uma tabela devem cumprir para que os registros que cont√™m esses par√¢metros sejam inclu√≠dos nos resultados da consulta.
+Para que essa perda de dados em massa n„o ocorra, utilizamos a cl·usula ¥WHERE¥. Especificamos nesta cl·usula os critÈrios que os dados armazenados em uma tabela devem cumprir para que os registros que contÍm esses par‚metros sejam incluÌdos nos resultados da consulta.
 
-Para aplicarmos na pr√°tica a utiliza√ß√£o das cl√°usulas <mark style="color:#2E7D32;">`DELETE`</mark> e 'UPDATE'. Vamos observar o seguinte exemplo:
+Para aplicarmos na pr·tica a utilizaÁ„o das cl·usulas `DELETE` e 'UPDATE'. Vamos observar o seguinte exemplo:
 
 Em um banco de dados existe a tabela de clientes e a tabela de vendedores, com os seguintes campos e registros:
 
-| ID | CPF         | NOME                | ENDERE√áO              | BAIRRO      | CIDADE         | ESTADO | CEP      |
+| ID | CPF         | NOME                | ENDERE«O              | BAIRRO      | CIDADE         | ESTADO | CEP      |
 | -- | ----------- | ------------------- | --------------------- | ----------- | -------------- | ------ | -------- |
-| 01 | 1471156710  | √ârica Carvalho      | R. Iriquitia          | Jardins     | S√£o Paulo      | SP     | 80012212 |
+| 01 | 1471156710  | …rica Carvalho      | R. Iriquitia          | Jardins     | S„o Paulo      | SP     | 80012212 |
 | 02 | 19290992743 | Fernando Cavalcante | R. Dois de Fevereiro  | Agua Santa  | Rio de Janeiro | RJ     | 22000000 |
-| 03 | 2600586709  | C√©sar Teixeira      | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | RJ     | 22020001 |
+| 03 | 2600586709  | CÈsar Teixeira      | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | RJ     | 22020001 |
 | 04 | 492472718   | Eduardo Jorge       | R. Volta Grande       | Tijuca      | Rio de Janeiro | RJ     | 22012002 |
-| 05 | 50534475787 | Abel Silva          | Rua Humait√°           | Humait√°     | Rio de Janeiro | RJ     | 22000212 |
-| 06 | 5576228758  | Petra Oliveira      | R. Ben√≠cio de Abreu   | Lapa        | S√£o Paulo      | SP     | 88192029 |
-| 07 | 5840119709  | Gabriel Araujo      | R. Manuel de Oliveira | Santo Amaro | S√£o Paulo      | SP     | 80010221 |
+| 05 | 50534475787 | Abel Silva          | Rua Humait·           | Humait·     | Rio de Janeiro | RJ     | 22000212 |
+| 06 | 5576228758  | Petra Oliveira      | R. BenÌcio de Abreu   | Lapa        | S„o Paulo      | SP     | 88192029 |
+| 07 | 5840119709  | Gabriel Araujo      | R. Manuel de Oliveira | Santo Amaro | S„o Paulo      | SP     | 80010221 |
 
 ***
 
-| MATR√çCULA | NOME            | BAIRRO      | COMISS√ÉO | DATA ADMISS√ÉO |
+| MATRÕCULA | NOME            | BAIRRO      | COMISS√O | DATA ADMISS√O |
 | --------- | --------------- | ----------- | -------- | ------------- |
-| 235       | M√°rcio Almeida  | Tijuca      | 0.08     | 2014-08-15    |
-| 236       | Cl√°udia Morais  | Jardins     | 0.08     | 2013-09-17    |
+| 235       | M·rcio Almeida  | Tijuca      | 0.08     | 2014-08-15    |
+| 236       | Cl·udia Morais  | Jardins     | 0.08     | 2013-09-17    |
 | 237       | Roberta Martins | Copacabana  | 0.11     | 2017-03-18    |
-| 238       | P√©ricles Alves  | Santo Amaro | 0.11     | 2016-08-21    |
+| 238       | PÈricles Alves  | Santo Amaro | 0.11     | 2016-08-21    |
 
-Estas duas tabelas, ser√£o utilizadas em todos os exemplos apresentados durante o artigo.
+Estas duas tabelas, ser„o utilizadas em todos os exemplos apresentados durante o artigo.
 
 ## UPDATE Com WHERE <a href="#update-com-where" id="update-com-where"></a>
 
-Tendo ent√£o a tabela de clientes acima como nosso exemplo, precisamos atualizar as informa√ß√µes da cliente que possui o CPF \`147115670¬¥ e est√° na primeira linha da nossa tabela, para isso vamos utilizar a seguinte consulta:
+Tendo ent„o a tabela de clientes acima como nosso exemplo, precisamos atualizar as informaÁıes da cliente que possui o CPF \`147115670¥ e est· na primeira linha da nossa tabela, para isso vamos utilizar a seguinte consulta:
 
 {% code lineNumbers="true" %}
 ```sql
 UPDATE CLIENTES
-SET nome = '√ârica Silvia'
+SET nome = '…rica Silvia'
 WHERE CPF = '1471156710';
 ```
 {% endcode %}
 
-Ao executar este comando apenas a cliente que possui o CPF \`147115670¬¥, ter√° os seus dados alterados:
+Ao executar este comando apenas a cliente que possui o CPF \`147115670¥, ter· os seus dados alterados:
 
-| ID | CPF            | NOME                | ENDERE√áO              | BAIRRO      | CIDADE         | ESTADO | CEP      |
+| ID | CPF            | NOME                | ENDERE«O              | BAIRRO      | CIDADE         | ESTADO | CEP      |
 | -- | -------------- | ------------------- | --------------------- | ----------- | -------------- | ------ | -------- |
-| 01 | **1471156710** | **√ârica Silva**     | R. Iriquitia          | Jardins     | S√£o Paulo      | SP     | 80012212 |
+| 01 | **1471156710** | **…rica Silva**     | R. Iriquitia          | Jardins     | S„o Paulo      | SP     | 80012212 |
 | 02 | 19290992743    | Fernando Cavalcante | R. Dois de Fevereiro  | Agua Santa  | Rio de Janeiro | RJ     | 22000000 |
-| 03 | 2600586709     | C√©sar Teixeira      | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | RJ     | 22020001 |
+| 03 | 2600586709     | CÈsar Teixeira      | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | RJ     | 22020001 |
 | 04 | 492472718      | Eduardo Jorge       | R. Volta Grande       | Tijuca      | Rio de Janeiro | RJ     | 22012002 |
-| 05 | 50534475787    | Abel Silva          | Rua Humait√°           | Humait√°     | Rio de Janeiro | RJ     | 22000212 |
-| 06 | 5576228758     | Petra Oliveira      | R. Ben√≠cio de Abreu   | Lapa        | S√£o Paulo      | SP     | 88192029 |
-| 07 | 5840119709     | Gabriel Araujo      | R. Manuel de Oliveira | Santo Amaro | S√£o Paulo      | SP     | 80010221 |
+| 05 | 50534475787    | Abel Silva          | Rua Humait·           | Humait·     | Rio de Janeiro | RJ     | 22000212 |
+| 06 | 5576228758     | Petra Oliveira      | R. BenÌcio de Abreu   | Lapa        | S„o Paulo      | SP     | 88192029 |
+| 07 | 5840119709     | Gabriel Araujo      | R. Manuel de Oliveira | Santo Amaro | S„o Paulo      | SP     | 80010221 |
 
 Para atualizar mais de um campo ao mesmo tempo, podemos utilizar a seguinte consulta:
 
@@ -107,17 +107,17 @@ WHERE CPF = '19290992743';
 ```
 {% endcode %}
 
-Assim, apenas as informa√ß√µes de nome e CEP do segundo cliente que possui o CPF `19290992743` ser√° atualizado:
+Assim, apenas as informaÁıes de nome e CEP do segundo cliente que possui o CPF `19290992743` ser· atualizado:
 
-| ID | CPF         | NOME               | ENDERE√áO              | BAIRRO      | CIDADE         | ESTADO | CEP          |
+| ID | CPF         | NOME               | ENDERE«O              | BAIRRO      | CIDADE         | ESTADO | CEP          |
 | -- | ----------- | ------------------ | --------------------- | ----------- | -------------- | ------ | ------------ |
-| 01 | 1471156710  | √ârica Silva        | R. Iriquitia          | Jardins     | S√£o Paulo      | SP     | 80012212     |
+| 01 | 1471156710  | …rica Silva        | R. Iriquitia          | Jardins     | S„o Paulo      | SP     | 80012212     |
 | 02 | 19290992743 | **Fernando Sousa** | R. Dois de Fevereiro  | Agua Santa  | Rio de Janeiro | RJ     | **80012212** |
-| 03 | 2600586709  | C√©sar Teixeira     | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | RJ     | 22020001     |
+| 03 | 2600586709  | CÈsar Teixeira     | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | RJ     | 22020001     |
 | 04 | 492472718   | Eduardo Jorge      | R. Volta Grande       | Tijuca      | Rio de Janeiro | RJ     | 22012002     |
-| 05 | 50534475787 | Abel Silva         | Rua Humait√°           | Humait√°     | Rio de Janeiro | RJ     | 22000212     |
-| 06 | 5576228758  | Petra Oliveira     | R. Ben√≠cio de Abreu   | Lapa        | S√£o Paulo      | SP     | 88192029     |
-| 07 | 5840119709  | Gabriel Araujo     | R. Manuel de Oliveira | Santo Amaro | S√£o Paulo      | SP     | 80010221     |
+| 05 | 50534475787 | Abel Silva         | Rua Humait·           | Humait·     | Rio de Janeiro | RJ     | 22000212     |
+| 06 | 5576228758  | Petra Oliveira     | R. BenÌcio de Abreu   | Lapa        | S„o Paulo      | SP     | 88192029     |
+| 07 | 5840119709  | Gabriel Araujo     | R. Manuel de Oliveira | Santo Amaro | S„o Paulo      | SP     | 80010221     |
 
 ## UPDATE sem WHERE <a href="#update-sem-where" id="update-sem-where"></a>
 
@@ -130,21 +130,21 @@ SET ESTADO = 'SP';
 ```
 {% endcode %}
 
-Como a cl√°usula <mark style="color:#2E7D32;">`WHERE`</mark> n√£o foi utilizada, informando o registro que deveria ser atualizado, o valor do campo**ESTADO** de todos clientes foram alterados:
+Como a cl·usula `WHERE` n„o foi utilizada, informando o registro que deveria ser atualizado, o valor do campo**ESTADO** de todos clientes foram alterados:
 
-| ID | CPF         | NOME           | ENDERE√áO              | BAIRRO      | CIDADE         | ESTADO | CEP      |
+| ID | CPF         | NOME           | ENDERE«O              | BAIRRO      | CIDADE         | ESTADO | CEP      |
 | -- | ----------- | -------------- | --------------------- | ----------- | -------------- | ------ | -------- |
-| 01 | 1471156710  | √ârica Silva    | R. Iriquitia          | Jardins     | S√£o Paulo      | **SP** | 80012212 |
+| 01 | 1471156710  | …rica Silva    | R. Iriquitia          | Jardins     | S„o Paulo      | **SP** | 80012212 |
 | 02 | 19290992743 | Fernando Sousa | R. Dois de Fevereiro  | Agua Santa  | Rio de Janeiro | **SP** | 80012212 |
-| 03 | 2600586709  | C√©sar Teixeira | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | **SP** | 22020001 |
+| 03 | 2600586709  | CÈsar Teixeira | Rua Conde de Bonfim   | Tijuca      | Rio de Janeiro | **SP** | 22020001 |
 | 04 | 492472718   | Eduardo Jorge  | R. Volta Grande       | Tijuca      | Rio de Janeiro | **SP** | 22012002 |
-| 05 | 50534475787 | Abel Silva     | Rua Humait√°           | Humait√°     | Rio de Janeiro | **SP** | 22000212 |
-| 06 | 5576228758  | Petra Oliveira | R. Ben√≠cio de Abreu   | Lapa        | S√£o Paulo      | **SP** | 88192029 |
-| 07 | 5840119709  | Gabriel Araujo | R. Manuel de Oliveira | Santo Amaro | S√£o Paulo      | **SP** | 80010221 |
+| 05 | 50534475787 | Abel Silva     | Rua Humait·           | Humait·     | Rio de Janeiro | **SP** | 22000212 |
+| 06 | 5576228758  | Petra Oliveira | R. BenÌcio de Abreu   | Lapa        | S„o Paulo      | **SP** | 88192029 |
+| 07 | 5840119709  | Gabriel Araujo | R. Manuel de Oliveira | Santo Amaro | S„o Paulo      | **SP** | 80010221 |
 
 ## DELETE Com WHERE <a href="#delete-com-where" id="delete-com-where"></a>
 
-Um dos clientes, solicitou que as suas informa√ß√µes fossem removidas do banco de dados. Para realizar esta exclus√£o, vamos utilizar a seguinte consulta:
+Um dos clientes, solicitou que as suas informaÁıes fossem removidas do banco de dados. Para realizar esta exclus„o, vamos utilizar a seguinte consulta:
 
 {% code lineNumbers="true" %}
 ```sql
@@ -154,20 +154,20 @@ WHERE CPF = '5840119709';
 ```
 {% endcode %}
 
-Ao executar este comando apenas o cliente **Gabriel Araujo** que estava localizado na ultima linha da tabela de clientes, foi exclu√≠do:
+Ao executar este comando apenas o cliente **Gabriel Araujo** que estava localizado na ultima linha da tabela de clientes, foi excluÌdo:
 
-| ID | CPF         | NOME           | ENDERE√áO             | BAIRRO     | CIDADE         | ESTADO | CEP      |
+| ID | CPF         | NOME           | ENDERE«O             | BAIRRO     | CIDADE         | ESTADO | CEP      |
 | -- | ----------- | -------------- | -------------------- | ---------- | -------------- | ------ | -------- |
-| 01 | 1471156710  | √ârica Silva    | R. Iriquitia         | Jardins    | S√£o Paulo      | **SP** | 80012212 |
+| 01 | 1471156710  | …rica Silva    | R. Iriquitia         | Jardins    | S„o Paulo      | **SP** | 80012212 |
 | 02 | 19290992743 | Fernando Sousa | R. Dois de Fevereiro | Agua Santa | Rio de Janeiro | SP     | 80012212 |
-| 03 | 2600586709  | C√©sar Teixeira | Rua Conde de Bonfim  | Tijuca     | Rio de Janeiro | SP     | 22020001 |
+| 03 | 2600586709  | CÈsar Teixeira | Rua Conde de Bonfim  | Tijuca     | Rio de Janeiro | SP     | 22020001 |
 | 04 | 492472718   | Eduardo Jorge  | R. Volta Grande      | Tijuca     | Rio de Janeiro | SP     | 22012002 |
-| 05 | 50534475787 | Abel Silva     | Rua Humait√°          | Humait√°    | Rio de Janeiro | SP     | 22000212 |
-| 06 | 5576228758  | Petra Oliveira | R. Ben√≠cio de Abreu  | Lapa       | S√£o Paulo      | SP     | 88192029 |
+| 05 | 50534475787 | Abel Silva     | Rua Humait·          | Humait·    | Rio de Janeiro | SP     | 22000212 |
+| 06 | 5576228758  | Petra Oliveira | R. BenÌcio de Abreu  | Lapa       | S„o Paulo      | SP     | 88192029 |
 
 ## DELETE sem WHERE <a href="#delete-sem-where" id="delete-sem-where"></a>
 
-Pensando que se a cl√°usula <mark style="color:#2E7D32;">`WHERE`</mark> n√£o fosse utilizada ao executar um comando <mark style="color:#2E7D32;">`DELETE`</mark> para remover algum registro, ter√≠amos como resultado a exclus√£o de todos os dados armazenados na tabela, ou seja, perdendo os dados de todos os clientes:
+Pensando que se a cl·usula `WHERE` n„o fosse utilizada ao executar um comando `DELETE` para remover algum registro, terÌamos como resultado a exclus„o de todos os dados armazenados na tabela, ou seja, perdendo os dados de todos os clientes:
 
 {% code lineNumbers="true" %}
 ```sql
@@ -176,7 +176,7 @@ FROM Clientes;
 ```
 {% endcode %}
 
-| CPF | NOME | ENDERE√áO | BAIRRO | CIDADE | ESTADO | CEP |
+| CPF | NOME | ENDERE«O | BAIRRO | CIDADE | ESTADO | CEP |
 | --- | ---- | -------- | ------ | ------ | ------ | --- |
 |     |      |          |        |        |        |     |
 |     |      |          |        |        |        |     |
@@ -184,33 +184,33 @@ FROM Clientes;
 |     |      |          |        |        |        |     |
 |     |      |          |        |        |        |     |
 
-## Atualizar utilizando como condi√ß√£o outras tabelas <a href="#atualizar-utilizando-como-condicao-outras-tabelas" id="atualizar-utilizando-como-condicao-outras-tabelas"></a>
+## Atualizar utilizando como condiÁ„o outras tabelas <a href="#atualizar-utilizando-como-condicao-outras-tabelas" id="atualizar-utilizando-como-condicao-outras-tabelas"></a>
 
-Podemos informar na cl√°usula <mark style="color:#2E7D32;">`WHERE`</mark> como condi√ß√£o para realizar atualiza√ß√£o ou exclus√£o dos dados, outra consulta, que pode ser utilizada para buscar informa√ß√µes armazenadas na pr√≥pria tabela ou em **outras tabelas**:
+Podemos informar na cl·usula `WHERE` como condiÁ„o para realizar atualizaÁ„o ou exclus„o dos dados, outra consulta, que pode ser utilizada para buscar informaÁıes armazenadas na prÛpria tabela ou em **outras tabelas**:
 
 Sendo assim, vamos analisar o exemplo abaixo:
 
 {% code lineNumbers="true" %}
 ```sql
 UPDATE VENDEDORES
-SET COMISS√ÉO  = COMISS√ÉO + 0.03
-WHERE COMISS√ÉO = (SELECT min(COMISS√ÉO) FROM VENDEDORES)
+SET COMISS√O  = COMISS√O + 0.03
+WHERE COMISS√O = (SELECT min(COMISS√O) FROM VENDEDORES)
 ```
 {% endcode %}
 
-O <mark style="color:#2E7D32;">`SELECT`</mark> passado na cl√°usula <mark style="color:#2E7D32;">`WHERE`</mark>, retornar√° apenas o valor da menor comiss√£o armazenada na tabela. Dessa forma, apenas os vendedores que possuem o valor da comiss√£o igual ao valor retornado neste <mark style="color:#2E7D32;">`SELECT`</mark> ter√£o os seus dados alterados e o valor da sua comiss√£o aumentar√°:
+O `SELECT` passado na cl·usula `WHERE`, retornar· apenas o valor da menor comiss„o armazenada na tabela. Dessa forma, apenas os vendedores que possuem o valor da comiss„o igual ao valor retornado neste `SELECT` ter„o os seus dados alterados e o valor da sua comiss„o aumentar·:
 
-| MATR√çCULA | NOME            | BAIRRO      | COMISS√ÉO | DATA ADMISS√ÉO |
+| MATRÕCULA | NOME            | BAIRRO      | COMISS√O | DATA ADMISS√O |
 | --------- | --------------- | ----------- | -------- | ------------- |
-| 235       | M√°rcio Almeida  | Tijuca      | **0.11** | 2014-08-15    |
-| 236       | Cl√°udia Morais  | Jardins     | **0.11** | 2013-09-17    |
+| 235       | M·rcio Almeida  | Tijuca      | **0.11** | 2014-08-15    |
+| 236       | Cl·udia Morais  | Jardins     | **0.11** | 2013-09-17    |
 | 237       | Roberta Martins | Copacabana  | 0.11     | 2017-03-18    |
-| 238       | P√©ricles Alves  | Santo Amaro | 0.11     | 2016-08-21    |
+| 238       | PÈricles Alves  | Santo Amaro | 0.11     | 2016-08-21    |
 
-## Chave prim√°ria <a href="#chave-primaria" id="chave-primaria"></a>
+## Chave prim·ria <a href="#chave-primaria" id="chave-primaria"></a>
 
-Uma outra forma de garantir que apenas os dados desejados sofram altera√ß√µes √© a cria√ß√£o de uma chave prim√°ria na tabela.
+Uma outra forma de garantir que apenas os dados desejados sofram alteraÁıes È a criaÁ„o de uma chave prim·ria na tabela.
 
-**A chave prim√°ria, ou Primary key (PK) √© o dado que pode ser utilizado como um identificador √∫nico de um registro em uma tabela no banco de dados.**
+**A chave prim·ria, ou Primary key (PK) È o dado que pode ser utilizado como um identificador ˙nico de um registro em uma tabela no banco de dados.**
 
-Se definirmos que o campo <mark style="color:#2E7D32;">`CPF`</mark> ser√° a chave prim√°ria da tabela de clientes, estamos definindo que este campo receber√° apenas valores √∫nicos. Ao utilizarmos este campo como uma condi√ß√£o no momento de executar uma consulta com as cl√°usulas <mark style="color:#2E7D32;">`DELETE`</mark> ou <mark style="color:#2E7D32;">`UPDATE`</mark>, garantimos que apenas o registro que possui aquele dado ser√° alterado.
+Se definirmos que o campo `CPF` ser· a chave prim·ria da tabela de clientes, estamos definindo que este campo receber· apenas valores ˙nicos. Ao utilizarmos este campo como uma condiÁ„o no momento de executar uma consulta com as cl·usulas `DELETE` ou `UPDATE`, garantimos que apenas o registro que possui aquele dado ser· alterado.

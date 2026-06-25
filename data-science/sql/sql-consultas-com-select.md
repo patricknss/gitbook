@@ -1,12 +1,12 @@
-Ôªø# SQL: consultas com SELECT
+# SQL: consultas com SELECT
 
-O banco de dados n√£o √© utilizado apenas para armazenar dados, em alguns momentos √© necess√°rio realizar consultas ou at√© comunicar com outras ferramentas e sistemas para fazer relat√≥rios, mas como tudo isso √© feito? Com a <mark style="color:#1565C0;">**cl√°usula SELECT**</mark>, a principal fun√ß√£o do <mark style="color:#2E7D32;">`SELECT`</mark> √© consultar/buscar os dados de uma tabela em um banco de dados.
+O banco de dados n„o È utilizado apenas para armazenar dados, em alguns momentos È necess·rio realizar consultas ou atÈ comunicar com outras ferramentas e sistemas para fazer relatÛrios, mas como tudo isso È feito? Com a **cl·usula SELECT**, a principal funÁ„o do `SELECT` È consultar/buscar os dados de uma tabela em um banco de dados.
 
-Vamos supor que precisamos desenvolver um relat√≥rio para algum cliente/sistema ou at√© mesmo consultar uma informa√ß√£o que mostra inconsist√™ncia no sistema, mas como fazemos isso? Usando o SELECT para buscar esses dados
+Vamos supor que precisamos desenvolver um relatÛrio para algum cliente/sistema ou atÈ mesmo consultar uma informaÁ„o que mostra inconsistÍncia no sistema, mas como fazemos isso? Usando o SELECT para buscar esses dados
 
 ## SELECT SIMPLES <a href="#select-simples" id="select-simples"></a>
 
-<mark style="color:#B26A00;">A sintaxe b√°sica do comando √©:</mark>
+A sintaxe b·sica do comando È:
 
 {% code lineNumbers="true" fullWidth="false" %}
 ```sql
@@ -14,7 +14,7 @@ SELECT campos FROM nome_da_tabela
 ```
 {% endcode %}
 
-Bom, n√≥s temos em nosso banco de dados a tabela de clientes:
+Bom, nÛs temos em nosso banco de dados a tabela de clientes:
 
 | id | nome             | telefone  | genero | data\_cadastro |
 | -- | ---------------- | --------- | ------ | -------------- |
@@ -23,9 +23,9 @@ Bom, n√≥s temos em nosso banco de dados a tabela de clientes:
 | 3  | Valeria Custodio | 7777-7777 | F      | 20-10-2019     |
 | 4  | Isabel Borges    | 5555-555  | F      | 01-10-2019     |
 
-Ent√£o, para consultar podemos fazer de duas formas:
+Ent„o, para consultar podemos fazer de duas formas:
 
-* <mark style="color:#B26A00;">Trazendo todos os campos:</mark>
+* Trazendo todos os campos:
 
 {% code lineNumbers="true" %}
 ```sql
@@ -33,11 +33,11 @@ SELECT * FROM clientes
 ```
 {% endcode %}
 
-Neste comando, todos clientes s√£o retornados.
+Neste comando, todos clientes s„o retornados.
 
 Ou
 
-* <mark style="color:#B26A00;">Trazendo alguns campos:</mark>
+* Trazendo alguns campos:
 
 {% code lineNumbers="true" %}
 ```sql
@@ -45,41 +45,41 @@ SELECT nome, telefone FROM clientes
 ```
 {% endcode %}
 
-Neste comando, nome e telefone de todos os clientes s√£o retornados.
+Neste comando, nome e telefone de todos os clientes s„o retornados.
 
-O <mark style="color:#1565C0;">**asterisco**</mark> representa todos os campos. √â bem pr√°tico, mas n√£o muito utilizado. Ao usar o **asterisco** para trazer todos os campos, ele obriga o servidor do banco de dados a procurar os campos antes de trazer os dados e assim, causando uma demora no retorno da consulta.
+O **asterisco** representa todos os campos. … bem pr·tico, mas n„o muito utilizado. Ao usar o **asterisco** para trazer todos os campos, ele obriga o servidor do banco de dados a procurar os campos antes de trazer os dados e assim, causando uma demora no retorno da consulta.
 
 ## SELECT COM WHERE <a href="#select-com-where" id="select-com-where"></a>
 
-O <mark style="color:#2E7D32;">`WHERE`</mark> √© utilizado no SQL para passar condi√ß√µes/regras de filtragem.
+O `WHERE` È utilizado no SQL para passar condiÁıes/regras de filtragem.
 
-Vamos supor que queremos ver todos clientes do g√™nero feminino em nossa tabela, ent√£o, utilizamos o <mark style="color:#2E7D32;">WHERE</mark> para realizar essa filtragem:
-
-{% code lineNumbers="true" %}
-```sql
-SELECT * FROM clientes 
-         WHERE genero = ‚ÄúF‚Äù
-```
-{% endcode %}
-
-Neste comando, todos clientes do g√™nero feminino s√£o retornados.
-
-Tamb√©m podemos usar **operadores l√≥gicos** para usar mais de uma condi√ß√£o dentro do <mark style="color:#2E7D32;">WHERE</mark>.
+Vamos supor que queremos ver todos clientes do gÍnero feminino em nossa tabela, ent„o, utilizamos o WHERE para realizar essa filtragem:
 
 {% code lineNumbers="true" %}
 ```sql
 SELECT * FROM clientes 
-         WHERE genero = ‚ÄúF‚Äù AND nome LIKE ‚ÄúR%‚Äù
+         WHERE genero = ìFî
 ```
 {% endcode %}
 
-Neste comando, todos os clientes do g√™nero feminino com nomes que iniciam com <mark style="color:#B26A00;">**R**</mark> ser√£o retornados.
+Neste comando, todos clientes do gÍnero feminino s„o retornados.
 
-Al√©m do operador de igual (=) temos o <mark style="color:#2E7D32;">**IN**</mark> e o <mark style="color:#2E7D32;">**BETWEEN**</mark>.
+TambÈm podemos usar **operadores lÛgicos** para usar mais de uma condiÁ„o dentro do WHERE.
 
-* <mark style="color:#1565C0;">**IN**</mark>
+{% code lineNumbers="true" %}
+```sql
+SELECT * FROM clientes 
+         WHERE genero = ìFî AND nome LIKE ìR%î
+```
+{% endcode %}
 
-O IN √© utilizado para fazer a filtragem a partir de uma lista de buscas.
+Neste comando, todos os clientes do gÍnero feminino com nomes que iniciam com **R** ser„o retornados.
+
+AlÈm do operador de igual (=) temos o **IN** e o **BETWEEN**.
+
+* **IN**
+
+O IN È utilizado para fazer a filtragem a partir de uma lista de buscas.
 
 {% code lineNumbers="true" %}
 ```sql
@@ -88,33 +88,33 @@ SELECT * FROM clientes
 ```
 {% endcode %}
 
-Neste comando, todos os clientes com id 1, 2 e 3 ser√£o retornados.
+Neste comando, todos os clientes com id 1, 2 e 3 ser„o retornados.
 
-* <mark style="color:#1565C0;">**BETWEEN**</mark>
+* **BETWEEN**
 
-O BETWEEN √© utilizado para fazer buscas entre intervalos. √â mais utilizado para filtrar intervalos de datas.
+O BETWEEN È utilizado para fazer buscas entre intervalos. … mais utilizado para filtrar intervalos de datas.
 
 {% code lineNumbers="true" %}
 ```sql
 SELECT * FROM clientes 
-         WHERE data_cadastro BETWEEN ‚Äò10-12-2019‚Äô AND ‚Äò20-10-2019‚Äô
+         WHERE data_cadastro BETWEEN ë10-12-2019í AND ë20-10-2019í
 ```
 {% endcode %}
 
-Neste comando, todos os clientes que foram cadastrados entre essas datas ser√£o retornados.
+Neste comando, todos os clientes que foram cadastrados entre essas datas ser„o retornados.
 
 ## LIKE <a href="#like" id="like"></a>
 
-O <mark style="color:#1565C0;">LIKE</mark> √© utilizado para buscar <mark style="color:#B26A00;">**strings(texto)**</mark> dentro de uma coluna com valores textuais. Podemos buscar as linhas que o **nome** inicia com uma determinada palavra, como vimos acima ou cont√©m um certo texto.
+O LIKE È utilizado para buscar **strings(texto)** dentro de uma coluna com valores textuais. Podemos buscar as linhas que o **nome** inicia com uma determinada palavra, como vimos acima ou contÈm um certo texto.
 
-* <mark style="color:#2E7D32;">`string`</mark>: s√£o retornadas todas as linhas que tem na coluna buscada exatamente a "string" informada no filtro. <mark style="color:#B26A00;">√â a mesma coisa de usar o operador de igual.</mark>
-* <mark style="color:#2E7D32;">`%string%`</mark>: s√£o retornadas as linhas que tem na coluna buscada a "string" <mark style="color:#B26A00;">informada.</mark> Podemos buscar os nomes que tem "Jesus", ou que tem alguma s√≠laba ou letra espec√≠fica. A linha com o nome "Roberta de Jesus", cont√©m o termo "da", ent√£o atenderia ao filtro '%de%'.
-* <mark style="color:#2E7D32;">`%string`</mark>: s√£o retornadas as linhas que a coluna filtrada <mark style="color:#B26A00;">termina com</mark> a "string" informada. O % indica que pode ter qualquer valor no come√ßo do campo, desde que ele termine com a ‚Äústring". A linha com nome "Roberta de Jesus" atenderia ao filtro '%Jesus'.
-* <mark style="color:#2E7D32;">`string%`</mark>: s√£o retornadas as linhas que o coluna filtrada <mark style="color:#B26A00;">come√ßa com</mark> a ‚Äústring" informada. O % indica que depois da ‚Äústring‚Äù pode ter qualquer valor. A linha com nome "Roberta de Jesus", atenderia ao filtro 'Roberta%'.
+* `string`: s„o retornadas todas as linhas que tem na coluna buscada exatamente a "string" informada no filtro. … a mesma coisa de usar o operador de igual.
+* `%string%`: s„o retornadas as linhas que tem na coluna buscada a "string" informada. Podemos buscar os nomes que tem "Jesus", ou que tem alguma sÌlaba ou letra especÌfica. A linha com o nome "Roberta de Jesus", contÈm o termo "da", ent„o atenderia ao filtro '%de%'.
+* `%string`: s„o retornadas as linhas que a coluna filtrada termina com a "string" informada. O % indica que pode ter qualquer valor no comeÁo do campo, desde que ele termine com a ìstring". A linha com nome "Roberta de Jesus" atenderia ao filtro '%Jesus'.
+* `string%`: s„o retornadas as linhas que o coluna filtrada comeÁa com a ìstring" informada. O % indica que depois da ìstringî pode ter qualquer valor. A linha com nome "Roberta de Jesus", atenderia ao filtro 'Roberta%'.
 
 ## ORDER BY <a href="#order-by" id="order-by"></a>
 
-O <mark style="color:#1565C0;">ORDER BY</mark> √© utilizado para ordena√ß√£o. Podemos ordenar em ordem crescente (<mark style="color:#C65D00;">ASC</mark>) ou em ordem decrescente (<mark style="color:#C65D00;">DESC</mark>).
+O ORDER BY È utilizado para ordenaÁ„o. Podemos ordenar em ordem crescente (ASC) ou em ordem decrescente (DESC).
 
 {% code lineNumbers="true" %}
 ```sql
@@ -123,6 +123,6 @@ SELECT * FROM clientes
 ```
 {% endcode %}
 
-Neste comando, ser√£o retornados todos os clientes ordenados pelo nome em ordem crescente.
+Neste comando, ser„o retornados todos os clientes ordenados pelo nome em ordem crescente.
 
-Ent√£o pessoal, vimos neste artigo como fazer consultas simples apenas com o <mark style="color:#2E7D32;">SELECT</mark>, como incrementar essas consultas criando filtros com <mark style="color:#2E7D32;">WHERE</mark> e ordenar os dados com o <mark style="color:#2E7D32;">ORDER BY</mark>.
+Ent„o pessoal, vimos neste artigo como fazer consultas simples apenas com o SELECT, como incrementar essas consultas criando filtros com WHERE e ordenar os dados com o ORDER BY.

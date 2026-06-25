@@ -1,7 +1,7 @@
-Ôªø---
+---
 description: >-
-  Nesta p√°gina, vamos embarcar em uma jornada abrangente pelo mundo do SQL
-  (Structured Query Language) e explorar os princ√≠pios fundamentais da
+  Nesta p·gina, vamos embarcar em uma jornada abrangente pelo mundo do SQL
+  (Structured Query Language) e explorar os princÌpios fundamentais da
   linguagem.
 ---
 
@@ -11,32 +11,32 @@ description: >-
 
 ### Contexto
 
-Notas e exemplos sobre SQL e versionamento de schema com foco pr√°tico.
+Notas e exemplos sobre SQL e versionamento de schema com foco pr·tico.
 
-### Vers√µes de refer√™ncia (jun/2026)
+### Versıes de referÍncia (jun/2026)
 
-* SQL: conceitos ANSI e compat√≠veis com bancos relacionais modernos.
+* SQL: conceitos ANSI e compatÌveis com bancos relacionais modernos.
 * Liquibase Community: **5.0.3**.
 
-### O que est√° documentado
+### O que est· documentado
 
 1. Conceitos fundamentais de SQL (SELECT, INSERT, UPDATE, DELETE).
-2. Joins b√°sicos e filtros.
+2. Joins b·sicos e filtros.
 3. Modelagem simples de dados.
-4. Introdu√ß√£o ao uso de Liquibase para versionamento de schema.
+4. IntroduÁ„o ao uso de Liquibase para versionamento de schema.
 5. Playbook operacional de Liquibase para release e rollback.
 
-### Exemplo pr√°tico
+### Exemplo pr·tico
 
-Cen√°rio: sistema de loja.
+Cen·rio: sistema de loja.
 
 1. Modelar tabelas `clientes`, `produtos`, `pedidos`.
 2. Inserir dados com `INSERT`.
 3. Consultar pedidos por cliente com `SELECT` + `JOIN`.
-4. Corrigir pre√ßo com `UPDATE`.
-5. Versionar altera√ß√µes de schema com Liquibase.
+4. Corrigir preÁo com `UPDATE`.
+5. Versionar alteraÁıes de schema com Liquibase.
 
-### Refer√™ncias
+### ReferÍncias
 
 - [Useful Links](../../useful-links.md)
 - [Backend (Fundamentos e APIs)](../../back-end/backend/README.md)
@@ -50,115 +50,115 @@ Cen√°rio: sistema de loja.
 
 ## SQL
 
-### O que √© SQL e para que serve? <a href="#o-que-e-sql-e-para-que-serve" id="o-que-e-sql-e-para-que-serve"></a>
+### O que È SQL e para que serve? <a href="#o-que-e-sql-e-para-que-serve" id="o-que-e-sql-e-para-que-serve"></a>
 
-**O SQL √© uma linguagem padr√£o para trabalhar com bancos de dados relacionais, amplamente utilizada por profissionais em diversas √°reas, desde cientistas de dados at√© pessoas usu√°rias de Excel.**
+**O SQL È uma linguagem padr„o para trabalhar com bancos de dados relacionais, amplamente utilizada por profissionais em diversas ·reas, desde cientistas de dados atÈ pessoas usu·rias de Excel.**
 
-E, ao contr√°rio do que muitas pessoas pensam, para escrever queries (ou, como chamam, consultas) e ter resultados positivos, n√£o precisa conhecer profundamente sobre programa√ß√£o.
+E, ao contr·rio do que muitas pessoas pensam, para escrever queries (ou, como chamam, consultas) e ter resultados positivos, n„o precisa conhecer profundamente sobre programaÁ„o.
 
-SQL √© a sigla para _<mark style="color:#C62828;">Structured Query Language</mark>_.
+SQL È a sigla para _Structured Query Language_.
 
-A linguagem SQL √© relativamente semelhante entre os principais Sistemas Gerenciadores de Banco de Dados (<mark style="color:#B26A00;">SGBDs</mark>) do mercado, como: <mark style="color:#2E7D32;">Oracle, MySQL, MariaDB, PostgreSQL, Microsoft SQL Server,</mark> entre outros.
+A linguagem SQL È relativamente semelhante entre os principais Sistemas Gerenciadores de Banco de Dados (SGBDs) do mercado, como: Oracle, MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, entre outros.
 
-No entanto, √© muito importante destacar que cada um deles t√™m suas caracter√≠sticas e particularidades distintas. Por exemplo, o <mark style="color:#2E7D32;">MySQL</mark> e o <mark style="color:#2E7D32;">PostgreSQL</mark> s√£o extremamente not√°veis por oferecerem vers√µes gratuitas e de c√≥digo aberto, tornando-se extremamente populares por essa raz√£o.
+No entanto, È muito importante destacar que cada um deles tÍm suas caracterÌsticas e particularidades distintas. Por exemplo, o MySQL e o PostgreSQL s„o extremamente not·veis por oferecerem versıes gratuitas e de cÛdigo aberto, tornando-se extremamente populares por essa raz„o.
 
-Um grande destaque do SQL √© ser uma linguagem fundamental em v√°rias profiss√µes, especialmente para pessoas que querem se sobressair no mercado.
+Um grande destaque do SQL È ser uma linguagem fundamental em v·rias profissıes, especialmente para pessoas que querem se sobressair no mercado.
 
-√â o caso, por exemplo, de quem j√° usa o <mark style="color:#2E7D32;">Excel</mark> de maneira intensiva e precisa migrar suas informa√ß√µes para um banco de dados. Ou de cientistas de dados que usam Python para agregar dados em diferentes fontes de informa√ß√µes.
+… o caso, por exemplo, de quem j· usa o Excel de maneira intensiva e precisa migrar suas informaÁıes para um banco de dados. Ou de cientistas de dados que usam Python para agregar dados em diferentes fontes de informaÁıes.
 
 ### Curiosidades do SQL <a href="#curiosidades-do-sql" id="curiosidades-do-sql"></a>
 
-A evolu√ß√£o da <mark style="color:#1565C0;">linguagem SQL</mark> proporcionou desenvolvimentos significativos na gest√£o de dados e no processamento de informa√ß√µes.
+A evoluÁ„o da linguagem SQL proporcionou desenvolvimentos significativos na gest„o de dados e no processamento de informaÁıes.
 
-Antes de todo esse conhecimento estar ao nosso alcance, a gest√£o de dados era um terreno extremamente desafiador, com sistemas de banco de dados espec√≠ficos para cada aplica√ß√£o.
+Antes de todo esse conhecimento estar ao nosso alcance, a gest„o de dados era um terreno extremamente desafiador, com sistemas de banco de dados especÌficos para cada aplicaÁ„o.
 
 ### Antes do SQL
 
-Nas d√©cadas de 1960 e 1970, o contexto da gest√£o de dados era desafiador e fragmentado, pois cada aplica√ß√£o tinha seu sistema de gerenciamento de banco de dados (<mark style="color:#C65D00;">SGBD</mark>) espec√≠fico. E, geralmente, envolviam a programa√ß√£o direta de acesso a dados.
+Nas dÈcadas de 1960 e 1970, o contexto da gest„o de dados era desafiador e fragmentado, pois cada aplicaÁ„o tinha seu sistema de gerenciamento de banco de dados (SGBD) especÌfico. E, geralmente, envolviam a programaÁ„o direta de acesso a dados.
 
-Nisto, cada aplicativo tinha seu pr√≥prio formato de armazenamento de dados e n√£o havia uma linguagem comum para consulta e manipula√ß√£o de informa√ß√µes.
+Nisto, cada aplicativo tinha seu prÛprio formato de armazenamento de dados e n„o havia uma linguagem comum para consulta e manipulaÁ„o de informaÁıes.
 
-A solu√ß√£o veio, ent√£o, com o desenvolvimento do <mark style="color:#2E7D32;">SQL</mark>, como uma linguagem comum para consulta e manipula√ß√£o de informa√ß√µes.
+A soluÁ„o veio, ent„o, com o desenvolvimento do SQL, como uma linguagem comum para consulta e manipulaÁ„o de informaÁıes.
 
-Por tr√°s disso, se estabeleceu um padr√£o que unificou a forma como as pessoas acessam e tratam dados, impactando o processo da gest√£o de informa√ß√µes.
+Por tr·s disso, se estabeleceu um padr„o que unificou a forma como as pessoas acessam e tratam dados, impactando o processo da gest„o de informaÁıes.
 
 ### O Surgimento da SQL
 
-Em meados da d√©cada de 1970, como voc√™ j√° sabe, a principal motiva√ß√£o para criar o <mark style="color:#2E7D32;">SQL</mark> foi o problema de complexidade dos sistemas de gerenciamento de dados.
+Em meados da dÈcada de 1970, como vocÍ j· sabe, a principal motivaÁ„o para criar o SQL foi o problema de complexidade dos sistemas de gerenciamento de dados.
 
-A solu√ß√£o surgiu quando pesquisadores da IBM desenvolveram o <mark style="color:#C65D00;">SEQUEL</mark> (<mark style="color:#C62828;">Structured English Query Language</mark>), que serviu como base para o <mark style="color:#2E7D32;">SQL</mark> que temos acesso nos dias de hoje.
+A soluÁ„o surgiu quando pesquisadores da IBM desenvolveram o SEQUEL (Structured English Query Language), que serviu como base para o SQL que temos acesso nos dias de hoje.
 
-Em 1979, o <mark style="color:#C65D00;">SEQUEL</mark> foi renomeado para <mark style="color:#2E7D32;">SQL</mark> e a primeira especifica√ß√£o da linguagem foi lan√ßada em 1986, tornando-se um padr√£o.
+Em 1979, o SEQUEL foi renomeado para SQL e a primeira especificaÁ„o da linguagem foi lanÁada em 1986, tornando-se um padr„o.
 
-Ou seja, a cria√ß√£o do <mark style="color:#2E7D32;">SQL</mark> partiu da ideia de uma linguagem declarativa para consultar dados, em que as pessoas usu√°rias especificam o que querem ao inv√©s de como obt√™-lo.
+Ou seja, a criaÁ„o do SQL partiu da ideia de uma linguagem declarativa para consultar dados, em que as pessoas usu·rias especificam o que querem ao invÈs de como obtÍ-lo.
 
-Por esse caminho, o <mark style="color:#2E7D32;">SQL</mark> evoluiu significativamente ao longo dos anos, incorporando recursos avan√ßados e expandindo sua aplica√ß√£o para al√©m de bancos de dados relacionais tradicionais.
+Por esse caminho, o SQL evoluiu significativamente ao longo dos anos, incorporando recursos avanÁados e expandindo sua aplicaÁ„o para alÈm de bancos de dados relacionais tradicionais.
 
-Atualmente, o <mark style="color:#2E7D32;">SQL</mark> √© usado em uma ampla gama de aplicativos, desde an√°lise de dados at√© sistemas de informa√ß√µes de sa√∫de e gerenciamento de conte√∫do da web.
+Atualmente, o SQL È usado em uma ampla gama de aplicativos, desde an·lise de dados atÈ sistemas de informaÁıes de sa˙de e gerenciamento de conte˙do da web.
 
 ### Por que aprender SQL? <a href="#por-que-aprender-sql" id="por-que-aprender-sql"></a>
 
-Al√©m de banco de dados, a grande √°rea de tecnologia envolve muitos outros segmentos. O grande ponto √© que esses segmentos s√£o interligados entre si.
+AlÈm de banco de dados, a grande ·rea de tecnologia envolve muitos outros segmentos. O grande ponto È que esses segmentos s„o interligados entre si.
 
-Ou seja, existe uma certa depend√™ncia entre eles. A linguagem <mark style="color:#2E7D32;">SQL</mark> √©, portanto, o padr√£o para o gerenciamento de bancos de dados relacionais que conecta uma ampla variedade de aplica√ß√µes.
+Ou seja, existe uma certa dependÍncia entre eles. A linguagem SQL È, portanto, o padr„o para o gerenciamento de bancos de dados relacionais que conecta uma ampla variedade de aplicaÁıes.
 
-Como Dev de softwares que frequentemente precisam integrar bancos de dados em suas aplica√ß√µes, o conhecimento de <mark style="color:#2E7D32;">SQL</mark> √© fundamental para criar aplicativos que interajam de maneira eficaz com bancos de dados.
+Como Dev de softwares que frequentemente precisam integrar bancos de dados em suas aplicaÁıes, o conhecimento de SQL È fundamental para criar aplicativos que interajam de maneira eficaz com bancos de dados.
 
-Assim, como em outras √°reas, se voc√™ busca uma carreira em tecnologia, an√°lise de dados, ci√™ncia de dados ou desenvolvimento de software, o <mark style="color:#2E7D32;">SQL</mark> √© uma habilidade essencial amplamente valorizada pelas empresas.
+Assim, como em outras ·reas, se vocÍ busca uma carreira em tecnologia, an·lise de dados, ciÍncia de dados ou desenvolvimento de software, o SQL È uma habilidade essencial amplamente valorizada pelas empresas.
 
-### Quais s√£o as vantagens e desvantagens da linguagem SQL? <a href="#quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql" id="quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql"></a>
+### Quais s„o as vantagens e desvantagens da linguagem SQL? <a href="#quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql" id="quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql"></a>
 
-Como ocorre em qualquer outra linguagem ou tecnologia, o <mark style="color:#2E7D32;">SQL</mark> possui vantagens e desvantagens que dependem do contexto e das necessidades espec√≠ficas.
+Como ocorre em qualquer outra linguagem ou tecnologia, o SQL possui vantagens e desvantagens que dependem do contexto e das necessidades especÌficas.
 
-Para aprofundar nossa compreens√£o sobre as diversas possibilidades, vamos examinar algumas das principais vantagens e desvantagens da linguagem <mark style="color:#2E7D32;">SQL</mark>.
+Para aprofundar nossa compreens„o sobre as diversas possibilidades, vamos examinar algumas das principais vantagens e desvantagens da linguagem SQL.
 
 #### Vantagens
 
-Dentre todas as vantagens do <mark style="color:#2E7D32;">SQL</mark>, as principais s√£o:
+Dentre todas as vantagens do SQL, as principais s„o:
 
-* <mark style="color:#1565C0;">**Padroniza√ß√£o**</mark>**:** trata-se de uma linguagem padronizada, o que significa que, independentemente do sistema de gerenciamento de banco de dados (<mark style="color:#C65D00;">SGBD</mark>) que voc√™ est√° usando (por exemplo, <mark style="color:#2E7D32;">MySQL, PostgreSQL, Oracle, SQL Server</mark>), a linguagem em si √© a mesma. Isso facilita a portabilidade e a aprendizagem.
-* <mark style="color:#1565C0;">**Facilidade de Consulta**</mark>**:** oferece uma maneira intuitiva de consultar e recuperar dados de bancos de dados. √â uma linguagem declarativa que permite que voc√™ especifique o que deseja, em vez de como obt√™-lo, tornando as consultas mais compreens√≠veis.
-* <mark style="color:#1565C0;">**Integridade de Dados**</mark>**:** permite a defini√ß√£o de restri√ß√µes de integridade, como chaves prim√°rias e estrangeiras, para garantir que os dados sejam consistentes e confi√°veis.
+* **PadronizaÁ„o****:** trata-se de uma linguagem padronizada, o que significa que, independentemente do sistema de gerenciamento de banco de dados (SGBD) que vocÍ est· usando (por exemplo, MySQL, PostgreSQL, Oracle, SQL Server), a linguagem em si È a mesma. Isso facilita a portabilidade e a aprendizagem.
+* **Facilidade de Consulta****:** oferece uma maneira intuitiva de consultar e recuperar dados de bancos de dados. … uma linguagem declarativa que permite que vocÍ especifique o que deseja, em vez de como obtÍ-lo, tornando as consultas mais compreensÌveis.
+* **Integridade de Dados****:** permite a definiÁ„o de restriÁıes de integridade, como chaves prim·rias e estrangeiras, para garantir que os dados sejam consistentes e confi·veis.
 
 #### Desvantagens
 
-Mas tudo tem dois lados. E o SQL tamb√©m tem alguns pontos n√£o t√£o bons assim:
+Mas tudo tem dois lados. E o SQL tambÈm tem alguns pontos n„o t„o bons assim:
 
-* <mark style="color:#1565C0;">**Complexidade**</mark>**:** as consultas SQL mais complexas podem se tornar dif√≠ceis de escrever e entender, principalmente para iniciantes, tornando-as mais suscet√≠veis a erros.
-* <mark style="color:#1565C0;">**Desempenho Vari√°vel**</mark>: o desempenho das consultas <mark style="color:#2E7D32;">SQL</mark> pode variar dependendo da estrutura do banco de dados, da indexa√ß√£o e do volume de dados. Consultas mal otimizadas podem ser lentas.
-* <mark style="color:#1565C0;">**Falta de Suporte para dados n√£o estruturados**</mark>**:** o <mark style="color:#2E7D32;">SQL</mark> √© otimizado para dados estruturados, o que significa que n√£o √© a melhor escolha para armazenar e consultar dados n√£o estruturados, como documentos de texto, √°udio ou v√≠deo.
+* **Complexidade****:** as consultas SQL mais complexas podem se tornar difÌceis de escrever e entender, principalmente para iniciantes, tornando-as mais suscetÌveis a erros.
+* **Desempenho Vari·vel**: o desempenho das consultas SQL pode variar dependendo da estrutura do banco de dados, da indexaÁ„o e do volume de dados. Consultas mal otimizadas podem ser lentas.
+* **Falta de Suporte para dados n„o estruturados****:** o SQL È otimizado para dados estruturados, o que significa que n„o È a melhor escolha para armazenar e consultar dados n„o estruturados, como documentos de texto, ·udio ou vÌdeo.
 
-### Onde o SQL √© usado? <a href="#onde-o-sql-e-usado" id="onde-o-sql-e-usado"></a>
+### Onde o SQL È usado? <a href="#onde-o-sql-e-usado" id="onde-o-sql-e-usado"></a>
 
-A linguagem <mark style="color:#2E7D32;">SQL</mark> e os bancos de dados relacionais podem ser utilizados em v√°rias √°reas da nossa vida.
+A linguagem SQL e os bancos de dados relacionais podem ser utilizados em v·rias ·reas da nossa vida.
 
-* <mark style="color:#1565C0;">**Desenvolvimento de Aplicativos Web**</mark>**:** muitos aplicativos web usam bancos de dados para armazenar informa√ß√µes. O <mark style="color:#2E7D32;">SQL</mark> pode ser utilizado para criar consultas que recuperam, inserem, atualizam e excluem dados em tempo real.
-* <mark style="color:#1565C0;">**An√°lise de Dados e Business Intelligence (BI)**</mark>**:** A execu√ß√£o de consultas em bancos de dados para an√°lise de dados, gera√ß√£o de relat√≥rios e pain√©is de controle √© um processo no qual o <mark style="color:#2E7D32;">SQL</mark> desempenha um papel fundamental. Ferramentas de BI geralmente usam SQL para recuperar informa√ß√µes com efic√°cia.
-* <mark style="color:#1565C0;">**Ci√™ncia de Dados e Minera√ß√£o de Dados**</mark>**:** Em ci√™ncia de dados, o <mark style="color:#2E7D32;">SQL</mark> √© usado para limpar, transformar e analisar dados armazenados em bancos de dados. Ele √© fundamental para consultas complexas e agrega√ß√£o de dados.
-* <mark style="color:#1565C0;">**Aplica√ß√µes M√≥veis**</mark>**:** Muitos aplicativos m√≥veis usam bancos de dados embutidos que s√£o acessados por meio de <mark style="color:#2E7D32;">SQL</mark> para armazenar dados localmente no dispositivo.
-* <mark style="color:#1565C0;">**Educa√ß√£o e Pesquisa**</mark>**:** Institui√ß√µes acad√™micas e de pesquisa usam <mark style="color:#2E7D32;">SQL</mark> para armazenar e analisar dados em uma ampla variedade de disciplinas, desde economia at√© biologia, contribuindo para avan√ßos significativos no conhecimento atrav√©s da resolu√ß√£o de problemas complexos, como a compreens√£o de tend√™ncias educacionais e o aprimoramento de m√©todos de ensino.
-* <mark style="color:#1565C0;">**Gest√£o de Finan√ßas e Contabilidade**</mark>**:** Empresas financeiras e departamentos de contabilidade usam <mark style="color:#2E7D32;">SQL</mark> para gerenciar e analisar dados financeiros, incluindo transa√ß√µes, balan√ßos e demonstra√ß√µes financeiras.
+* **Desenvolvimento de Aplicativos Web****:** muitos aplicativos web usam bancos de dados para armazenar informaÁıes. O SQL pode ser utilizado para criar consultas que recuperam, inserem, atualizam e excluem dados em tempo real.
+* **An·lise de Dados e Business Intelligence (BI)****:** A execuÁ„o de consultas em bancos de dados para an·lise de dados, geraÁ„o de relatÛrios e painÈis de controle È um processo no qual o SQL desempenha um papel fundamental. Ferramentas de BI geralmente usam SQL para recuperar informaÁıes com efic·cia.
+* **CiÍncia de Dados e MineraÁ„o de Dados****:** Em ciÍncia de dados, o SQL È usado para limpar, transformar e analisar dados armazenados em bancos de dados. Ele È fundamental para consultas complexas e agregaÁ„o de dados.
+* **AplicaÁıes MÛveis****:** Muitos aplicativos mÛveis usam bancos de dados embutidos que s„o acessados por meio de SQL para armazenar dados localmente no dispositivo.
+* **EducaÁ„o e Pesquisa****:** InstituiÁıes acadÍmicas e de pesquisa usam SQL para armazenar e analisar dados em uma ampla variedade de disciplinas, desde economia atÈ biologia, contribuindo para avanÁos significativos no conhecimento atravÈs da resoluÁ„o de problemas complexos, como a compreens„o de tendÍncias educacionais e o aprimoramento de mÈtodos de ensino.
+* **Gest„o de FinanÁas e Contabilidade****:** Empresas financeiras e departamentos de contabilidade usam SQL para gerenciar e analisar dados financeiros, incluindo transaÁıes, balanÁos e demonstraÁıes financeiras.
 
-Como voc√™ pode perceber, atualmente, os dados desempenham um papel fundamental na nossa sociedade. No fim das contas, todos n√≥s somos pessoas que consomem e, ativamente, produzem dados.
+Como vocÍ pode perceber, atualmente, os dados desempenham um papel fundamental na nossa sociedade. No fim das contas, todos nÛs somos pessoas que consomem e, ativamente, produzem dados.
 
-Assim, em diferentes contextos ‚Äî da economia, da ci√™ncia, da sa√∫de e da educa√ß√£o, a coleta e a an√°lise de informa√ß√µes s√£o pontos fundamentais para embasar decis√µes criteriosas e promover avan√ßos significativos.
+Assim, em diferentes contextos ó da economia, da ciÍncia, da sa˙de e da educaÁ„o, a coleta e a an·lise de informaÁıes s„o pontos fundamentais para embasar decisıes criteriosas e promover avanÁos significativos.
 
 ### Como o SQL funciona? <a href="#como-o-sql-funciona" id="como-o-sql-funciona"></a>
 
-A linguagem <mark style="color:#2E7D32;">SQL</mark> serve para interagir com os nossos dados que est√£o armazenados dentro de um banco de dados relacional, permitindo a cria√ß√£o, a recupera√ß√£o, a atualiza√ß√£o e a exclus√£o desses dados.
+A linguagem SQL serve para interagir com os nossos dados que est„o armazenados dentro de um banco de dados relacional, permitindo a criaÁ„o, a recuperaÁ„o, a atualizaÁ„o e a exclus„o desses dados.
 
-O <mark style="color:#2E7D32;">SQL</mark> funciona, portanto, por meio de v√°rios componentes e processos que trabalham juntos para gerenciar bancos de dados relacionais, como:
+O SQL funciona, portanto, por meio de v·rios componentes e processos que trabalham juntos para gerenciar bancos de dados relacionais, como:
 
-* <mark style="color:#1565C0;">Analisador</mark>: analisa a instru√ß√£o <mark style="color:#2E7D32;">SQL</mark>, verificando sua sintaxe e convertendo palavras-chave em s√≠mbolos especiais.
-* <mark style="color:#1565C0;">Exatid√£o</mark>: garante que a instru√ß√£o esteja em conformidade com as regras da <mark style="color:#2E7D32;">SQL</mark>, como o uso correto de pontos e v√≠rgulas.
-* <mark style="color:#1565C0;">Autoriza√ß√£o</mark>: valida se o usu√°rio tem permiss√£o para executar a consulta e manipular os dados, com base em suas credenciais.
-* <mark style="color:#1565C0;">Mecanismo Relacional</mark>: cria um plano eficiente para acessar os dados, otimizando a consulta e verificando consultas semelhantes.
-* <mark style="color:#1565C0;">Mecanismo de Armazenamento</mark>: executa a instru√ß√£o <mark style="color:#2E7D32;">SQL</mark>, lendo e gravando os dados nos arquivos de armazenamento f√≠sico.
+* Analisador: analisa a instruÁ„o SQL, verificando sua sintaxe e convertendo palavras-chave em sÌmbolos especiais.
+* Exatid„o: garante que a instruÁ„o esteja em conformidade com as regras da SQL, como o uso correto de pontos e vÌrgulas.
+* AutorizaÁ„o: valida se o usu·rio tem permiss„o para executar a consulta e manipular os dados, com base em suas credenciais.
+* Mecanismo Relacional: cria um plano eficiente para acessar os dados, otimizando a consulta e verificando consultas semelhantes.
+* Mecanismo de Armazenamento: executa a instruÁ„o SQL, lendo e gravando os dados nos arquivos de armazenamento fÌsico.
 
-### Quais s√£o os componentes de um sistema SQL? <a href="#quais-sao-os-componentes-de-um-sistema-sql" id="quais-sao-os-componentes-de-um-sistema-sql"></a>
+### Quais s„o os componentes de um sistema SQL? <a href="#quais-sao-os-componentes-de-um-sistema-sql" id="quais-sao-os-componentes-de-um-sistema-sql"></a>
 
-Um sistema <mark style="color:#2E7D32;">SQL</mark> (<mark style="color:#C62828;">Sistema de Gerenciamento de Banco de Dados Relacionais</mark>) √© composto por v√°rios componentes que trabalham juntos para permitir a <mark style="color:#1565C0;">**cria√ß√£o**</mark>, a <mark style="color:#1565C0;">**manuten√ß√£o**</mark> e a <mark style="color:#1565C0;">**consulta**</mark> de bancos de dados relacionais:
+Um sistema SQL (Sistema de Gerenciamento de Banco de Dados Relacionais) È composto por v·rios componentes que trabalham juntos para permitir a **criaÁ„o**, a **manutenÁ„o** e a **consulta** de bancos de dados relacionais:
 
-* <mark style="color:#1565C0;">Tabelas</mark>: as tabelas s√£o estruturas fundamentais em um banco de dados <mark style="color:#2E7D32;">SQL</mark>. Elas s√£o usadas para armazenar os dados em formato tabular, com colunas representando atributos e linhas representando registros. As tabelas s√£o projetadas com base no modelo relacional.
-* <mark style="color:#1565C0;">Procedimentos Armazenados</mark>: os procedimentos armazenados s√£o blocos de c√≥digo <mark style="color:#2E7D32;">SQL</mark> que podem ser definidos e armazenados no banco de dados. Eles s√£o usados para realizar tarefas espec√≠ficas, como c√°lculos complexos, valida√ß√µes de dados e processamento personalizado. Os procedimentos armazenados podem ser chamados por aplicativos ou outros procedimentos armazenados.
-* <mark style="color:#1565C0;">Instru√ß√µes SQL</mark>: As instru√ß√µes <mark style="color:#2E7D32;">SQL</mark>, como <mark style="color:#2E7D32;">SELECT</mark>, <mark style="color:#2E7D32;">INSERT</mark>, <mark style="color:#2E7D32;">UPDATE</mark> e <mark style="color:#2E7D32;">DELETE</mark>, s√£o usadas para manipular os dados em tabelas. As instru√ß√µes <mark style="color:#2E7D32;">SQL</mark> permitem que os usu√°rios realizem consultas, insiram novos dados, atualizem registros existentes e excluam dados.
+* Tabelas: as tabelas s„o estruturas fundamentais em um banco de dados SQL. Elas s„o usadas para armazenar os dados em formato tabular, com colunas representando atributos e linhas representando registros. As tabelas s„o projetadas com base no modelo relacional.
+* Procedimentos Armazenados: os procedimentos armazenados s„o blocos de cÛdigo SQL que podem ser definidos e armazenados no banco de dados. Eles s„o usados para realizar tarefas especÌficas, como c·lculos complexos, validaÁıes de dados e processamento personalizado. Os procedimentos armazenados podem ser chamados por aplicativos ou outros procedimentos armazenados.
+* InstruÁıes SQL: As instruÁıes SQL, como SELECT, INSERT, UPDATE e DELETE, s„o usadas para manipular os dados em tabelas. As instruÁıes SQL permitem que os usu·rios realizem consultas, insiram novos dados, atualizem registros existentes e excluam dados.

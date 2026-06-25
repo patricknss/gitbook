@@ -28,7 +28,7 @@ Padrao para manter os conteudos consistentes, legiveis e navegaveis.
 ## Cores e destaque
 
 - Priorizar Markdown puro (`**negrito**`, blocos de citação, tabelas).
-- Evitar hardcode de cor com `<mark style=...>` em novos textos.
+- Evitar hardcode de cor com `` em novos textos.
 - Se precisar destaque visual, usar no maximo 1 estrategia por secao.
 
 ## Links cruzados
