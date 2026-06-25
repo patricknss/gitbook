@@ -6,14 +6,27 @@
 ## Backend
 
 * [Backend](back-end/README.md)
-  * [Fundamentos de C#](back-end/csharp/fundamentos-da-linguagem.md)
-  * [Programação Orientada a Objetos](back-end/csharp/orientacao-a-objetos.md)
-  * [Coleções e Arrays](back-end/csharp/colecoes-e-arrays.md)
-  * [DDD (Domain-Driven Design)](back-end/ddd-domain-driven-design.md)
-  * [ASP.NET Básico (Controllers e Services)](back-end/aspnet-basico.md)
-  * [Async/Await e Concorrência](back-end/async-await-concorrencia.md)
-  * [Gerenciamento de cache em memória](back-end/cache-em-memoria.md)
-  * [Magick.NET](back-end/magick-net.md)
+  * [Backend (Fundamentos e APIs)](back-end/backend/README.md)
+    * [Fundamentos de C#](back-end/backend/csharp/fundamentos-da-linguagem.md)
+    * [Programacao Orientada a Objetos](back-end/backend/csharp/orientacao-a-objetos.md)
+    * [Colecoes e Arrays](back-end/backend/csharp/colecoes-e-arrays.md)
+    * [LINQ](back-end/backend/csharp/linq.md)
+    * [ASP.NET Basico (Controllers e Services)](back-end/backend/aspnet-basico.md)
+    * [Async/Await e Concorrencia](back-end/backend/async-await-concorrencia.md)
+    * [Gerenciamento de cache em memoria](back-end/backend/cache-em-memoria.md)
+  * [DDD (Arquitetura Autoglass)](back-end/ddd/README.md)
+    * [Arquitetura DDD Autoglass](back-end/ddd/arquitetura-autoglass-ddd.md)
+
+## Bibliotecas
+
+* [Bibliotecas](bibliotecas/README.md)
+  * [Magick.NET](bibliotecas/magick-net.md)
+  * [Mapster](bibliotecas/mapster.md)
+  * [NPOI](bibliotecas/npoi.md)
+  * [IronPDF](bibliotecas/iron-pdf.md)
+  * [xUnit](bibliotecas/xunit.md)
+  * [NHibernate](bibliotecas/nhibernate.md)
+  * [Dapper](bibliotecas/dapper.md)
 
 ## Banco de Dados
 
@@ -21,22 +34,22 @@
   * [Comandos SQL (SELECT, INSERT, UPDATE, DELETE)](data-science/sql/comandos-sql.md)
   * [Consultas com SELECT e filtros](data-science/sql/sql-consultas-com-select.md)
   * [UPDATE e DELETE](data-science/sql/sql-clausulas-update-e-delete.md)
-  * [Joins básicos](data-science/sql/joins-basicos.md)
+  * [Joins basicos](data-science/sql/joins-basicos.md)
   * [Modelagem simples de dados](data-science/sql/modelagem-simples.md)
-  * [Liquibase: introdução](data-science/sql/liquibase-introducao.md)
+  * [Liquibase: introducao](data-science/sql/liquibase-introducao.md)
 
 ## Frontend
 
 * [Frontend](front-end/README.md)
   * [Fundamentos de TypeScript](front-end/typescript-fundamentos.md)
-  * [Estrutura básica de projetos Angular](front-end/angular-estrutura.md)
+  * [Estrutura basica de projetos Angular](front-end/angular-estrutura.md)
   * [Componentes, templates e data binding](front-end/angular-componentes-templates-binding.md)
-  * [Serviços e consumo de APIs](front-end/angular-servicos-e-apis.md)
-  * [Noções iniciais de RxJS](front-end/rxjs-nocoes-iniciais.md)
+  * [Servicos e consumo de APIs](front-end/angular-servicos-e-apis.md)
+  * [Nocoes iniciais de RxJS](front-end/rxjs-nocoes-iniciais.md)
 
 ## Conceitos AWS
 
-* [Visão geral AWS para devs](cloud/aws/README.md)
+* [Visao geral AWS para devs](cloud/aws/README.md)
   * [Amazon Cognito](cloud/aws/cognito.md)
   * [Amazon S3](cloud/aws/s3.md)
   * [Amazon SQS](cloud/aws/sqs.md)

@@ -1,4 +1,4 @@
-# ASP.NET Básico (Controllers e Services)
+﻿# ASP.NET Básico (Controllers e Services)
 
 ## Versão de referência
 
@@ -99,3 +99,9 @@ Content-Type: application/json
 - Colocar regra de negócio direto no Controller.
 - Expor entidade de domínio diretamente na API em vez de DTO.
 - Não validar entrada antes de chamar o serviço.
+
+## Veja tambem
+
+- Arquitetura de dominio: [DDD (Arquitetura Autoglass)](../ddd/README.md)
+- Mapeamento de DTOs: [Mapster](../../bibliotecas/mapster.md)
+- Persistencia de dados: [NHibernate](../../bibliotecas/nhibernate.md) e [Dapper](../../bibliotecas/dapper.md)

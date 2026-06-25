@@ -1,4 +1,4 @@
-# Coleções e Arrays
+﻿# Coleções e Arrays
 
 ### **Arrays**
 

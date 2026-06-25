@@ -1,4 +1,4 @@
-# Fundamentos da Linguagem
+﻿# Fundamentos da Linguagem
 
 ## Sintaxe Básica
 

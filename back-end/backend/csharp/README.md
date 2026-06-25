@@ -1,4 +1,4 @@
----
+﻿---
 description: >-
   C# é uma linguagem orientada a objetos da Microsoft, moderna, fortemente
   tipada, usada principalmente para desenvolvimento na plataforma .NET.
