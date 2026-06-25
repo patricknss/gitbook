@@ -1,4 +1,4 @@
-# Busca e Ordenacao
+﻿# Busca e Ordenacao
 
 Algoritmos base para localizar e organizar dados.
 
@@ -16,7 +16,7 @@ Algoritmos base para localizar e organizar dados.
 | Quick sort | `O(n log n)` medio |
 | Heap sort | `O(n log n)` |
 
-## Regra pratica
+## Regra prática
 
 - para colecoes pequenas, simplicidade pode bastar;
 - para volume alto, priorize `O(n log n)`.

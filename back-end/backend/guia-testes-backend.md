@@ -1,15 +1,15 @@
-# Guia de Testes Backend (.NET)
+﻿# Guia de Testes Backend (.NET)
 
 Padrao para testes por camada em projetos backend.
 
 ## Estrategia por camada
 
 1. **Dominio**: prioridade maxima (entidades e services).
-2. **Aplicacao**: fluxo de caso de uso, transacao e mapeamento.
+2. **Aplicacao**: fluxo de caso de uso, transação e mapeamento.
 3. **Infra**: consultas/repositorios criticos.
 4. **API**: contrato HTTP e codigos de resposta.
 
-## Ferramentas padrao
+## Ferramentas padrão
 
 - xUnit
 - FluentAssertions
@@ -36,7 +36,7 @@ Padrao para testes por camada em projetos backend.
 2. Teste de erro/regra violada.
 3. Nenhum teste dependente de ordem.
 4. Nomes de teste descrevendo comportamento.
-5. Sem mock de detalhe que nao pertence ao contrato.
+5. Sem mock de detalhe que não pertence ao contrato.
 
 ## Veja tambem
 

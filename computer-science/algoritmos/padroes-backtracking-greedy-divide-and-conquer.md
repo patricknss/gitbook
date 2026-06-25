@@ -1,4 +1,4 @@
-# Backtracking, Greedy e Divide and Conquer
+﻿# Backtracking, Greedy e Divide and Conquer
 
 Tres estrategias para classes diferentes de problemas.
 

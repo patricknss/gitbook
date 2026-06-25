@@ -1,4 +1,4 @@
-# Backend (Fundamentos e APIs)
+﻿# Backend (Fundamentos e APIs)
 
 Conteudo pratico de backend com foco em .NET/C# e fundamentos de APIs.
 

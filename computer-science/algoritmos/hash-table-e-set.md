@@ -1,11 +1,11 @@
-# Hash Table e Set
+﻿# Hash Table e Set
 
-Estruturas chave para lookup rapido.
+Estruturas chave para lookup rápido.
 
 ## Hash table (map/dictionary)
 
 - chave -> valor;
-- uso comum: cache, indice em memoria, contagem.
+- uso comum: cache, indice em memória, contagem.
 
 ## Hash set
 

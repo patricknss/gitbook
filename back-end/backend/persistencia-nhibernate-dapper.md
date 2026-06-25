@@ -1,4 +1,4 @@
-# Persistencia: NHibernate x Dapper
+﻿# Persistencia: NHibernate x Dapper
 
 Guia de decisao para escolher a estrategia de persistencia no backend.
 
@@ -14,23 +14,23 @@ Guia de decisao para escolher a estrategia de persistencia no backend.
 - Relatorios e projecoes especificas.
 - SQL direto com necessidade de performance ou controle fino.
 
-## Regra pratica
+## Regra prática
 
 - **Escrita**: priorize NHibernate.
 - **Leitura complexa/otimizada**: considere Dapper.
-- Evite misturar sem criterio no mesmo caso de uso.
+- Evite misturar sem critério no mesmo caso de uso.
 
 ## Transacao
 
-- Abrir e fechar transacao na camada de Aplicacao.
+- Abrir e fechar transação na camada de Aplicacao.
 - `Commit` apenas no caminho de sucesso.
 - `Rollback` em qualquer falha.
-- Dominio nao deve abrir transacao.
+- Dominio não deve abrir transação.
 
 ## Anti-patterns comuns
 
 1. Controller chamando repositorio diretamente.
-2. Regra de negocio embutida no SQL de repositorio.
+2. Regra de negócio embutida no SQL de repositorio.
 3. Excesso de joins para montar resposta de escrita.
 4. Falta de indice em consultas Dapper de alto volume.
 

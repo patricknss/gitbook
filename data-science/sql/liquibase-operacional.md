@@ -1,4 +1,4 @@
-# Liquibase Operacional (Padrao de Time)
+﻿# Liquibase Operacional (Padrao de Time)
 
 Guia operacional completo para uso de Liquibase no dia a dia.
 
@@ -68,8 +68,8 @@ liquibase --defaultsFile=liquibase.properties updateSQL
 
 ## Fluxo para nova release
 
-1. Criar changelog da versao.
-2. Incluir tag de versao como primeiro changeset.
+1. Criar changelog da versão.
+2. Incluir tag de versão como primeiro changeset.
 3. Atualizar changelog master com novo include.
 4. Adicionar scripts e changesets.
 
@@ -82,11 +82,11 @@ liquibase --defaultsFile=liquibase.properties updateSQL
 | `ALTER TABLE ADD COLUMN` | `ALTER TABLE DROP COLUMN` |
 | `INSERT` | `DELETE` com filtro seguro |
 
-## Troubleshooting rapido
+## Troubleshooting rápido
 
 1. `validate` falhou: corrigir include/xsd/sintaxe e reexecutar.
-2. Lock ativo: investigar processo concorrente antes de qualquer acao manual.
-3. Checksum divergente: nao alterar changeset ja aplicado; criar novo changeset.
+2. Lock ativo: investigar processo concorrente antes de qualquer ação manual.
+3. Checksum divergente: não alterar changeset ja aplicado; criar novo changeset.
 4. Ordem quebrada: ajustar includes e dependencias de script.
 
 ## Veja tambem

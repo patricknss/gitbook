@@ -1,4 +1,4 @@
-# Big O e Complexidade
+﻿# Big O e Complexidade
 
 Big O descreve como o custo cresce com o tamanho da entrada.
 
@@ -14,16 +14,16 @@ Big O descreve como o custo cresce com o tamanho da entrada.
 
 ## Tempo x espaco
 
-- Complexidade de tempo: quantidade de operacoes.
-- Complexidade de espaco: memoria adicional usada.
+- Complexidade de tempo: quantidade de operações.
+- Complexidade de espaco: memória adicional usada.
 
-## Regras praticas
+## Regras práticas
 
-1. Big O mostra tendencia, nao tempo absoluto.
-2. Constantes importam em producao, mas tendencia importa em escala.
+1. Big O mostra tendencia, não tempo absoluto.
+2. Constantes importam em produção, mas tendencia importa em escala.
 3. Evite custos quadrados sem necessidade.
 
-## Exemplo rapido
+## Exemplo rápido
 
 ```csharp
 // O(n^2)

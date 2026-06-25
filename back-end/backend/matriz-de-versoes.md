@@ -1,4 +1,4 @@
-# Matriz de Versoes e Compatibilidade
+﻿# Matriz de Versoes e Compatibilidade
 
 Versoes-base para reduzir divergencia entre ambientes e times.
 
@@ -24,16 +24,16 @@ Versoes-base para reduzir divergencia entre ambientes e times.
 
 ## Politica de atualizacao
 
-1. Atualizacao de versao maior exige plano e validacao por PR.
+1. Atualizacao de versão maior exige plano e validação por PR.
 2. Atualizacao de patch/minor pode ser continua, com changelog.
-3. Nao misturar versoes conflitantes sem registro explicito.
+3. Não misturar versões conflitantes sem registro explicito.
 
 ## Checklist de compatibilidade
 
 1. Projeto compila com SDK de referencia.
 2. Pacotes principais sem conflito de dependencia.
-3. Pipeline usa versao compativel com local.
-4. Documentacao atualizada quando versao mudar.
+3. Pipeline usa versão compativel com local.
+4. Documentacao atualizada quando versão mudar.
 
 ## Veja tambem
 

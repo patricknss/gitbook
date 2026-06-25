@@ -1,4 +1,4 @@
-# Pilha e Fila
+﻿# Pilha e Fila
 
 Estruturas lineares com regras de acesso diferentes.
 

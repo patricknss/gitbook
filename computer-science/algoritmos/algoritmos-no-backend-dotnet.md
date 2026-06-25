@@ -1,4 +1,4 @@
-# Algoritmos no Backend .NET
+﻿# Algoritmos no Backend .NET
 
 Como aplicar fundamentos de algoritmos em casos reais de API e servicos.
 
@@ -7,7 +7,7 @@ Como aplicar fundamentos de algoritmos em casos reais de API e servicos.
 1. Deduplicacao de ids com `HashSet<T>`.
 2. Lookup por chave com `Dictionary<TKey, TValue>`.
 3. Top N com priority queue.
-4. Pagina/processamento em lote para reduzir pico de memoria.
+4. Pagina/processamento em lote para reduzir pico de memória.
 
 ## LINQ com cuidado
 
@@ -15,7 +15,7 @@ Como aplicar fundamentos de algoritmos em casos reais de API e servicos.
 - evitar `Contains` em lista grande dentro de loop;
 - projetar apenas campos necessarios.
 
-## Escolha de estrutura (regra rapida)
+## Escolha de estrutura (regra rápida)
 
 - existencia: `HashSet`.
 - chave/valor: `Dictionary`.
@@ -25,7 +25,7 @@ Como aplicar fundamentos de algoritmos em casos reais de API e servicos.
 ## Checklist de performance
 
 1. Qual complexidade do trecho critico?
-2. Estrutura escolhida combina com padrao de acesso?
+2. Estrutura escolhida combina com padrão de acesso?
 3. Ha alocacao desnecessaria?
 4. Existe alternativa com custo menor?
 

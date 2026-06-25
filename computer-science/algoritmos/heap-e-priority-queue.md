@@ -1,4 +1,4 @@
-# Heap e Priority Queue
+﻿# Heap e Priority Queue
 
 Estrutura para sempre acessar o maior/menor elemento com eficiencia.
 
@@ -17,7 +17,7 @@ Estrutura para sempre acessar o maior/menor elemento com eficiencia.
 
 - top K elementos;
 - scheduler com prioridade;
-- algoritmos de caminho minimo.
+- algoritmos de caminho mínimo.
 
 ## Veja tambem
 

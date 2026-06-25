@@ -1,4 +1,4 @@
-# Tecnicas: Two Pointers, Sliding Window e Hash Map
+﻿# Tecnicas: Two Pointers, Sliding Window e Hash Map
 
 Padroes para resolver problemas de array/string com eficiencia.
 

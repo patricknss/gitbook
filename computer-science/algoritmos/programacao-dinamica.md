@@ -1,4 +1,4 @@
-# Programacao Dinamica
+﻿# Programacao Dinamica
 
 Tecnica para problemas com subproblemas sobrepostos e estrutura otima.
 
@@ -14,7 +14,7 @@ Tecnica para problemas com subproblemas sobrepostos e estrutura otima.
 3. Definir caso base.
 4. Escolher ordem de calculo.
 
-## Exemplos classicos
+## Exemplos clássicos
 
 - Fibonacci otimizado;
 - mochila (knapsack);
@@ -24,7 +24,7 @@ Tecnica para problemas com subproblemas sobrepostos e estrutura otima.
 
 - estado incompleto;
 - transicao incorreta;
-- estouro de memoria sem necessidade.
+- estouro de memória sem necessidade.
 
 ## Veja tambem
 

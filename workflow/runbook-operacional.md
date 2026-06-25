@@ -1,13 +1,13 @@
-# Runbook Operacional
+﻿# Runbook Operacional
 
-Passo a passo curto para preparar alteracoes com seguranca.
+Passo a passo curto para preparar alteracoes com segurança.
 
-## Fluxo basico de trabalho
+## Fluxo básico de trabalho
 
 1. Atualizar branch local.
 2. Implementar alteracao.
 3. Revisar arquivos e links.
-4. Commitar com padrao do card.
+4. Commitar com padrão do card.
 5. Subir branch e abrir PR.
 
 ## Checklist antes do PR
@@ -16,7 +16,7 @@ Passo a passo curto para preparar alteracoes com seguranca.
 2. Sem arquivos temporarios indevidos.
 3. Documentacao ajustada quando necessario.
 4. Links internos validos.
-5. Mensagem de commit no padrao.
+5. Mensagem de commit no padrão.
 
 ## Checklist de PR
 
@@ -25,14 +25,14 @@ Passo a passo curto para preparar alteracoes com seguranca.
 3. Lista objetiva de arquivos principais.
 4. Observacoes de risco (se houver).
 
-## Fluxo rapido para docs
+## Fluxo rápido para docs
 
 1. Criar/editar pagina.
 2. Atualizar `SUMMARY.md`.
 3. Adicionar referencias cruzadas.
 4. Validar links internos.
 
-## Fluxo rapido para SQL/Liquibase
+## Fluxo rápido para SQL/Liquibase
 
 1. Criar scripts update/rollback.
 2. Registrar changeset.

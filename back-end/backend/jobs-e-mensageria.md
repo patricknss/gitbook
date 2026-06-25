@@ -1,4 +1,4 @@
-# Jobs e Mensageria
+﻿# Jobs e Mensageria
 
 Padrao para processos assincronos e consumidores de fila.
 
@@ -6,26 +6,26 @@ Padrao para processos assincronos e consumidores de fila.
 
 - Rotina agendada.
 - Reprocessamento de dados.
-- Integracao que nao precisa resposta sincrona.
+- Integracao que não precisa resposta sincrona.
 
 ## Regras essenciais
 
-1. Job nao chama controller.
-2. Job chama Aplicacao (ou service de dominio com criterio).
+1. Job não chama controller.
+2. Job chama Aplicacao (ou service de dominio com critério).
 3. Operacao deve ser idempotente.
 4. Falha deve ser logada com contexto e correlation-id.
 
 ## Retry e falhas
 
 - Retry com backoff para erro transiente.
-- Limite maximo de tentativas.
+- Limite máximo de tentativas.
 - Encaminhar para dead-letter quando exceder.
 
 ## Contrato de mensagem
 
 - Definir payload versionado.
 - Incluir identificador de evento e timestamp.
-- Evitar breaking change sem estrategia de versao.
+- Evitar breaking change sem estrategia de versão.
 
 ## Checklist para novo consumidor
 

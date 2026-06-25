@@ -1,6 +1,6 @@
-# Guia Editorial do GitBook
+﻿# Guia Editorial do GitBook
 
-Padrao para manter os conteudos consistentes, legiveis e navegaveis.
+Padrao para manter os conteúdos consistentes, legiveis e navegaveis.
 
 ## Estrutura minima de cada pagina
 
@@ -29,18 +29,18 @@ Padrao para manter os conteudos consistentes, legiveis e navegaveis.
 
 - Priorizar Markdown puro (`**negrito**`, blocos de citação, tabelas).
 - Evitar hardcode de cor com `` em novos textos.
-- Se precisar destaque visual, usar no maximo 1 estrategia por secao.
+- Se precisar destaque visual, usar no máximo 1 estrategia por seção.
 
 ## Links cruzados
 
 - Toda pagina nova deve apontar para ao menos 2 paginas relacionadas.
 - Preferir links relativos internos.
-- Nome do link deve ser descritivo (nao usar "clique aqui").
+- Nome do link deve ser descritivo (não usar "clique aqui").
 
 ## Checklist antes de publicar
 
 1. O texto responde "o que e", "quando usar" e "como aplicar"?
 2. Os exemplos funcionam no contexto descrito?
 3. Os links internos existem?
-4. O conteudo evita contradizer guias existentes?
-5. Ha secao de risco/erro comum para operacoes sensiveis?
+4. O conteúdo evita contradizer guias existentes?
+5. Ha seção de risco/erro comum para operações sensiveis?

@@ -1,4 +1,4 @@
-# Definition of Done (DoD)
+﻿# Definition of Done (DoD)
 
 Criterios minimos para considerar uma entrega concluida.
 
@@ -24,11 +24,11 @@ Criterios minimos para considerar uma entrega concluida.
 2. Script de rollback correspondente criado.
 3. Changeset registrado com `id`/`author` corretos.
 4. `validate` previsto no fluxo de execucao.
-5. Ordem de aplicacao documentada.
+5. Ordem de aplicação documentada.
 
-## DoD para novo conteudo no GitBook
+## DoD para novo conteúdo no GitBook
 
-1. Estrutura minima (contexto, aplicacao, risco/checklist).
+1. Estrutura minima (contexto, aplicação, risco/checklist).
 2. Referencias cruzadas para paginas relacionadas.
 3. Sem links quebrados.
 4. Linguagem consistente com o guia editorial.

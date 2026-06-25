@@ -1,6 +1,6 @@
-# Algoritmos e Estruturas de Dados
+﻿# Algoritmos e Estruturas de Dados
 
-Trilha pratica para base de performance, raciocinio e resolucao de problemas.
+Trilha prática para base de performance, raciocinio e resolucao de problemas.
 
 ## Fundamentos
 
@@ -18,7 +18,7 @@ Trilha pratica para base de performance, raciocinio e resolucao de problemas.
 6. [Arvores, BST e Trie](arvores-bst-e-trie.md)
 7. [Grafos (Fundamentos)](grafos-fundamentos.md)
 
-## Algoritmos classicos
+## Algoritmos clássicos
 
 1. [Busca e Ordenacao](busca-e-ordenacao.md)
 2. [BFS e DFS](bfs-e-dfs.md)

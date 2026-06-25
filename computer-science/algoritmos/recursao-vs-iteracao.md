@@ -1,16 +1,16 @@
-# Recursao vs Iteracao
+﻿# Recursao vs Iteracao
 
 Recursao chama a propria funcao. Iteracao usa loops.
 
-## Quando usar recursao
+## Quando usar recursão
 
 - Estruturas hierarquicas (arvore, DFS).
 - Problemas naturalmente decomponiveis.
 
-## Quando usar iteracao
+## Quando usar iteração
 
 - Fluxo linear simples.
-- Alto volume com controle de memoria.
+- Alto volume com controle de memória.
 
 ## Cuidado principal
 

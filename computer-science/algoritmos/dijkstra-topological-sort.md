@@ -1,11 +1,11 @@
-# Dijkstra e Topological Sort
+﻿# Dijkstra e Topological Sort
 
-Dois algoritmos classicos de grafos para problemas diferentes.
+Dois algoritmos clássicos de grafos para problemas diferentes.
 
 ## Dijkstra
 
 - menor caminho a partir de uma origem;
-- funciona com pesos nao negativos;
+- funciona com pesos não negativos;
 - usa priority queue.
 
 Complexidade comum: `O((V + E) log V)`.

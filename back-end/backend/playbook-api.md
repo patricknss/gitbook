@@ -1,4 +1,4 @@
-# Playbook de API (.NET)
+﻿# Playbook de API (.NET)
 
 Guia pratico para padronizar endpoints HTTP em APIs ASP.NET.
 
@@ -8,24 +8,24 @@ Guia pratico para padronizar endpoints HTTP em APIs ASP.NET.
 - Verbos corretos: `GET`, `POST`, `PUT/PATCH`, `DELETE`.
 - Response sempre via DTO, nunca entidade de dominio.
 
-## Status code padrao
+## Status code padrão
 
 | Cenario | Status |
 | --- | --- |
 | Consulta com sucesso | `200 OK` |
 | Criacao com sucesso | `201 Created` |
-| Sem conteudo | `204 No Content` |
+| Sem conteúdo | `204 No Content` |
 | Requisicao invalida | `400 Bad Request` |
-| Nao autenticado | `401 Unauthorized` |
+| Não autenticado | `401 Unauthorized` |
 | Sem permissao | `403 Forbidden` |
-| Nao encontrado | `404 Not Found` |
+| Não encontrado | `404 Not Found` |
 | Conflito de regra | `409 Conflict` |
 | Erro inesperado | `500 Internal Server Error` |
 
 ## Paginacao e filtros
 
 - Parametros recomendados: `pagina`, `quantidade`, `ordenarPor`, `tipoOrdenacao`.
-- Restringir tamanho maximo de pagina para evitar abuso.
+- Restringir tamanho máximo de pagina para evitar abuso.
 - Responder metadados de pagina quando aplicavel.
 
 ## Idempotencia
@@ -36,16 +36,16 @@ Guia pratico para padronizar endpoints HTTP em APIs ASP.NET.
 ## Validacao de entrada
 
 - Validar shape e formato na borda (API).
-- Validacao de regra de negocio deve ficar no Dominio.
+- Validacao de regra de negócio deve ficar no Dominio.
 - Retornar erro padronizado (codigo + mensagem + detalhes).
 
 ## Tratamento de erro
 
 - Middleware/filtro global para excecoes.
-- Nao expor stack trace em producao.
+- Não expor stack trace em produção.
 - Logar erro com correlation-id.
 
-## Seguranca basica
+## Seguranca básica
 
 1. Autenticacao obrigatoria para rotas privadas.
 2. Autorizacao por perfil/escopo.

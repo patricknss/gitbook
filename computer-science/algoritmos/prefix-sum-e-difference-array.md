@@ -1,4 +1,4 @@
-# Prefix Sum e Difference Array
+﻿# Prefix Sum e Difference Array
 
 Tecnicas para responder range queries e atualizacoes em intervalo.
 
@@ -12,7 +12,7 @@ soma(l..r) = prefix[r] - prefix[l-1]
 
 ## Difference array
 
-Atualiza intervalos em `O(1)` por operacao e reconstrui no final.
+Atualiza intervalos em `O(1)` por operação e reconstrui no final.
 
 ## Quando usar
 

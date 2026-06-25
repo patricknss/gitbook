@@ -1,16 +1,16 @@
-# Grafos (Fundamentos)
+﻿# Grafos (Fundamentos)
 
 Grafo modela relacoes entre entidades (nos e arestas).
 
 ## Representacoes
 
 - lista de adjacencia (mais comum);
-- matriz de adjacencia (simples, mais memoria).
+- matriz de adjacencia (simples, mais memória).
 
 ## Tipos
 
-- dirigido / nao dirigido;
-- ponderado / nao ponderado;
+- dirigido / não dirigido;
+- ponderado / não ponderado;
 - com ciclo / aciclico (DAG).
 
 ## Perguntas tipicas

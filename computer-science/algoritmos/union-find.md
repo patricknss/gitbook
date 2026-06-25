@@ -1,4 +1,4 @@
-# Union-Find (Disjoint Set Union)
+﻿# Union-Find (Disjoint Set Union)
 
 Estrutura para gerenciar conjuntos disjuntos com eficiencia.
 
@@ -16,8 +16,8 @@ Com essas otimizacoes, custo amortizado fica quase constante.
 
 ## Casos comuns
 
-- detectar ciclo em grafo nao dirigido;
-- conectividade dinamica;
+- detectar ciclo em grafo não dirigido;
+- conectividade dinâmica;
 - agrupamento por relacao.
 
 ## Veja tambem

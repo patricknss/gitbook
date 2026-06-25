@@ -1,4 +1,4 @@
-# Arvores, BST e Trie
+﻿# Arvores, BST e Trie
 
 Estruturas hierarquicas para busca e organizacao.
 

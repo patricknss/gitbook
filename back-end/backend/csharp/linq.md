@@ -4,33 +4,33 @@ description: Language Integrated Query - Query de Linguagem Integrada
 
 # LinQ
 
-## Introdução
+## IntroduÃ§Ã£o
 
-LINQ é uma tecnologia introduzida na linguagem C# que permite a criação de consultas diretamente no código. Essa ferramenta unifica a forma de consultar dados de diversas fontes utilizando uma sintaxe mais familiar por ser escrita diretamente com código C#.
+LINQ Ã© uma tecnologia introduzida na linguagem C# que permite a criaÃ§Ã£o de consultas diretamente no cÃ³digo. Essa ferramenta unifica a forma de consultar dados de diversas fontes utilizando uma sintaxe mais familiar por ser escrita diretamente com cÃ³digo C#.
 
 Podemos utilizar o LINQ para:
 
-* Consultas em coleções: filtrar, ordenar, agrupar e projetar dados em listas, arrays e outras estruturas de dados;
-* Acesso a bancos de dados: interagir com bancos de dados relacionais utilizando uma sintaxe semelhante ao SQL, mas com a tipagem forte e segurança do C#;
-* Manipulação de XML: consultar e transformar dados XML de forma eficiente;
-* Integração com outras fontes de dados: acessar dados de serviços web, objetos dinâmicos e outras fontes utilizando provedores LINQ personalizados.
+* Consultas em coleÃ§Ãµes: filtrar, ordenar, agrupar e projetar dados em listas, arrays e outras estruturas de dados;
+* Acesso a bancos de dados: interagir com bancos de dados relacionais utilizando uma sintaxe semelhante ao SQL, mas com a tipagem forte e seguranÃ§a do C#;
+* ManipulaÃ§Ã£o de XML: consultar e transformar dados XML de forma eficiente;
+* IntegraÃ§Ã£o com outras fontes de dados: acessar dados de serviÃ§os web, objetos dinÃ¢micos e outras fontes utilizando provedores LINQ personalizados.
 
-## Operadores de consulta padrão
+## Operadores de consulta padrÃ£o
 
-Os operadores de consulta padrão são as palavras-chave e métodos que formam o padrão LINQ. A maioria dos métodos opera em sequências, onde uma sequência representa um objeto cujo tipo implementa a interface `IEnumerable<T>` ou a interface `IQueryable<T>`.
+Os operadores de consulta padrÃ£o sÃ£o as palavras-chave e mÃ©todos que formam o padrÃ£o LINQ. A maioria dos mÃ©todos opera em sequÃªncias, onde uma sequÃªncia representa um objeto cujo tipo implementa a interface `IEnumerable<T>` ou a interface `IQueryable<T>`.
 
-Esses métodos fornecem recursos de consulta, incluindo filtros, projeção, agregação, classificação, entre outros. E eles são definidos como métodos de extensão do tipo que operam.
+Esses mÃ©todos fornecem recursos de consulta, incluindo filtros, projeÃ§Ã£o, agregaÃ§Ã£o, classificaÃ§Ã£o, entre outros. E eles sÃ£o definidos como mÃ©todos de extensÃ£o do tipo que operam.
 
-* `from`: especifica uma fonte de dados e uma variável de intervalo;
-* `where`: filtra elementos de origem baseados em uma ou mais expressões booleanas;
-* `select`: especifica o tipo e a forma que os elementos na sequência retornada terão;
+* `from`: especifica uma fonte de dados e uma variÃ¡vel de intervalo;
+* `where`: filtra elementos de origem baseados em uma ou mais expressÃµes booleanas;
+* `select`: especifica o tipo e a forma que os elementos na sequÃªncia retornada terÃ£o;
 * `group`: agrupa os resultados da consulta de acordo cum um valor de chave especificado.
 
-## Sintaxe de Consulta x Sintaxe de Método
+## Sintaxe de Consulta x Sintaxe de MÃ©todo
 
-O LINQ oferece duas sintaxes principais para realizar consultas em coleções: a **sintaxe de método** e a **sintaxe de consulta**. Ambas as sintaxes vão produzir os mesmos resultados, mas possuem características e estilos diferentes.
+O LINQ oferece duas sintaxes principais para realizar consultas em coleÃ§Ãµes: a **sintaxe de mÃ©todo** e a **sintaxe de consulta**. Ambas as sintaxes vÃ£o produzir os mesmos resultados, mas possuem caracterÃ­sticas e estilos diferentes.
 
-> A **sintaxe de consulta** traz uma escrita mais próxima à linguagem SQL, utilizando palavras-chave como `from`, `where`, `select` e `orderby`, e aplica uma estrutura mais declarativa para especificar a consulta.
+> A **sintaxe de consulta** traz uma escrita mais prÃ³xima Ã  linguagem SQL, utilizando palavras-chave como `from`, `where`, `select` e `orderby`, e aplica uma estrutura mais declarativa para especificar a consulta.
 
 {% code title="Sintaxe de consulta" lineNumbers="true" %}
 ```csharp
@@ -41,9 +41,9 @@ var produtosCaros = from p in produtos
 ```
 {% endcode %}
 
-> Já a **sintaxe de método** possui uma escrita mais semelhante à chamada de métodos tradicionais no C#, utilizando uma cadeia de chamadas de métodos para especificar a consulta, como no exemplo a seguir:
+> JÃ¡ a **sintaxe de mÃ©todo** possui uma escrita mais semelhante Ã  chamada de mÃ©todos tradicionais no C#, utilizando uma cadeia de chamadas de mÃ©todos para especificar a consulta, como no exemplo a seguir:
 
-{% code title="Sintaxe do método" lineNumbers="true" %}
+{% code title="Sintaxe do mÃ©todo" lineNumbers="true" %}
 ```csharp
 var produtosCaros = produtos
     .Where(p => p.Preco > 100)
@@ -52,37 +52,37 @@ var produtosCaros = produtos
 ```
 {% endcode %}
 
-Os dois exemplos anteriores trarão exatamente o mesmo resultado
+Os dois exemplos anteriores trarÃ£o exatamente o mesmo resultado
 
-## Operadores de conversão
+## Operadores de conversÃ£o
 
-Os operadores de conversão no LINQ permitem transformar elementos de uma sequência em outro tipo de dados durante uma consulta.
+Os operadores de conversÃ£o no LINQ permitem transformar elementos de uma sequÃªncia em outro tipo de dados durante uma consulta.
 
-As operações de conversão são úteis em diversos aspectos, como as aplicações dos métodos abaixo:
+As operaÃ§Ãµes de conversÃ£o sÃ£o Ãºteis em diversos aspectos, como as aplicaÃ§Ãµes dos mÃ©todos abaixo:
 
-* `Enumerable.AsEnumerable`: oculta a implementação personalizada de um tipo de um operador de consulta padrão;
-* `Enumerable.ToList`: força a execução de consulta imediata;
-* `Enumerable.ToDictionary`: força a execução de consulta imediata.
+* `Enumerable.AsEnumerable`: oculta a implementaÃ§Ã£o personalizada de um tipo de um operador de consulta padrÃ£o;
+* `Enumerable.ToList`: forÃ§a a execuÃ§Ã£o de consulta imediata;
+* `Enumerable.ToDictionary`: forÃ§a a execuÃ§Ã£o de consulta imediata.
 
-Os métodos que começam com `As` alteram o tipo estático da coleção de origem, mas não a enumeram. Já os métodos cujos nomes começam com `To` enumeram a coleção de origem e colocam os itens na coleção de tipo correspondente.
+Os mÃ©todos que comeÃ§am com `As` alteram o tipo estÃ¡tico da coleÃ§Ã£o de origem, mas nÃ£o a enumeram. JÃ¡ os mÃ©todos cujos nomes comeÃ§am com `To` enumeram a coleÃ§Ã£o de origem e colocam os itens na coleÃ§Ã£o de tipo correspondente.
 
-## Projeções
+## ProjeÃ§Ãµes
 
-Quando você usa LINQ para consultar coleções, você pode projetar os dados para uma forma diferente, como selecionar apenas algumas propriedades de um objeto ou até mesmo criar novos tipos de objetos com base nos dados da consulta.
+Quando vocÃª usa LINQ para consultar coleÃ§Ãµes, vocÃª pode projetar os dados para uma forma diferente, como selecionar apenas algumas propriedades de um objeto ou atÃ© mesmo criar novos tipos de objetos com base nos dados da consulta.
 
-Um exemplo simples de projeção seria pegar uma lista de objetos e projetar apenas algumas das suas propriedades:
+Um exemplo simples de projeÃ§Ã£o seria pegar uma lista de objetos e projetar apenas algumas das suas propriedades:
 
-#### **Projeção Normal:**
+#### **ProjeÃ§Ã£o Normal:**
 
-Imagine que você tem uma lista de objetos do tipo `Pessoa` com propriedades `Nome` e `Idade` e deseja selecionar apenas o nome de cada pessoa.
+Imagine que vocÃª tem uma lista de objetos do tipo `Pessoa` com propriedades `Nome` e `Idade` e deseja selecionar apenas o nome de cada pessoa.
 
-{% code title="Projeção Normal" lineNumbers="true" %}
+{% code title="ProjeÃ§Ã£o Normal" lineNumbers="true" %}
 ```csharp
 var pessoas = new List<Pessoa>
 {
     new Pessoa { Nome = "Ana", Idade = 30 },
     new Pessoa { Nome = "Carlos", Idade = 25 },
-    new Pessoa { Nome = "João", Idade = 40 }
+    new Pessoa { Nome = "JoÃ£o", Idade = 40 }
 };
 
 var nomes = from p in pessoas
@@ -95,23 +95,23 @@ foreach (var nome in nomes)
 ```
 {% endcode %}
 
-Neste exemplo, a projeção é feita através do `select p.Nome`, onde estamos projetando a lista de `Pessoa` para apenas os nomes.
+Neste exemplo, a projeÃ§Ã£o Ã© feita atravÃ©s do `select p.Nome`, onde estamos projetando a lista de `Pessoa` para apenas os nomes.
 
-#### Projeção Anônima:
+#### ProjeÃ§Ã£o AnÃ´nima:
 
-A **projeção anônima** é um tipo especial de projeção em que você cria um novo tipo sem precisar declarar explicitamente uma classe para ele. Isso é feito através de tipos anônimos em C#, que permitem criar objetos temporários com propriedades que são definidos dinamicamente na consulta LINQ.
+A **projeÃ§Ã£o anÃ´nima** Ã© um tipo especial de projeÃ§Ã£o em que vocÃª cria um novo tipo sem precisar declarar explicitamente uma classe para ele. Isso Ã© feito atravÃ©s de tipos anÃ´nimos em C#, que permitem criar objetos temporÃ¡rios com propriedades que sÃ£o definidos dinamicamente na consulta LINQ.
 
-No caso de uma projeção anônima, você cria um novo objeto sem a necessidade de uma classe pré-existente. Um tipo anônimo é representado por `new {}`. Isso é útil quando você só precisa de um tipo específico para a consulta e não deseja criar uma classe separada.
+No caso de uma projeÃ§Ã£o anÃ´nima, vocÃª cria um novo objeto sem a necessidade de uma classe prÃ©-existente. Um tipo anÃ´nimo Ã© representado por `new {}`. Isso Ã© Ãºtil quando vocÃª sÃ³ precisa de um tipo especÃ­fico para a consulta e nÃ£o deseja criar uma classe separada.
 
-Usando o mesmo exemplo de lista de `Pessoa`, vamos projetar um tipo anônimo que retorna tanto o nome quanto a idade de cada pessoa:
+Usando o mesmo exemplo de lista de `Pessoa`, vamos projetar um tipo anÃ´nimo que retorna tanto o nome quanto a idade de cada pessoa:
 
-{% code title="Projeção Anônima" lineNumbers="true" %}
+{% code title="ProjeÃ§Ã£o AnÃ´nima" lineNumbers="true" %}
 ```csharp
 var pessoas = new List<Pessoa>
 {
     new Pessoa { Nome = "Ana", Idade = 30 },
     new Pessoa { Nome = "Carlos", Idade = 25 },
-    new Pessoa { Nome = "João", Idade = 40 }
+    new Pessoa { Nome = "JoÃ£o", Idade = 40 }
 };
 
 var resultado = from p in pessoas
@@ -124,15 +124,15 @@ foreach (var item in resultado)
 ```
 {% endcode %}
 
-Neste exemplo, a projeção anônima é feita com `new { p.Nome, p.Idade }`, criando um objeto anônimo que possui as propriedades `Nome` e `Idade` para cada pessoa. Isso é útil quando você precisa de um tipo temporário apenas para essa consulta e não quer ou não precisa criar uma nova classe para isso.
+Neste exemplo, a projeÃ§Ã£o anÃ´nima Ã© feita com `new { p.Nome, p.Idade }`, criando um objeto anÃ´nimo que possui as propriedades `Nome` e `Idade` para cada pessoa. Isso Ã© Ãºtil quando vocÃª precisa de um tipo temporÃ¡rio apenas para essa consulta e nÃ£o quer ou nÃ£o precisa criar uma nova classe para isso.
 
-## Transformação de Dados usando SelectMany( )
+## TransformaÃ§Ã£o de Dados usando SelectMany( )
 
-O método `SelectMany` no LINQ é útil quando estamos lidando com coleções aninhadas. Diferente do `Select`, que simplesmente projeta cada elemento de uma coleção para outra forma, o `SelectMany` realiza essa projeção e ao mesmo tempo achata a estrutura da coleção.
+O mÃ©todo `SelectMany` no LINQ Ã© Ãºtil quando estamos lidando com coleÃ§Ãµes aninhadas. Diferente do `Select`, que simplesmente projeta cada elemento de uma coleÃ§Ã£o para outra forma, o `SelectMany` realiza essa projeÃ§Ã£o e ao mesmo tempo achata a estrutura da coleÃ§Ã£o.
 
-Imagine que temos uma lista de listas ou uma coleção onde cada elemento contém uma subcoleção (tipo lista dentro de lista ou objetos que possuem coleções). O `SelectMany` nos permite extrair os elementos dessas subcoleções e apresentá-los como uma única sequência contínua, simplificando o acesso aos dados.
+Imagine que temos uma lista de listas ou uma coleÃ§Ã£o onde cada elemento contÃ©m uma subcoleÃ§Ã£o (tipo lista dentro de lista ou objetos que possuem coleÃ§Ãµes). O `SelectMany` nos permite extrair os elementos dessas subcoleÃ§Ãµes e apresentÃ¡-los como uma Ãºnica sequÃªncia contÃ­nua, simplificando o acesso aos dados.
 
-Ele aplica uma projeção a cada elemento de uma sequência e, em seguida, concatena os resultados em uma única coleção.
+Ele aplica uma projeÃ§Ã£o a cada elemento de uma sequÃªncia e, em seguida, concatena os resultados em uma Ãºnica coleÃ§Ã£o.
 
 > Exemplo 1
 
@@ -145,23 +145,23 @@ var listaDeListas = new List<List<int>>
     new List<int> { 7, 8, 9 }
 };
 
-// Sem SelectMany ? Mantém estrutura de listas dentro de listas
+// Sem SelectMany ? MantÃ©m estrutura de listas dentro de listas
 var semAchatar = listaDeListas
                  .Select(lista => lista);
-Console.WriteLine(string.Join(", ", semAchatar)); // Não imprime os números diretamente
+Console.WriteLine(string.Join(", ", semAchatar)); // NÃ£o imprime os nÃºmeros diretamente
 
 // Com SelectMany ? "Achatando" a estrutura
 var numerosAchatados = listaDeListas
                      .SelectMany(lista => lista);
-Console.WriteLine(string.Join(", ", numerAchatados)); // Saída: 1, 2, 3, 4, 5, 6, 7, 8, 9
+Console.WriteLine(string.Join(", ", numerAchatados)); // SaÃ­da: 1, 2, 3, 4, 5, 6, 7, 8, 9
 ```
 {% endcode %}
 
 > Exemplo 2
 
-Se tivermos uma lista de objetos, cada um contendo uma coleção interna, podemos usar `SelectMany` para extrair informações específicas.
+Se tivermos uma lista de objetos, cada um contendo uma coleÃ§Ã£o interna, podemos usar `SelectMany` para extrair informaÃ§Ãµes especÃ­ficas.
 
-{% code title="Transformação de dados" lineNumbers="true" %}
+{% code title="TransformaÃ§Ã£o de dados" lineNumbers="true" %}
 ```csharp
 class Aluno
 {
@@ -173,14 +173,14 @@ var alunos = new List<Aluno>
 {
     new Aluno { Nome = "Ana", Notas = new List<int> { 8, 9, 10 } },
     new Aluno { Nome = "Carlos", Notas = new List<int> { 6, 7, 8 } },
-    new Aluno { Nome = "João", Notas = new List<int> { 9, 9, 10 } }
+    new Aluno { Nome = "JoÃ£o", Notas = new List<int> { 9, 9, 10 } }
 };
 
-// Extraindo todas as notas em uma única sequência
+// Extraindo todas as notas em uma Ãºnica sequÃªncia
 var todasAsNotas = alunos
                    .SelectMany(a => a.Notas);
 
-Console.WriteLine(string.Join(", ", todasAsNotas)); // Saída: 8, 9, 10, 6, 7, 8, 9, 9, 10
+Console.WriteLine(string.Join(", ", todasAsNotas)); // SaÃ­da: 8, 9, 10, 6, 7, 8, 9, 9, 10
 ```
 {% endcode %}
 
@@ -188,7 +188,7 @@ Console.WriteLine(string.Join(", ", todasAsNotas)); // Saída: 8, 9, 10, 6, 7, 8,
 
 Transformar dados enquanto achatamos a estrutura.
 
-{% code title="Projeção personalizada" lineNumbers="true" %}
+{% code title="ProjeÃ§Ã£o personalizada" lineNumbers="true" %}
 ```csharp
 var resultado = alunos
                 .SelectMany(a => a.Notas, (aluno, nota) 
@@ -204,72 +204,72 @@ foreach (var item in resultado)
 ```
 {% endcode %}
 
-{% code title="Saída no terminal" %}
+{% code title="SaÃ­da no terminal" %}
 ```textile
 Ana: 8
 Ana: 10
 Carlos: 6
 Carlos: 8
-João: 9
-João: 10
+JoÃ£o: 9
+JoÃ£o: 10
 ```
 {% endcode %}
 
-## Operações em conjunto
+## OperaÃ§Ãµes em conjunto
 
-As operações em conjunto permitem que a gente trabalhe com uma ou mais fonte de dados e que a gente retorne um conjunto com resultados específicos que nós estamos buscando de acordo com a nossa necessidade.
+As operaÃ§Ãµes em conjunto permitem que a gente trabalhe com uma ou mais fonte de dados e que a gente retorne um conjunto com resultados especÃ­ficos que nÃ³s estamos buscando de acordo com a nossa necessidade.
 
 ## Veja tambem
 
 - [Big O e Complexidade](../../../computer-science/algoritmos/big-o-e-complexidade.md)
 
-Nas operações em conjunto a gente trabalha com quatro operadores.
+Nas operaÃ§Ãµes em conjunto a gente trabalha com quatro operadores.
 
-* `Distinct()`: retorna uma sequência que contém elementos distintos da sequência original, com base em uma chave de comparação especificada;
-* `Except()`: retorna uma sequência que contém elementos da primeira sequência que não estão na segunda sequência, com base em uma chave de comparação especificada;
-* `Intersect()`: retorna uma sequência que contém elementos que estão presentes em ambas as sequências, com base em uma chave de comparação especificada;
-* `Union()`: retorna uma sequência que contém elementos distintos das duas sequências, com base em uma chave de comparação especificada.
+* `Distinct()`: retorna uma sequÃªncia que contÃ©m elementos distintos da sequÃªncia original, com base em uma chave de comparaÃ§Ã£o especificada;
+* `Except()`: retorna uma sequÃªncia que contÃ©m elementos da primeira sequÃªncia que nÃ£o estÃ£o na segunda sequÃªncia, com base em uma chave de comparaÃ§Ã£o especificada;
+* `Intersect()`: retorna uma sequÃªncia que contÃ©m elementos que estÃ£o presentes em ambas as sequÃªncias, com base em uma chave de comparaÃ§Ã£o especificada;
+* `Union()`: retorna uma sequÃªncia que contÃ©m elementos distintos das duas sequÃªncias, com base em uma chave de comparaÃ§Ã£o especificada.
 
-> E cada um destes operadores são usados em diferentes situações:
+> E cada um destes operadores sÃ£o usados em diferentes situaÃ§Ãµes:
 
-* `Distinct()`: quando você deseja remover elementos duplicados de uma sequência, com base em uma chave de comparação;
-* `Except()`: quando você deseja encontrar elementos que estão presentes em uma sequência, mas não em outra, com base em uma chave de comparação;
-* `Intersect()`: quando você deseja encontrar elementos que estão presentes em ambas as sequências, com base em uma chave de comparação;
-* `Union()`: quando você deseja combinar elementos de duas sequências, removendo duplicados com base em uma chave de comparação.
+* `Distinct()`: quando vocÃª deseja remover elementos duplicados de uma sequÃªncia, com base em uma chave de comparaÃ§Ã£o;
+* `Except()`: quando vocÃª deseja encontrar elementos que estÃ£o presentes em uma sequÃªncia, mas nÃ£o em outra, com base em uma chave de comparaÃ§Ã£o;
+* `Intersect()`: quando vocÃª deseja encontrar elementos que estÃ£o presentes em ambas as sequÃªncias, com base em uma chave de comparaÃ§Ã£o;
+* `Union()`: quando vocÃª deseja combinar elementos de duas sequÃªncias, removendo duplicados com base em uma chave de comparaÃ§Ã£o.
 
-## Operadores de ordenação
+## Operadores de ordenaÃ§Ã£o
 
-Os operadores de ordenação no LINQ permitem que você ordene elementos de uma sequência em ordem crescente ou decrescente, com base em uma ou mais propriedades ou expressões.
+Os operadores de ordenaÃ§Ã£o no LINQ permitem que vocÃª ordene elementos de uma sequÃªncia em ordem crescente ou decrescente, com base em uma ou mais propriedades ou expressÃµes.
 
-Os principais operadores de ordenação são:
+Os principais operadores de ordenaÃ§Ã£o sÃ£o:
 
-* `OrderBy`: ordena os elementos da sequência em ordem crescente, com base na chave especificada pela função `keySelector`;
-* `OrderByDescending`: ordena os elementos da sequência em ordem decrescente, com base na chave especificada pela função `keySelector`;
-* `ThenBy`: adiciona um nível de ordenação secundária à sequência já ordenada;
-* `ThenByDescending`: adiciona um nível de ordenação secundária decrescente à sequência já ordenada.
+* `OrderBy`: ordena os elementos da sequÃªncia em ordem crescente, com base na chave especificada pela funÃ§Ã£o `keySelector`;
+* `OrderByDescending`: ordena os elementos da sequÃªncia em ordem decrescente, com base na chave especificada pela funÃ§Ã£o `keySelector`;
+* `ThenBy`: adiciona um nÃ­vel de ordenaÃ§Ã£o secundÃ¡ria Ã  sequÃªncia jÃ¡ ordenada;
+* `ThenByDescending`: adiciona um nÃ­vel de ordenaÃ§Ã£o secundÃ¡ria decrescente Ã  sequÃªncia jÃ¡ ordenada.
 
-Estes operadores são utilizados para operação específicas, como:
+Estes operadores sÃ£o utilizados para operaÃ§Ã£o especÃ­ficas, como:
 
 * `OrderBy`: para ordenar os elementos em ordem crescente;
 * `OrderByDescending`: para ordenar os elementos em ordem decrescente;
-* `ThenBy`, `ThenByDescending`: para adicionar níveis de ordenação secundária
+* `ThenBy`, `ThenByDescending`: para adicionar nÃ­veis de ordenaÃ§Ã£o secundÃ¡ria
 
-## Operações de agregação e agrupamento
+## OperaÃ§Ãµes de agregaÃ§Ã£o e agrupamento
 
-Os métodos de agregação e agrupamento no LINQ permitem que sejam realizadas operações complexas sobre coleções de dados, permitindo que você resuma, combine e categorize informações de maneira eficiente.
+Os mÃ©todos de agregaÃ§Ã£o e agrupamento no LINQ permitem que sejam realizadas operaÃ§Ãµes complexas sobre coleÃ§Ãµes de dados, permitindo que vocÃª resuma, combine e categorize informaÃ§Ãµes de maneira eficiente.
 
-Os métodos de agregação calculam um único valor a partir de uma sequência de valores. Alguns dos métodos de agregação mais comuns são:
+Os mÃ©todos de agregaÃ§Ã£o calculam um Ãºnico valor a partir de uma sequÃªncia de valores. Alguns dos mÃ©todos de agregaÃ§Ã£o mais comuns sÃ£o:
 
-* `Count()`: conta o número de elementos em uma sequência;
-* `Sum()`: calcula a soma de todos os elementos numéricos em uma sequência;
-* `Average()`: calcula a média aritmética de todos os elementos numéricos em uma sequência;
-* `Min()`: retorna o menor valor em uma sequência;
-* `Max()`: retorna o maior valor em uma sequência;
-* `Aggregate()`: permite realizar cálculos personalizados sobre uma sequência, aplicando uma função de agregação cumulativa.
+* `Count()`: conta o nÃºmero de elementos em uma sequÃªncia;
+* `Sum()`: calcula a soma de todos os elementos numÃ©ricos em uma sequÃªncia;
+* `Average()`: calcula a mÃ©dia aritmÃ©tica de todos os elementos numÃ©ricos em uma sequÃªncia;
+* `Min()`: retorna o menor valor em uma sequÃªncia;
+* `Max()`: retorna o maior valor em uma sequÃªncia;
+* `Aggregate()`: permite realizar cÃ¡lculos personalizados sobre uma sequÃªncia, aplicando uma funÃ§Ã£o de agregaÃ§Ã£o cumulativa.
 
-Já os métodos de agrupamento dividem uma sequência em grupos com base em uma chave comum. O método principal para agrupamento é o `GroupBy()` que agrupa os elementos de uma sequência com base na chave especificada pela função `keySelector`.
+JÃ¡ os mÃ©todos de agrupamento dividem uma sequÃªncia em grupos com base em uma chave comum. O mÃ©todo principal para agrupamento Ã© o `GroupBy()` que agrupa os elementos de uma sequÃªncia com base na chave especificada pela funÃ§Ã£o `keySelector`.
 
-Você pode combinar métodos de agregação e agrupamento para realizar cálculos mais complexos em cada grupo. Por exemplo, para calcular a idade média de cada grupo de pessoas por idade:
+VocÃª pode combinar mÃ©todos de agregaÃ§Ã£o e agrupamento para realizar cÃ¡lculos mais complexos em cada grupo. Por exemplo, para calcular a idade mÃ©dia de cada grupo de pessoas por idade:
 
 ```csharp
 var idadeMediaPorGrupo = pessoasPorIdade
@@ -282,9 +282,9 @@ var idadeMediaPorGrupo = pessoasPorIdade
 
 ### Trabalhando com `IEnumerable<T>` vs `IQueryable<T>`
 
-| Interface        | Onde é usada                              | Execução                      | Exemplo                        |
+| Interface        | Onde Ã© usada                              | ExecuÃ§Ã£o                      | Exemplo                        |
 | ---------------- | ----------------------------------------- | ----------------------------- | ------------------------------ |
-| `IEnumerable<T>` | Coleções em memória (listas, arrays)      | **Imediata**                  | `List<T>`, `Array`             |
+| `IEnumerable<T>` | ColeÃ§Ãµes em memÃ³ria (listas, arrays)      | **Imediata**                  | `List<T>`, `Array`             |
 | `IQueryable<T>`  | Consultas a banco de dados (ORMs como EF) | **Adiada, convertida em SQL** | `DbSet<T>` no Entity Framework |
 
 #### Exemplo com `IEnumerable<T>`
@@ -304,12 +304,12 @@ var ativos = usuarios.Where(u => u.Ativo); // LINQ vira SQL no banco
 
 ***
 
-### ?? Outras operações úteis
+### ?? Outras operaÃ§Ãµes Ãºteis
 
-| Método                         | Descrição                   |
+| MÃ©todo                         | DescriÃ§Ã£o                   |
 | ------------------------------ | --------------------------- |
 | `First()` / `FirstOrDefault()` | Retorna o primeiro elemento |
-| `Any()` / `All()`              | Verifica condição booleana  |
+| `Any()` / `All()`              | Verifica condiÃ§Ã£o booleana  |
 | `Count()`                      | Conta elementos             |
 | `Distinct()`                   | Remove duplicatas           |
 | `Take(n)` / `Skip(n)`          | Pega/pula n elementos       |

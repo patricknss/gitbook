@@ -1,22 +1,22 @@
-# Seguranca no Backend
+﻿# Seguranca no Backend
 
-Checklist minimo de seguranca para APIs e persistencia.
+Checklist mínimo de segurança para APIs e persistencia.
 
-## Entrada e validacao
+## Entrada e validação
 
 - Validar tamanho, formato e faixa de valores.
 - Bloquear dados inesperados no payload.
 - Sanitizar campos usados em busca/filtro.
 
-## Autenticacao e autorizacao
+## Autenticacao e autorização
 
-- Exigir autenticacao em rotas privadas.
-- Aplicar autorizacao por papel/escopo.
-- Nao confiar em permissao vinda do cliente.
+- Exigir autenticação em rotas privadas.
+- Aplicar autorização por papel/escopo.
+- Não confiar em permissao vinda do cliente.
 
 ## Dados sensiveis
 
-- Nao logar segredos e credenciais.
+- Não logar segredos e credenciais.
 - Usar mascaramento quando necessario.
 - Armazenar segredo fora do codigo (variavel de ambiente/cofre).
 
@@ -36,7 +36,7 @@ Checklist minimo de seguranca para APIs e persistencia.
 ## LGPD e compliance
 
 - Coletar apenas dado necessario.
-- Definir politica de retencao.
+- Definir política de retencao.
 - Registrar acesso/auditoria quando exigido.
 
 ## Veja tambem

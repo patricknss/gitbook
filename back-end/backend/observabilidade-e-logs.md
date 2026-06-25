@@ -1,6 +1,6 @@
-# Observabilidade e Logs
+﻿# Observabilidade e Logs
 
-Padrao minimo para rastrear problemas e comportamento em producao.
+Padrao mínimo para rastrear problemas e comportamento em produção.
 
 ## Objetivos
 
@@ -23,10 +23,10 @@ Padrao minimo para rastrear problemas e comportamento em producao.
 
 - `Information`: fluxo normal relevante.
 - `Warning`: comportamento anormal recuperavel.
-- `Error`: falha de operacao.
+- `Error`: falha de operação.
 - `Debug/Trace`: uso controlado em diagnostico.
 
-## O que nao logar
+## O que não logar
 
 - Senhas, tokens, dados sensiveis.
 - Payload completo sem necessidade.
@@ -42,7 +42,7 @@ Padrao minimo para rastrear problemas e comportamento em producao.
 
 1. Taxa de erro por endpoint.
 2. Tempo medio e p95 de resposta.
-3. Falhas de integracao externa.
+3. Falhas de integração externa.
 4. Jobs com repeticao de falha.
 
 ## Veja tambem

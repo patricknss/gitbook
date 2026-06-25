@@ -1,29 +1,29 @@
 ---
-description: O que s„o comandos SQL?
+description: O que s√£o comandos SQL?
 ---
 
 # Comandos SQL
 
-De forma geral, os comandos SQL s„o instruÁıes ou consultas usadas para interagir com um banco de dados relacional.
+De forma geral, os comandos SQL s√£o instru√ß√µes ou consultas usadas para interagir com um banco de dados relacional.
 
-Essas instruÁıes SQL permitem que as pessoas ou aplicativos realizem v·rias operaÁıes, como recuperaÁ„o, inserÁ„o, atualizaÁ„o e exclus„o de dados em tabelas de banco de dados.
+Essas instru√ß√µes SQL permitem que as pessoas ou aplicativos realizem v√°rias opera√ß√µes, como recupera√ß√£o, inser√ß√£o, atualiza√ß√£o e exclus√£o de dados em tabelas de banco de dados.
 
-Os comandos SQL s„o categorizados em v·rias **linguagens especÌficas**, cada uma com seu propÛsito e funÁ„o. An·lise a seguir algumas possibilidades.
+Os comandos SQL s√£o categorizados em v√°rias **linguagens espec√≠ficas**, cada uma com seu prop√≥sito e fun√ß√£o. An√°lise a seguir algumas possibilidades.
 
 ## DDL (Data Definition Language)
 
-Os comandos DDL s„o usados para **definir a estrutura** do banco de dados:
+Os comandos DDL s√£o usados para **definir a estrutura** do banco de dados:
 
-* **CREATE****:** cria objetos de banco de dados, como tabelas, Ìndices, visıes e procedimentos armazenados.
+* **CREATE****:** cria objetos de banco de dados, como tabelas, √≠ndices, vis√µes e procedimentos armazenados.
 * **ALTER****:** modifica a estrutura de objetos de banco de dados existentes, como adicionar ou remover colunas de tabelas.
-* **DROP****:** exclui objetos de banco de dados, como tabelas, Ìndices ou visıes.
-* **TRUNCATE****:** Remove todos os registros de uma tabela, mas mantÈm sua estrutura.
+* **DROP****:** exclui objetos de banco de dados, como tabelas, √≠ndices ou vis√µes.
+* **TRUNCATE****:** Remove todos os registros de uma tabela, mas mant√©m sua estrutura.
 
 ## DQL (Data Query Language)
 
-Os comandos DQL s„o usados para **consultas**:
+Os comandos DQL s√£o usados para **consultas**:
 
-* **SELECT****:** recupera dados de uma ou mais tabelas do banco de dados. … o comando principal para consultas.
+* **SELECT****:** recupera dados de uma ou mais tabelas do banco de dados. √â o comando principal para consultas.
 
 {% content-ref url="sql-consultas-com-select.md" %}
 [sql-consultas-com-select.md](sql-consultas-com-select.md)
@@ -31,7 +31,7 @@ Os comandos DQL s„o usados para **consultas**:
 
 ## DML (Data Manipulation Language)
 
-Os comandos DML s„o usados para **manipular os dados**:
+Os comandos DML s√£o usados para **manipular os dados**:
 
 * **INSERT****:** adiciona novos registros a uma tabela.
 * **UPDATE****:** modifica registros existentes em uma tabela.
@@ -43,20 +43,20 @@ Os comandos DML s„o usados para **manipular os dados**:
 
 ## DCL (Data Control Language)
 
-Os comandos DCL **controlam permissıes** de acesso e os comandos:
+Os comandos DCL **controlam permiss√µes** de acesso e os comandos:
 
-* **GRANT****:** Concede permissıes a usu·rios ou funÁıes para acessar objetos de banco de dados.
-* **REVOKE****:** Remove permissıes previamente concedidas a usu·rios.
+* **GRANT****:** Concede permiss√µes a usu√°rios ou fun√ß√µes para acessar objetos de banco de dados.
+* **REVOKE****:** Remove permiss√µes previamente concedidas a usu√°rios.
 
 ## TCL (Transaction Control Language)
 
-Os comandos TCL **gerenciam transaÁıes**:
+Os comandos TCL **gerenciam transa√ß√µes**:
 
-* **COMMIT****:** Confirma uma transaÁ„o, tornando as alteraÁıes permanentes no banco de dados.
-* **ROLLBACK****:** Desfaz uma transaÁ„o e restaura o banco de dados ao estado anterior.
-* **SAVEPOINT****:** Define um ponto de salvamento em uma transaÁ„o, permitindo o rollback parcial.
-* **SET TRANSACTION****:** Define caracterÌsticas de transaÁ„o, como isolamento e nÌvel de isolamento.
+* **COMMIT****:** Confirma uma transa√ß√£o, tornando as altera√ß√µes permanentes no banco de dados.
+* **ROLLBACK****:** Desfaz uma transa√ß√£o e restaura o banco de dados ao estado anterior.
+* **SAVEPOINT****:** Define um ponto de salvamento em uma transa√ß√£o, permitindo o rollback parcial.
+* **SET TRANSACTION****:** Define caracter√≠sticas de transa√ß√£o, como isolamento e n√≠vel de isolamento.
 
-Cada categoria de comandos tem um propÛsito especÌfico e È usada em diferentes est·gios do ciclo de vida de um banco de dados.
+Cada categoria de comandos tem um prop√≥sito espec√≠fico e √© usada em diferentes est√°gios do ciclo de vida de um banco de dados.
 
-Essas categorias formam a base do SQL e permitem a administraÁ„o e manipulaÁ„o eficazes de dados em um banco de dados relacional.
+Essas categorias formam a base do SQL e permitem a administra√ß√£o e manipula√ß√£o eficazes de dados em um banco de dados relacional.

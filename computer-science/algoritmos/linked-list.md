@@ -1,4 +1,4 @@
-# Linked List
+﻿# Linked List
 
 Sequencia de nos encadeados por referencia.
 
@@ -10,7 +10,7 @@ Sequencia de nos encadeados por referencia.
 ## Trade-off
 
 - acesso por indice e `O(n)`;
-- localidade de memoria pior que array/lista contigua.
+- localidade de memória pior que array/lista contigua.
 
 ## Operacoes
 

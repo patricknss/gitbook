@@ -1,4 +1,4 @@
-# Arrays e Strings
+﻿# Arrays e Strings
 
 Base da maioria dos problemas de entrevista e do dia a dia.
 
@@ -14,7 +14,7 @@ Base da maioria dos problemas de entrevista e do dia a dia.
 1. Two pointers.
 2. Sliding window.
 3. Prefix sum.
-4. Hash map para lookup rapido.
+4. Hash map para lookup rápido.
 
 ## Erros comuns
 
