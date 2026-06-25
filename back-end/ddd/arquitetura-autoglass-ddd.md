@@ -50,6 +50,75 @@ Em operacoes de escrita, a transacao normalmente fica na camada de Aplicacao. O 
 | Entidade na API | Nao exponha entidade de dominio diretamente como response. |
 | Erro em transacao | Em `catch`, faca `Rollback`; `Commit` so no caminho feliz. |
 
+## Estrutura de pastas por topico
+
+Use esta estrutura como mapa mental para entender onde cada assunto da arquitetura entra. Ela e uma visao generica: na pratica, o projeto pode usar nomes como `Autoglass.Projeto.Dominio`, `Autoglass.Projeto.Aplicacao` e assim por diante.
+
+```text
+src/
+  Domain/
+    Entidades/
+    Services/
+    Repositories/
+
+  Application/
+    Commands/
+    Requests/
+    Responses/
+    Queries/
+    Filters/
+
+  Infrastructure/
+    Repositories/
+      NHibernate/
+      Dapper/
+
+  Api/
+    Controllers/
+```
+
+### `Domain/`
+
+`Domain` guarda o que representa o negocio. Aqui ficam as entidades, as regras e os contratos que o dominio precisa para persistir ou consultar dados.
+
+`Entidades/`: classes que representam conceitos do negocio, como `Aluno`, `Usuario`, `Certificado` e `Professor`. Elas concentram propriedades, construtores e metodos `Set...` com regras do proprio objeto.
+
+`Services/`: servicos de dominio, como `AlunosServico`. Eles coordenam regras que envolvem mais de uma operacao ou dependencia de negocio, por exemplo validar usuario, instanciar aluno, inserir, editar ou inativar.
+
+`Repositories/`: interfaces de repositorio, como `IAlunosRepositorio`. O dominio declara o contrato, mas nao implementa acesso ao banco.
+
+### `Application/`
+
+`Application` organiza os casos de uso e os objetos de entrada e saida que circulam entre API e dominio.
+
+`Commands/`: objetos usados para executar uma acao, como `AlunoInserirComando` ou `ProfessorEditarComando`. Quando o projeto seguir o modelo do PDF, esses comandos podem aparecer dentro do proprio `Domain/<Contexto>/Comandos`; a ideia e a mesma.
+
+`Requests/`: dados que chegam pela API, como `AlunoInserirRequest`.
+
+`Responses/`: dados que voltam para o cliente, como `AlunoResponse`.
+
+`Queries/`: projecoes de leitura, usadas quando a resposta nao precisa carregar uma entidade inteira.
+
+`Filters/`: criterios de consulta, paginacao e ordenacao, como `AlunoListarFiltro`.
+
+O App Service tambem fica nessa camada, normalmente em uma pasta como `Services/` ou `Servicos/`. Ele abre transacao, chama o dominio, registra logs e converte request/comando/response.
+
+### `Infrastructure/`
+
+`Infrastructure` guarda os detalhes tecnicos de persistencia e integracoes. Ela implementa os contratos que o dominio declarou.
+
+`Repositories/NHibernate/`: repositorios concretos que usam NHibernate, como `AlunosRepositorio : RepositorioNHibernate<Aluno>, IAlunosRepositorio`.
+
+`Repositories/Dapper/`: consultas SQL diretas para listagens, relatorios ou cenarios onde uma projecao com Dapper e mais simples e performatica.
+
+Tambem pode existir uma pasta de `Mapeamentos/` quando o projeto usa Fluent NHibernate, por exemplo `AlunosMap`.
+
+### `Api/`
+
+`Api` e a borda HTTP.
+
+`Controllers/`: controllers como `AlunosController`. Eles recebem request, chamam o app service e retornam status HTTP. Controller nao chama repositorio, nao instancia entidade e nao concentra regra de negocio.
+
 ---
 
 ## 01 - Camada de Dominio
