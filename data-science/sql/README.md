@@ -3,28 +3,29 @@ description: >-
   Nesta página, vamos embarcar em uma jornada abrangente pelo mundo do SQL
   (Structured Query Language) e explorar os princípios fundamentais da
   linguagem.
-icon: database
 ---
 
 # Banco de Dados
 
-## Contexto
+## Banco de Dados
+
+### Contexto
 
 Notas e exemplos sobre SQL e versionamento de schema com foco prático.
 
-## Versões de referência (jun/2026)
+### Versões de referência (jun/2026)
 
-- SQL: conceitos ANSI e compatíveis com bancos relacionais modernos.
-- Liquibase Community: **5.0.3**.
+* SQL: conceitos ANSI e compatíveis com bancos relacionais modernos.
+* Liquibase Community: **5.0.3**.
 
-## O que está documentado
+### O que está documentado
 
 1. Conceitos fundamentais de SQL (SELECT, INSERT, UPDATE, DELETE).
 2. Joins básicos e filtros.
 3. Modelagem simples de dados.
 4. Introdução ao uso de Liquibase para versionamento de schema.
 
-## Exemplo prático
+### Exemplo prático
 
 Cenário: sistema de loja.
 
@@ -34,7 +35,7 @@ Cenário: sistema de loja.
 4. Corrigir preço com `UPDATE`.
 5. Versionar alterações de schema com Liquibase.
 
-## Referências
+### Referências
 
 - [Useful Links](../../useful-links.md)
 - [Backend (Fundamentos e APIs)](../../back-end/backend/README.md)
@@ -42,11 +43,11 @@ Cenário: sistema de loja.
 - [Dapper](../../bibliotecas/dapper.md)
 - [NHibernate](../../bibliotecas/nhibernate.md)
 
----
+***
 
-# SQL
+## SQL
 
-## O que é SQL e para que serve? <a href="#o-que-e-sql-e-para-que-serve" id="o-que-e-sql-e-para-que-serve"></a>
+### O que é SQL e para que serve? <a href="#o-que-e-sql-e-para-que-serve" id="o-que-e-sql-e-para-que-serve"></a>
 
 **O SQL é uma linguagem padrão para trabalhar com bancos de dados relacionais, amplamente utilizada por profissionais em diversas áreas, desde cientistas de dados até pessoas usuárias de Excel.**
 
@@ -62,13 +63,13 @@ Um grande destaque do SQL é ser uma linguagem fundamental em várias profissõe
 
 É o caso, por exemplo, de quem já usa o <mark style="color:#2E7D32;">Excel</mark> de maneira intensiva e precisa migrar suas informações para um banco de dados. Ou de cientistas de dados que usam Python para agregar dados em diferentes fontes de informações.
 
-## Curiosidades do SQL <a href="#curiosidades-do-sql" id="curiosidades-do-sql"></a>
+### Curiosidades do SQL <a href="#curiosidades-do-sql" id="curiosidades-do-sql"></a>
 
 A evolução da <mark style="color:#1565C0;">linguagem SQL</mark> proporcionou desenvolvimentos significativos na gestão de dados e no processamento de informações.
 
 Antes de todo esse conhecimento estar ao nosso alcance, a gestão de dados era um terreno extremamente desafiador, com sistemas de banco de dados específicos para cada aplicação.
 
-## Antes do SQL
+### Antes do SQL
 
 Nas décadas de 1960 e 1970, o contexto da gestão de dados era desafiador e fragmentado, pois cada aplicação tinha seu sistema de gerenciamento de banco de dados (<mark style="color:#C65D00;">SGBD</mark>) específico. E, geralmente, envolviam a programação direta de acesso a dados.
 
@@ -78,7 +79,7 @@ A solução veio, então, com o desenvolvimento do <mark style="color:#2E7D32;">
 
 Por trás disso, se estabeleceu um padrão que unificou a forma como as pessoas acessam e tratam dados, impactando o processo da gestão de informações.
 
-## O Surgimento da SQL
+### O Surgimento da SQL
 
 Em meados da década de 1970, como você já sabe, a principal motivação para criar o <mark style="color:#2E7D32;">SQL</mark> foi o problema de complexidade dos sistemas de gerenciamento de dados.
 
@@ -92,7 +93,7 @@ Por esse caminho, o <mark style="color:#2E7D32;">SQL</mark> evoluiu significativ
 
 Atualmente, o <mark style="color:#2E7D32;">SQL</mark> é usado em uma ampla gama de aplicativos, desde análise de dados até sistemas de informações de saúde e gerenciamento de conteúdo da web.
 
-## Por que aprender SQL? <a href="#por-que-aprender-sql" id="por-que-aprender-sql"></a>
+### Por que aprender SQL? <a href="#por-que-aprender-sql" id="por-que-aprender-sql"></a>
 
 Além de banco de dados, a grande área de tecnologia envolve muitos outros segmentos. O grande ponto é que esses segmentos são interligados entre si.
 
@@ -102,13 +103,13 @@ Como Dev de softwares que frequentemente precisam integrar bancos de dados em su
 
 Assim, como em outras áreas, se você busca uma carreira em tecnologia, análise de dados, ciência de dados ou desenvolvimento de software, o <mark style="color:#2E7D32;">SQL</mark> é uma habilidade essencial amplamente valorizada pelas empresas.
 
-## Quais são as vantagens e desvantagens da linguagem SQL? <a href="#quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql" id="quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql"></a>
+### Quais são as vantagens e desvantagens da linguagem SQL? <a href="#quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql" id="quais-sao-as-vantagens-e-desvantagens-da-linguagem-sql"></a>
 
 Como ocorre em qualquer outra linguagem ou tecnologia, o <mark style="color:#2E7D32;">SQL</mark> possui vantagens e desvantagens que dependem do contexto e das necessidades específicas.
 
 Para aprofundar nossa compreensão sobre as diversas possibilidades, vamos examinar algumas das principais vantagens e desvantagens da linguagem <mark style="color:#2E7D32;">SQL</mark>.
 
-### Vantagens
+#### Vantagens
 
 Dentre todas as vantagens do <mark style="color:#2E7D32;">SQL</mark>, as principais são:
 
@@ -116,7 +117,7 @@ Dentre todas as vantagens do <mark style="color:#2E7D32;">SQL</mark>, as princip
 * <mark style="color:#1565C0;">**Facilidade de Consulta**</mark>**:** oferece uma maneira intuitiva de consultar e recuperar dados de bancos de dados. É uma linguagem declarativa que permite que você especifique o que deseja, em vez de como obtê-lo, tornando as consultas mais compreensíveis.
 * <mark style="color:#1565C0;">**Integridade de Dados**</mark>**:** permite a definição de restrições de integridade, como chaves primárias e estrangeiras, para garantir que os dados sejam consistentes e confiáveis.
 
-### Desvantagens
+#### Desvantagens
 
 Mas tudo tem dois lados. E o SQL também tem alguns pontos não tão bons assim:
 
@@ -124,7 +125,7 @@ Mas tudo tem dois lados. E o SQL também tem alguns pontos não tão bons assim:
 * <mark style="color:#1565C0;">**Desempenho Variável**</mark>: o desempenho das consultas <mark style="color:#2E7D32;">SQL</mark> pode variar dependendo da estrutura do banco de dados, da indexação e do volume de dados. Consultas mal otimizadas podem ser lentas.
 * <mark style="color:#1565C0;">**Falta de Suporte para dados não estruturados**</mark>**:** o <mark style="color:#2E7D32;">SQL</mark> é otimizado para dados estruturados, o que significa que não é a melhor escolha para armazenar e consultar dados não estruturados, como documentos de texto, áudio ou vídeo.
 
-## Onde o SQL é usado? <a href="#onde-o-sql-e-usado" id="onde-o-sql-e-usado"></a>
+### Onde o SQL é usado? <a href="#onde-o-sql-e-usado" id="onde-o-sql-e-usado"></a>
 
 A linguagem <mark style="color:#2E7D32;">SQL</mark> e os bancos de dados relacionais podem ser utilizados em várias áreas da nossa vida.
 
@@ -139,7 +140,7 @@ Como você pode perceber, atualmente, os dados desempenham um papel fundamental 
 
 Assim, em diferentes contextos — da economia, da ciência, da saúde e da educação, a coleta e a análise de informações são pontos fundamentais para embasar decisões criteriosas e promover avanços significativos.
 
-## Como o SQL funciona? <a href="#como-o-sql-funciona" id="como-o-sql-funciona"></a>
+### Como o SQL funciona? <a href="#como-o-sql-funciona" id="como-o-sql-funciona"></a>
 
 A linguagem <mark style="color:#2E7D32;">SQL</mark> serve para interagir com os nossos dados que estão armazenados dentro de um banco de dados relacional, permitindo a criação, a recuperação, a atualização e a exclusão desses dados.
 
@@ -151,7 +152,7 @@ O <mark style="color:#2E7D32;">SQL</mark> funciona, portanto, por meio de vário
 * <mark style="color:#1565C0;">Mecanismo Relacional</mark>: cria um plano eficiente para acessar os dados, otimizando a consulta e verificando consultas semelhantes.
 * <mark style="color:#1565C0;">Mecanismo de Armazenamento</mark>: executa a instrução <mark style="color:#2E7D32;">SQL</mark>, lendo e gravando os dados nos arquivos de armazenamento físico.
 
-## Quais são os componentes de um sistema SQL? <a href="#quais-sao-os-componentes-de-um-sistema-sql" id="quais-sao-os-componentes-de-um-sistema-sql"></a>
+### Quais são os componentes de um sistema SQL? <a href="#quais-sao-os-componentes-de-um-sistema-sql" id="quais-sao-os-componentes-de-um-sistema-sql"></a>
 
 Um sistema <mark style="color:#2E7D32;">SQL</mark> (<mark style="color:#C62828;">Sistema de Gerenciamento de Banco de Dados Relacionais</mark>) é composto por vários componentes que trabalham juntos para permitir a <mark style="color:#1565C0;">**criação**</mark>, a <mark style="color:#1565C0;">**manutenção**</mark> e a <mark style="color:#1565C0;">**consulta**</mark> de bancos de dados relacionais:
 
