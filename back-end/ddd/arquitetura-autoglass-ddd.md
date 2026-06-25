@@ -30,6 +30,44 @@ Api -> Application -> Domain -> Infrastructure
 - **Jobs** executam fluxos assincronos e tarefas agendadas.
 - **Tests** validam regras de negocio e comportamento das camadas.
 
+## Como funciona cada camada
+
+### A camada de Dominio
+
+Como esta descrito acima, ela e o coracao do sistema, onde vive a inteligencia do negocio e todas as suas regras.
+
+### A camada de Infra
+
+Nesta camada, criamos a implementacao do repositorio e tambem o mapeamento.
+
+### A camada de DataTransfer
+
+Uma camada usada para os nossos DTOs (Data Transfer Objects), servindo para transportar informacoes necessarias entre as camadas.
+
+### A camada Aplicacao
+
+Esta camada e 1 antes da API. Ela atua como orquestradora entre as outras camadas para receber informacoes vindas externamente, tratar internamente e devolver uma resposta.
+
+### A camada de API
+
+Esta e a ultima camada, a parte externa onde interagimos com a aplicacao.
+
+### A camada de CrossCutting
+
+Camada de preocupacoes transversais, com componentes compartilhados como log, resiliencia, seguranca, observabilidade e tratamento padronizado de erros.
+
+### A camada de IoC
+
+Onde configuramos injecao de dependencia e composicao de modulos, ligando interfaces as implementacoes concretas.
+
+### A camada de Jobs
+
+Responsavel por processamentos assincronos e tarefas agendadas fora da requisicao HTTP.
+
+### A camada de Tests
+
+Camada de validacao do comportamento da aplicacao, com foco principal em testes de Dominio e cobertura dos fluxos criticos.
+
 ## Regras transversais (valem para todas as camadas)
 
 | Tema | Regra |
@@ -43,7 +81,7 @@ Api -> Application -> Domain -> Infrastructure
 
 ---
 
-## Camada Domain
+## A camada de Dominio
 
 ### Entidades
 
@@ -123,7 +161,7 @@ public interface IClientesRepository
 
 ---
 
-## Camada Application
+## A camada Aplicacao
 
 ### Command
 
@@ -205,7 +243,7 @@ Regras:
 
 ---
 
-## Camada Infrastructure
+## A camada de Infra
 
 Implementa os contratos de repositorio do Domain.
 
@@ -228,7 +266,7 @@ public static class ClienteMapper
 
 ---
 
-## Camada CrossCutting
+## A camada de CrossCutting
 
 Responsavel por componentes compartilhados entre modulos:
 
@@ -242,7 +280,7 @@ Objetivo: evitar duplicacao e manter padrao tecnico unico em toda a solucao.
 
 ---
 
-## IoC (Inversao de Controle)
+## A camada de IoC (Inversao de Controle)
 
 A composicao da aplicacao deve registrar interfaces e implementacoes por camada:
 
@@ -254,7 +292,7 @@ Com isso, a API depende de contratos, e nao de implementacoes concretas.
 
 ---
 
-## Jobs (processamento assincrono e agendado)
+## A camada de Jobs (processamento assincrono e agendado)
 
 Use Jobs para fluxos fora da requisicao HTTP:
 
@@ -271,7 +309,7 @@ Boas praticas:
 
 ---
 
-## Tests (estrategia de testes)
+## A camada de Tests (estrategia de testes)
 
 Prioridades de cobertura:
 
@@ -289,7 +327,7 @@ Ferramental recomendado no padrao Autoglass:
 
 ---
 
-## Camada Api
+## A camada de API
 
 - Recebe `Request`.
 - Chama Application/Domain.
