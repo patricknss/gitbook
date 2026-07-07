@@ -88,6 +88,11 @@
 
 * [Fundamentos de Kafka](cloud/kafka/README.md)
 
+## 30days
+
+* [Dia 1](30days/dia-1/README.md)
+  * [Exemplo prático](30days/dia-1/exemplo-pratico.md)
+
 ## Workflow
 
 * [Git Flow](workflow/git-flow.md)
